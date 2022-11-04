@@ -74,12 +74,6 @@ const UserLoanLeaseRequests = () => {
             )
             return <Animated.View style={[styles.imageView, {opacity, transform: [{scale}]}]}>
                 <View style={styles.detailsContainer}>
-                    <Image
-                        source={{
-                            uri: 'https://loremflickr.com/cache/resized/65535_52440891686_c2b21da412_c_640_480_nofilter.jpg'
-                        }}
-                        style={styles.image}
-                        />
                         <View style={styles.details}>
                             <View style={styles.detailsContainer}>
                                 <Text style={styles.title}>{item.name}</Text>
@@ -171,13 +165,6 @@ const styles = StyleSheet.create({
         height: BUTTON_CONTAINER_SIZE,
         flexDirection: 'row',
         justifyContent: 'space-between',
-        marginTop: SPACING
-    },
-    image: {
-        width: AVATAR_SIZE,
-        height: AVATAR_SIZE,
-        borderRadius: AVATAR_SIZE,
-        marginRight: SPACING/2
     },
     root: {
         flex: 1,
