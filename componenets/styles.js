@@ -1,8 +1,8 @@
 import styled from 'styled-components'
 import { View, Text, Image } from 'react-native';
-import { Constants } from 'expo-constants';
+import Constants from 'expo-constants';
 
-const StatusBarHeight = Constants.StatusBarHeight;
+const StatusBarHeight = Constants.statusBarHeight;
 //colors
 export const Colors = {
     primary: "#ffffff",
@@ -21,7 +21,7 @@ export const StyledContainer = styled.View`
     padding: 25px;
     padding-top: ${StatusBarHeight +10}px;
     background-color: ${primary};
-`;
+`
 
 export const InnerContrainer = styled.View`
     flex: 1;
@@ -40,4 +40,22 @@ export const PageTitle = styled.Text`
     font-weight: bold;
     color: ${brand};
     padding: 10px;
+`;
+
+// export const styledInputLabel = styled.Text`
+//     color: ${tertiary};
+//     font-size: 13px;
+//     text-align: left;
+// `;
+
+export const SubTitle = styled.Text`
+    font-size: 18px;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+    font-weight: bold;
+    color: ${tertiary};
+`;
+
+export const StyledFormArea = styled.View`
+    width: 90%;    
 `;
