@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { View, Text, Image } from 'react-native';
+import { View, Text, Image, TextInput,TouchableOpacity } from 'react-native';
 import Constants from 'expo-constants';
 
 const StatusBarHeight = Constants.statusBarHeight;
@@ -42,11 +42,6 @@ export const PageTitle = styled.Text`
     padding: 10px;
 `;
 
-// export const styledInputLabel = styled.Text`
-//     color: ${tertiary};
-//     font-size: 13px;
-//     text-align: left;
-// `;
 
 export const SubTitle = styled.Text`
     font-size: 18px;
@@ -58,4 +53,99 @@ export const SubTitle = styled.Text`
 
 export const StyledFormArea = styled.View`
     width: 90%;    
+`;
+
+export const StyledTextInput = styled.TextInput`
+    background-color: ${secondary};
+    padding: 15px;
+    padding-left: 55px;
+    padding-right: 55px;
+    border-radius: 5px;
+    font-size: 16px;
+    height: 60px;
+    margin-vertical: 3px;
+    margin-bottom: 10px;
+    color: ${tertiary};
+`;
+
+export const StyledInputLabel = styled.Text`
+    color: ${tertiary};
+    font-size: 13px;
+    text-align: left;
+`;
+
+export const LeftIcon = styled.View`
+    left: 15px;
+    top:38px;
+    position: absolute;
+    z-index: 1;
+`;
+
+export const RightIcon = styled.TouchableOpacity`
+    right: 15px;
+    top:38px;
+    position: absolute;
+    z-index: 1;
+`;
+
+
+export const StyleButton = styled.TouchableOpacity`
+    padding: 15px;
+    background-color: ${brand};
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    margin-vertical: 5px;
+    height: 60px;
+
+    ${(props) => props.google == true &&`
+        background-color: ${green};
+        flex-direction: row;
+        justify-content: center;
+    `}
+`;
+export const ButtonText = styled.Text`
+    color: ${primary};
+    font-size: 16px;
+
+    ${(props) => props.google == true &&`
+    padding: 25px;
+
+    `}
+`;
+
+export const MsgBox = styled.Text`
+    text-align: center;
+    font-size: 13px;
+`;
+
+export const Line = styled.View`
+    height: 1px;
+    width: 100%;
+    background-color: ${darkLight};
+    margin-verticaal: 10px;
+`;
+
+export const ExtraView = styled.View`
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    padding: 10px;
+`;
+
+export const ExtraText = styled.Text`
+    justify-content: center;
+    align-content: center;
+    color: ${tertiary};
+    font-size: 15px;
+`;
+
+export const TextLink = styled.TouchableOpacity`
+    justify-content: center;
+    align-items: center;
+`;
+
+export const TextLinkContent =styled.Text`
+    color: ${brand};
+    font-size: 15px;
 `;
