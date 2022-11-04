@@ -123,7 +123,7 @@ export const Line = styled.View`
     height: 1px;
     width: 100%;
     background-color: ${darkLight};
-    margin-verticaal: 10px;
+    margin-vertical: 10px;
 `;
 
 export const ExtraView = styled.View`
