@@ -34,10 +34,14 @@ import { View,Text } from "react-native";
 //colors
 const {brand,darkLight,primary} = Colors;
 
+//keyboard avoiding view
+import KeyboardAvoidingWrapper from "../componenets/KeyboardAvoidingWrapper";
+
 const Signup = () =>{
     const[hidePassword, setHidePassword] = useState(true);
 
     return(
+        <KeyboardAvoidingWrapper>
         <StyledContainer>
             <StatusBar style="dark" />
             <InnerContrainer>
@@ -127,6 +131,7 @@ const Signup = () =>{
                 </Formik>
             </InnerContrainer>
         </StyledContainer>
+        </KeyboardAvoidingWrapper>
     );
 };
 
