@@ -1,19 +1,22 @@
 import { StatusBar } from 'expo-status-bar';
+import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-
-export default function App() {
+import Request from './componenets/Request';
+export default class App extends React.Component {
+  render()   {
   return (
     <View style={styles.container}>
-      <Text>Open up BrightPath-Growth to start working on your app!</Text>
-      <StatusBar style="auto" />
+      <Request />
     </View>
   );
+}
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    jestifyContent: 'center',
+    backgroundColor: '#F2F2F2',
     alignItems: 'center',
     justifyContent: 'center',
   },
