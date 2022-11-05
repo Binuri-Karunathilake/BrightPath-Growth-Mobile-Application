@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View,TextInput, TouchableOpacity } from 'react-native';
 //import { Dropdown } from 'react-native-element-dropdown';
+import DatePicker from 'react-native-modern-datepicker';
 export default class Requst extends React.Component {
   render() {
     return (
@@ -29,8 +30,18 @@ export default class Requst extends React.Component {
     );
 
   }
-}
 
+  
+}
+const BasicUsage = () => {
+    const [selectedDate, setSelectedDate] = useState('');
+  
+    return (
+      <DatePicker
+        onSelectedChange={date => setSelectedDate(date)}
+      />
+    );
+  };
 const styles = StyleSheet.create({
   Request:  {
     alignSelf: 'stretch',

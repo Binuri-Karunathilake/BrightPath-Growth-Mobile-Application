@@ -5,9 +5,9 @@ import Request from './componenets/Request';
 export default class App extends React.Component {
   render()   {
   return (
-    <View style={styles.container}>
+      
       <Request />
-    </View>
+    
   );
 }
 }
