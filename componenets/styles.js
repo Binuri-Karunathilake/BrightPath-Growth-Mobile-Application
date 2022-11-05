@@ -9,12 +9,13 @@ export const Colors = {
     secondary: "#E5E7EB",
     tertiary: "#1F2937",
     darkLight: "#9CA3AF",
-    brand: "#6D28D9",
+    brand: "#0BCE83",
     green: "#10B981",
-    red: "#EF4444"
+    red: "#EF4444",
+    kkk:"#16537e"
 };
 
-const {primary, secondary, tertiary,darkLight, brand, green, red }= Colors;
+const {primary, secondary, tertiary,darkLight, brand, green, red, kkk }= Colors;
 
 export const StyledContainer = styled.View`
     flex: 1;
@@ -57,10 +58,12 @@ export const WelcomeImage = styled.Image`
 `;
 
 export const PageTitle = styled.Text`
-    font-size: 30px;
+    font-size: 35px;
     text-align: center;
     font-weight: bold;
-    color: ${brand};
+    
+
+    color: ${kkk};
     padding: 10px;
 
     ${(props) => props.Welcome &&`
@@ -92,8 +95,9 @@ export const StyledTextInput = styled.TextInput`
     background-color: ${secondary};
     padding: 15px;
     padding-left: 55px;
+    padding-top:5px;
     padding-right: 55px;
-    border-radius: 5px;
+    border-radius: 10px;
     font-size: 16px;
     height: 60px;
     margin-vertical: 3px;
@@ -103,8 +107,11 @@ export const StyledTextInput = styled.TextInput`
 
 export const StyledInputLabel = styled.Text`
     color: ${tertiary};
-    font-size: 13px;
+    font-size: 15px;
+    fontWeight: bold;
     text-align: left;
+    padding-top:25px;
+    padding-bottom: 5px;
 `;
 
 export const LeftIcon = styled.View`
@@ -124,12 +131,14 @@ export const RightIcon = styled.TouchableOpacity`
 
 export const StyleButton = styled.TouchableOpacity`
     padding: 15px;
+    
     background-color: ${brand};
     justify-content: center;
     align-items: center;
     border-radius: 5px;
     margin-vertical: 5px;
     height: 60px;
+    padding-top:10px;
 
     ${(props) => props.google == true &&`
         background-color: ${green};
@@ -140,9 +149,10 @@ export const StyleButton = styled.TouchableOpacity`
 export const ButtonText = styled.Text`
     color: ${primary};
     font-size: 16px;
-
+    fontWeight: bold;
     ${(props) => props.google == true &&`
     padding: 25px;
+    
 
     `}
 `;
