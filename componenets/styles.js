@@ -101,6 +101,19 @@ export const StyledTextInput = styled.TextInput`
     color: ${tertiary};
 `;
 
+export const StyledTextInput1 = styled.TextInput`
+    background-color: "white";
+    padding: 15px;
+    padding-left: 55px;
+    padding-right: 55px;
+    border-radius: 5px;
+    font-size: 16px;
+    height: 60px;
+    margin-vertical: 3px;
+    margin-bottom: 10px;
+    color: ${tertiary};
+`;
+
 export const StyledInputLabel = styled.Text`
     color: ${tertiary};
     font-size: 13px;
