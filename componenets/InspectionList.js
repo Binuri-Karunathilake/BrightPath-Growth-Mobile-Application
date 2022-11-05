@@ -12,7 +12,6 @@ const DATA = [...Array(30).keys()].map((_, i) => {
         image: 'https://loremflickr.com/cache/resized/65535_52440891686_c2b21da412_c_640_480_nofilter.jpg',
         name: faker.name.fullName(),
         nic: faker.datatype.number(),
-        loantype: faker.word.noun()
     };
 });
 
@@ -23,7 +22,7 @@ const AVATAR_SIZE = 120;
 const BUTTON_CONTAINER_SIZE = 40
 const ITEM_SIZE = AVATAR_SIZE + BUTTON_CONTAINER_SIZE + SPACING * 6 + 5
 
-const InquiresList = () => {
+const InspectionList = () => {
     const scrollY = React.useRef(new Animated.Value(0)).current;
   return (
     <View>
@@ -83,9 +82,11 @@ const InquiresList = () => {
                                 <Text style={styles.title}>{item.name}</Text>
                             </View>
                             <Text style={styles.subtitle}>{item.nic}</Text>
-                            <Text style={styles.description}>{item.loantype}</Text>
-                            <View>
-                                <Button title='View More Details'
+
+                            <View style={[{ width: "80%", margin: 10, backgroundColor: "red" }]}>
+                            <Button title='Update'
+                                color='#0BCE83'/>
+                            <Button title='Delete'
                                 color='#0BCE83'/>
                             </View>
                         </View>
@@ -97,7 +98,7 @@ const InquiresList = () => {
   )
 }
 
-export default InquiresList
+export default InspectionList
 
 const styles = StyleSheet.create({
     flatlist: {
@@ -117,6 +118,7 @@ const styles = StyleSheet.create({
         shadowOpacity: 1,
         shadowRadius: 20,
     },
+   
     detailsContainer: {
         flexDirection: 'row',
         justifyContent: 'space-between',
@@ -139,21 +141,18 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff'
     },
     title: {
-        fontSize: 18,
+        fontSize: 17,
         fontWeight: '700',
         maxWidth: '100%',
     },
     subtitle: {
-        fontSize: 16,
+        fontSize: 14,
         opacity: .7
     },
     description: {
-        fontSize: 16,
+        fontSize: 12,
         opacity: .8,
-        
+        color: '#0099cc'
     },
-    button1:{
-        buttonRadius: '50%',
-    }
-
+  
 })
