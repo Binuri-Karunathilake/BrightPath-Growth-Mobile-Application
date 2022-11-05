@@ -14,7 +14,7 @@ import {
 }from '../componenets/styles';
 
 
-const Welcome = () =>{
+const Welcome = ({navigation}) =>{
 
     return(
         <>
@@ -28,7 +28,8 @@ const Welcome = () =>{
                     <StyledFormArea>
                     <Avatar resizeMode="cover" source={require('../assets/img/UEE_logo_2.png')}/>
                         <Line />
-                        <StyleButton onPress={() => {}}>
+                        <StyleButton onPress={() => {navigation.navigate('Login')
+                    }}>
                             <ButtonText>Logout</ButtonText>
                         </StyleButton>
                     </StyledFormArea>
