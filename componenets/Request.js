@@ -5,7 +5,7 @@ import DatePicker from 'react-native-modern-datepicker';
 export default class Requst extends React.Component {
   render() {
     return (
-        <View style ={styles.Requst}>
+        <View style ={styles.Request}>
             <Text style={styles.header}>Request a new advisor</Text>
             <Text style={styles.text}>Want advisor name</Text>
             <TextInput style={styles.textinput} placeholder="Lalith de silva"
@@ -44,6 +44,8 @@ const BasicUsage = () => {
   };
 const styles = StyleSheet.create({
   Request:  {
+    flex: 1,
+    justifyContent: 'center',
     alignSelf: 'stretch',
     
   },
