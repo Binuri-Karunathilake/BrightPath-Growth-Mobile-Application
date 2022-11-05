@@ -1,10 +1,11 @@
 import React from 'react';
 import { StyleSheet, Text, View,TextInput, TouchableOpacity } from 'react-native';
 //import { Dropdown } from 'react-native-element-dropdown';
+import DatePicker from 'react-native-modern-datepicker';
 export default class Requst extends React.Component {
   render() {
     return (
-        <View style ={styles.Requst}>
+        <View style ={styles.Request}>
             <Text style={styles.header}>Request a new advisor</Text>
             <Text style={styles.text}>Want advisor name</Text>
             <TextInput style={styles.textinput} placeholder="Lalith de silva"
@@ -29,10 +30,22 @@ export default class Requst extends React.Component {
     );
 
   }
-}
 
+  
+}
+const BasicUsage = () => {
+    const [selectedDate, setSelectedDate] = useState('');
+  
+    return (
+      <DatePicker
+        onSelectedChange={date => setSelectedDate(date)}
+      />
+    );
+  };
 const styles = StyleSheet.create({
   Request:  {
+    flex: 1,
+    justifyContent: 'center',
     alignSelf: 'stretch',
     
   },

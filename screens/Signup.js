@@ -11,9 +11,7 @@ import {Octicons,Ionicons, Fontisto} from '@expo/vector-icons';
 import {
     StyledContainer,
     InnerContrainer,
-    PageLogo,
     PageTitle,
-    SubTitle,
     StyledFormArea,
     LeftIcon, 
     StyledInputLabel,
@@ -34,10 +32,14 @@ import { View,Text } from "react-native";
 //colors
 const {brand,darkLight,primary} = Colors;
 
-const Signup = () =>{
+//keyboard avoiding view
+import KeyboardAvoidingWrapper from "../componenets/KeyboardAvoidingWrapper";
+
+const Signup = ({navigation}) =>{
     const[hidePassword, setHidePassword] = useState(true);
 
     return(
+        <KeyboardAvoidingWrapper>
         <StyledContainer>
             <StatusBar style="dark" />
             <InnerContrainer>
@@ -48,6 +50,7 @@ const Signup = () =>{
                     initialValues={{userName: '', email: '', password: '', ConfirmPassword: ''}}
                     onSubmit={(values) =>{
                         console.log(values);
+                        navigation.navigate('Welcome');
                     }}
                 >{({handleChange, handleBlur, handleSubmit, values}) => (
                     <StyledFormArea>
@@ -103,14 +106,14 @@ const Signup = () =>{
                         <MsgBox>...</MsgBox>
                         
                         <StyleButton onPress={handleSubmit}>
-                            <ButtonText>Sign In</ButtonText>
+                            <ButtonText>Sign Up</ButtonText>
                         </StyleButton>
                     
                         <Line />
                     
                         <ExtraView>
                             <ExtraText>Already have an account.</ExtraText>
-                            <TextLink>
+                            <TextLink onPress={() => navigation.navigate('Login')}>
                                 <TextLinkContent> Sign In</TextLinkContent>
                             </TextLink>
                         </ExtraView>
@@ -127,6 +130,7 @@ const Signup = () =>{
                 </Formik>
             </InnerContrainer>
         </StyledContainer>
+        </KeyboardAvoidingWrapper>
     );
 };
 

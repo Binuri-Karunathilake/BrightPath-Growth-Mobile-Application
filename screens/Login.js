@@ -34,10 +34,15 @@ import { View,Text } from "react-native";
 //colors
 const {brand,darkLight,primary} = Colors;
 
-const Login = () =>{
+
+//keyboard avoiding view
+import KeyboardAvoidingWrapper from "../componenets/KeyboardAvoidingWrapper";
+
+const Login = ({navigation}) =>{
     const[hidePassword, setHidePassword] = useState(true);
 
     return(
+        <KeyboardAvoidingWrapper>
         <StyledContainer>
             <StatusBar style="dark" />
             <InnerContrainer>
@@ -49,6 +54,7 @@ const Login = () =>{
                     initialValues={{email: '', password: ''}}
                     onSubmit={(values) =>{
                         console.log(values);
+                        navigation.navigate('Welcome');
                     }}
                 >{({handleChange, handleBlur, handleSubmit, values}) => (
                     <StyledFormArea>
@@ -86,8 +92,8 @@ const Login = () =>{
                         </StyleButton>
                         <ExtraView>
                             <ExtraText>Don't have an account already?</ExtraText>
-                            <TextLink>
-                                <TextLinkContent> Signup</TextLinkContent>
+                            <TextLink onPress={() => navigation.navigate('Sign up')}>
+                                <TextLinkContent> Sign Up</TextLinkContent>
                             </TextLink>
                         </ExtraView>
                         <ExtraView>
@@ -101,6 +107,7 @@ const Login = () =>{
                 </Formik>
             </InnerContrainer>
         </StyledContainer>
+        </KeyboardAvoidingWrapper>
     );
 };
 
