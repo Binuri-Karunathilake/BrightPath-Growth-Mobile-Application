@@ -1,11 +1,12 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
+import LoanListView from './componenets/LoanListView';
+import UserLoanLeaseRequests from './componenets/UserLoanLeaseRequests';
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up BrightPath-Growth to start working on your app!</Text>
-      <StatusBar style="auto" />
+    <View>
+      <UserLoanLeaseRequests/>
     </View>
   );
 }

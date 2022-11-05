@@ -1,0 +1,60 @@
+const styles = StyleSheet.create({
+    flatlist: {
+        padding: SPACING,
+        paddingTop: StatusBar.currentHeight
+    },
+    imageView: {
+        flexDirection: 'row',
+        padding: SPACING,
+        backgroundColor: 'grey',
+        borderRadius: 12,
+        marginBottom: SPACING,
+        shadowColor: '#000',
+        shadowOffset: {
+            width: 0,
+            height: 10
+        },
+        shadowOpacity: 1,
+        shadowRadius: 20
+    },
+    image: {
+        width: AVATAR_SIZE,
+        height: AVATAR_SIZE,
+        borderRadius: AVATAR_SIZE,
+        marginRight: SPACING/2
+    },
+    root: {
+        flex: 1,
+        backgroundColor: '#fff'
+    },
+    title: {
+        fontSize: 18,
+        fontWeight: '700'
+    },
+    subtitle: {
+        fontSize: 14,
+        opacity: .7
+    },
+    description: {
+        fontSize: 10,
+        opacity: .8,
+        color: '#0099cc'
+    }
+})
+
+
+
+<Animated.View style={[styles.imageView, {opacity, transform: [{scale}]}]}>
+                <Image
+                    source={{
+                        uri: 'https://loremflickr.com/cache/resized/65535_52440891686_c2b21da412_c_640_480_nofilter.jpg'
+                    }}
+                    style={styles.image}
+                    />
+                    <View style={styles.details}>
+                        <Text style={styles.title}>{item.name}</Text>
+                        <Text style={styles.subtitle}>{item.email}</Text>
+                        <Text style={styles.description}>{item.jobTitle}</Text>
+                        <Text style={styles.description}>{item.purpose}</Text>
+                    </View>
+            </Animated.View>
