@@ -23,6 +23,12 @@ export const StyledContainer = styled.View`
     padding-top: ${StatusBarHeight +30}px;
     background-color: ${primary};
 `
+export const CardViewContainer = styled.View`
+    flex: 1;
+    padding: 2px;
+    padding-top: ${StatusBarHeight +30}px;
+    background-color: ${primary};
+`;
 
 export const InnerContrainer = styled.View`
     flex: 1;
@@ -95,7 +101,6 @@ export const StyledTextInput = styled.TextInput`
     background-color: ${secondary};
     padding: 15px;
     padding-left: 55px;
-    padding-top:5px;
     padding-right: 55px;
     border-radius: 10px;
     font-size: 16px;
@@ -110,8 +115,6 @@ export const StyledInputLabel = styled.Text`
     font-size: 15px;
     fontWeight: bold;
     text-align: left;
-    padding-top:25px;
-    padding-bottom: 5px;
 `;
 
 export const LeftIcon = styled.View`
@@ -131,14 +134,12 @@ export const RightIcon = styled.TouchableOpacity`
 
 export const StyleButton = styled.TouchableOpacity`
     padding: 15px;
-    
     background-color: ${brand};
     justify-content: center;
     align-items: center;
     border-radius: 5px;
     margin-vertical: 5px;
     height: 60px;
-    padding-top:10px;
 
     ${(props) => props.google == true &&`
         background-color: ${green};
@@ -152,7 +153,6 @@ export const ButtonText = styled.Text`
     fontWeight: bold;
     ${(props) => props.google == true &&`
     padding: 25px;
-    
 
     `}
 `;
