@@ -6,7 +6,8 @@ import LoanListView from './componenets/LoanListView';
 import Request from './componenets/Request'
 import UserLoanLeaseRequests from './componenets/UserLoanLeaseRequests';
 import LoanLeaseDetails from './componenets/LoanLeaseDetails';
-
+import InquiresList from './componenets/InquiresList';
+import InspectionList from './componenets/InspectionList';
 
 //React navigation stack
 import RootStack from './navigators/RootStack';
