@@ -5,13 +5,13 @@ import LoanListView from './componenets/LoanListView';
 import Request from './componenets/Request'
 import UserLoanLeaseRequests from './componenets/UserLoanLeaseRequests';
 
-
+import HomeScreen from './screens/HomeScreen';
 //React navigation stack
 import RootStack from './navigators/RootStack';
 
 export default function App() {
   return (
-    <Request />
+    <HomeScreen />
 
   );
   

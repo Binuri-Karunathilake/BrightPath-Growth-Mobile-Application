@@ -6,10 +6,6 @@ import { StatusBar } from 'expo-status-bar';
 
 //formik
 import { Formik } from "formik";
-
-
-
-
 import {
     StyledContainer,
     InnerContrainer,
