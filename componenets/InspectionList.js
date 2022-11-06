@@ -80,16 +80,16 @@ const InspectionList = () => {
                         <View style={styles.details}>
                             <View style={styles.detailsContainer}>
                                 <Text style={styles.title}>{item.name}</Text>
+                                
                             </View>
-                            <Text style={styles.subtitle}>{item.nic}</Text>
-
-                            <View style={[{ width: "80%", margin: 10, backgroundColor: "red" }]}>
+                                <Text style={styles.subtitle}>{item.nic}</Text>
+                            <View>
+                            </View>    
                             <Button title='Update'
                                 color='#0BCE83'/>
                             <Button title='Delete'
-                                color='#0BCE83'/>
+                                color='#CE5D0B'/>
                             </View>
-                        </View>
                 </View>
             </Animated.View>
         }}
@@ -118,17 +118,9 @@ const styles = StyleSheet.create({
         shadowOpacity: 1,
         shadowRadius: 20,
     },
-   
     detailsContainer: {
         flexDirection: 'row',
-        justifyContent: 'space-between',
-        marginBottom: SPACING/2
-    },
-    buttonContainer: {
-        height: BUTTON_CONTAINER_SIZE,
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        marginTop: SPACING
+        
     },
     image: {
         width: AVATAR_SIZE,
@@ -141,18 +133,19 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff'
     },
     title: {
-        fontSize: 17,
+        fontSize: 18,
         fontWeight: '700',
         maxWidth: '100%',
     },
     subtitle: {
-        fontSize: 14,
+        fontSize: 16,
         opacity: .7
     },
     description: {
-        fontSize: 12,
+        fontSize: 16,
         opacity: .8,
-        color: '#0099cc'
+        
     },
+  
   
 })
