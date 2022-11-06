@@ -17,7 +17,7 @@ const articleParagraphs = [
 
 
 const text = {title: 'What is a loan?', description: 'One advanced diverted domestic sex repeated bringing you old. Possible procured her trifling laughter thoughts property she met way. Companions shy had solicitude favourable own. Which could saw guest man now heard but. Lasted my coming uneasy marked so should. Gravity letters it amongst herself dearest an windows by. Wooded ladies she basket season age her uneasy saw. Discourse unwilling am no described dejection incommode no listening of. Before nature his parish boy. ',
-                type: 'Loan',
+                type: 'Lease',
                 financialInstitute: 'Bank of Ceylon',
                 interestRate: 22.9,
                 period: 24,
@@ -45,6 +45,14 @@ const LoanLeaseInfo = () => {
                         <View>
                             <Text style={styles.questions}>Financial Institue : {text.financialInstitute}</Text>
                             <View style={styles.calcs}>
+                                {text.type==='Lease'? (
+                                    <View>
+                                        <Text style={styles.features}>Vehicle/Machinery : {text.amount}</Text>
+                                        <Text style={styles.features}>Condition : {text.amount}</Text>
+                                        <Text style={styles.features}>Brand : {text.amount}</Text>
+                                        <Text style={styles.features}>Model : {text.amount}</Text>
+                                    </View>
+                                ) : ''}
                                 <Text style={styles.features}>{text.type==='Loan'? 'Loan ': 'Lease '}interest rate : {text.interestRate}</Text>
                                 <Text style={styles.features}>Time period : {text.period} months</Text>
                                 <Text style={styles.features}>Monthly rental : Rs.{(text.amount * text.interestRate/100)/text.period}</Text>
@@ -97,7 +105,7 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         backgroundColor: '#ffff',
         margin: 15,
-        height: 200,
+        minHeight: 200,
     },
     bottomActions: {
         height: 80,
