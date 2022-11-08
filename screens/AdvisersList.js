@@ -7,7 +7,6 @@ import {
   TouchableOpacity,
   Image,
   Dimensions,
-  TextLink,
 } from "react-native";
 import React, { useState } from "react";
 import SPACING from "../navigators/config/SPACING";
@@ -16,15 +15,13 @@ import { Ionicons } from "@expo/vector-icons";
 import colors from "../navigators/config/colors";
 import SearchField from "../componenets/SearchField";
 //import Categories from "../components/Categories";
-import caards from "../navigators/config/caards";
-//import { createStackNavigator, createAppContainer } from 'react-navigation';  
-import Login from"../screens/Login";
+import advisors from "../navigators/config/advisors";
 
+//const avatar = require("../../assets/avatar.jpg");
 
 const { width } = Dimensions.get("window");
 
-
-const HomeScreen = () => {
+const AdvisersList = () => {
   const [activeCategoryId, setActiveCategoryId] = useState(null);
 
   return (
@@ -90,10 +87,9 @@ const HomeScreen = () => {
         <View style={{ width: "80%", marginVertical: SPACING * 3 }}>
           <Text
             style={{
-              color: colors.light,
+              color: colors.white,
               fontSize: SPACING * 3.5,
               fontWeight: "600",
-              paddingLeft: 137,
               
             }}
           >
@@ -109,16 +105,16 @@ const HomeScreen = () => {
             justifyContent: "space-between",
           }}
         >
-          {caards
-            .filter((caard) => {
+          {advisors
+            .filter((advisor) => {
               if (activeCategoryId === null) {
                 return true;
               }
-              return caard.categoryId === activeCategoryId;
+              return advisor.categoryId === activeCategoryId;
             })
-            .map((caard) => (
+            .map((advisor) => (
               <View
-                key={caard.id}
+                key={advisor.id}
                 style={{
                   width: width / 2 - SPACING * 2,
                   marginBottom: SPACING,
@@ -126,27 +122,21 @@ const HomeScreen = () => {
                   overflow: "hidden",
                 }}
               >
-
                 <BlurView
-                  tint="light"
+                  tint="dark"
                   intensity={95}
                   style={{
                     padding: SPACING,
                   }}
                 >
-                
                   <TouchableOpacity
-                  
                     style={{
-                      
                       height: 150,
                       width: "100%",
                     }}
                   >
                     <Image
-
-                      source={caard.image}
-                      
+                      source={advisor.image}
                       style={{
                         width: "100%",
                         height: "100%",
@@ -162,29 +152,24 @@ const HomeScreen = () => {
                         overflow: "hidden",
                       }}
                     >
-                     
                       
                     </View>
                   </TouchableOpacity>
-                  
                   <Text
                     numberOfLines={2}
-                    
                     style={{
-                      color: colors.dark,
+                      color: colors.white,
                       fontWeight: "600",
-                      
-                      paddingLeft: 10,
                       fontSize: SPACING * 1.7,
                       marginTop: SPACING,
                       marginBottom: SPACING / 2,
                     }}
                   >
-                    {caard.name}
+                    {advisor.name}
                   </Text>
                   
                   
-                  </BlurView>
+                </BlurView>
               </View>
             ))}
         </View>
@@ -193,6 +178,6 @@ const HomeScreen = () => {
   );
 };
 
-export default HomeScreen;
+export default AdvisersList;
 
 const styles = StyleSheet.create({});
