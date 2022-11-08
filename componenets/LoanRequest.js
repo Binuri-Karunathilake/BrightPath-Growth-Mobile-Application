@@ -80,12 +80,12 @@ const LoanRequest = () => {
 
     const [condition, setCondition] = useState('');
     const [leaseType, setLeaseType] = useState('');
-    const [brand, setbrand] = useState('');
-    const [model, setmodel] = useState('');
-    const [amount, setAmount] = useState(0);
+    // const [brand, setbrand] = useState('');
+    // const [model, setmodel] = useState('');
+    // const [amount, setAmount] = useState(0);
     const [bankName, setBankName] = useState('');
-    const [interestRate, setInterestRate] = useState(0);
-    const [reason, setReason] = useState('');
+    // const [interestRate, setInterestRate] = useState(0);
+    // const [reason, setReason] = useState('');
 
 
   return (
@@ -123,6 +123,9 @@ const LoanRequest = () => {
                     initialValues={{condition : '', leaseType: '', brand: '', model: '', amount: '', bankName: '', reason: ''}}
                     onSubmit={(values) =>{
                         console.log(values);
+                        console.log("type " + leaseType);
+                        console.log("condition " + condition);
+                        console.log("bank Name " + bankName);
                     }}>
                       
                       {({handleChange, handleBlur, handleSubmit, values}) => (
@@ -141,11 +144,12 @@ const LoanRequest = () => {
                         valueField="value"
                         placeholder={!isFocus1 ? 'Lease/Loan' : '...'}
                         searchPlaceholder="Search..."
-                        value={values.leaseType}
+                        value={leaseType}
                         onFocus={() => setIsFocus1(true)}
                         onBlur={() => setIsFocus1(false)}
                         onChange={item => {
-                          handleChange('leaseType')
+                          // handleChange('leaseType')
+                          setLeaseType(item.value)
                           setIsFocus1(false);
                         }}
                         renderLeftIcon={() => (
@@ -168,11 +172,12 @@ const LoanRequest = () => {
                             valueField="value"
                             placeholder={!isFocus2 ? 'New/Old' : '...'}
                             searchPlaceholder="Search..."
-                            value={values.condition}
+                            value={condition}
                             onFocus={() => setIsFocus2(true)}
                             onBlur={() => setIsFocus2(false)}
                             onChange={item => {
-                              handleChange('condition', item.value)
+                              // handleChange('condition', item.value)
+                              setCondition(item.value)
                               setIsFocus2(false);
                             }}
                             renderLeftIcon={() => (
@@ -225,11 +230,12 @@ const LoanRequest = () => {
                             valueField="value"
                             placeholder={!isFocus3 ? 'Select item' : '...'}
                             searchPlaceholder="Search..."
-                            value={values.bankName}
+                            value={bankName}
                             // onFocus={() => setIsFocus3(true)}
                             // onBlur={() => setIsFocus3(false)}
                             onChange={item => {
-                              handleChange('bankName',)
+                              // handleChange('bankName',)
+                              setBankName(item.value)
                               setIsFocus3(false);
                             }}
                             renderLeftIcon={() => (
