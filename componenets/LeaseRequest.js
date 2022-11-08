@@ -59,8 +59,8 @@ const LoanRequest = () => {
   const [selected, setSelected] = React.useState("");
   
   const type = [
-    { label: 'Loan', value: 'Loan' },
-    { label: 'Lease', value: 'Lease' },
+    { label: 'Machinery', value: 'Machinery' },
+    { label: 'Vehicle', value: 'Vehicle' },
   ];
 
   const conditionTypes = [
@@ -69,8 +69,8 @@ const LoanRequest = () => {
   ];
 
   const institutes = [
-    { label: 'New', value: 'New' },
-    { label: 'Used', value: 'Used' },
+    { label: 'BOC', value: 'BOC' },
+    { label: "Peoples' bank", value: "Peoples' bank" },
   ];
 
     const [value, setValue] = useState(null);
@@ -141,7 +141,7 @@ const LoanRequest = () => {
                         valueField="value"
                         placeholder={!isFocus ? 'Lease/Loan' : '...'}
                         searchPlaceholder="Search..."
-                        value={value}
+                        value={values}
                         onFocus={() => setIsFocus(true)}
                         onBlur={() => setIsFocus(false)}
                         onChange={item => {

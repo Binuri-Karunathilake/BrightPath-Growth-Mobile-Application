@@ -11,7 +11,7 @@ import LoanLeaseDetails from './componenets/LoanLeaseDetails';
 //React navigation stack
 import RootStack from './navigators/RootStack';
 import Requst from './componenets/Request';
-import LoanRequest from './componenets/LeaseRequest';
+import LoanRequest from './componenets/LoanRequest';
 import LoanLeaseInfo from './componenets/LoanLeaseInfo';
 
 export default function App() {

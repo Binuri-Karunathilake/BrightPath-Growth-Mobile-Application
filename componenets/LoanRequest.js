@@ -69,23 +69,23 @@ const LoanRequest = () => {
   ];
 
   const institutes = [
-    { label: 'New', value: 'New' },
-    { label: 'Used', value: 'Used' },
+    { label: 'BOC', value: 'BOC' },
+    { label: "Peoples' Bank", value: "Peoples' Bank" },
   ];
 
     const [value, setValue] = useState(null);
-    const [isFocus, setIsFocus] = useState(false);
+    const [isFocus1, setIsFocus1] = useState(false);
+    const [isFocus2, setIsFocus2] = useState(false);
+    const [isFocus3, setIsFocus3] = useState(false);
 
-    const renderLabel = () => {
-      if (value || isFocus) {
-        return (
-          <Text style={[styles.label, isFocus && { color: '#00b300' }]}>
-            Dropdown label
-          </Text>
-        );
-      }
-      return null;
-    };
+    const [condition, setCondition] = useState('');
+    const [leaseType, setLeaseType] = useState('');
+    const [brand, setbrand] = useState('');
+    const [model, setmodel] = useState('');
+    const [amount, setAmount] = useState(0);
+    const [bankName, setBankName] = useState('');
+    const [interestRate, setInterestRate] = useState(0);
+    const [reason, setReason] = useState('');
 
 
   return (
@@ -120,7 +120,7 @@ const LoanRequest = () => {
             <View style={styles.container1}>
 
               <Formik
-                    initialValues={{condition: '', brand: '', model: '', amount: '', reason: ''}}
+                    initialValues={{condition : '', leaseType: '', brand: '', model: '', amount: '', bankName: '', reason: ''}}
                     onSubmit={(values) =>{
                         console.log(values);
                     }}>
@@ -129,7 +129,7 @@ const LoanRequest = () => {
                     <StyledFormArea>
                             <StyledInputLabel>Lease or Loan</StyledInputLabel>
                       <Dropdown
-                        style={[styles.dropdown, isFocus && { borderColor: '#00b300' }]}
+                        style={[styles.dropdown, isFocus1 && { borderColor: '#00b300' }]}
                         placeholderStyle={styles.placeholderStyle}
                         selectedTextStyle={styles.selectedTextStyle}
                         inputSearchStyle={styles.inputSearchStyle}
@@ -139,14 +139,14 @@ const LoanRequest = () => {
                         maxHeight={300}
                         labelField="label"
                         valueField="value"
-                        placeholder={!isFocus ? 'Lease/Loan' : '...'}
+                        placeholder={!isFocus1 ? 'Lease/Loan' : '...'}
                         searchPlaceholder="Search..."
-                        value={value}
-                        onFocus={() => setIsFocus(true)}
-                        onBlur={() => setIsFocus(false)}
+                        value={values.leaseType}
+                        onFocus={() => setIsFocus1(true)}
+                        onBlur={() => setIsFocus1(false)}
                         onChange={item => {
-                          setValue(item.value);
-                          setIsFocus(false);
+                          handleChange('leaseType')
+                          setIsFocus1(false);
                         }}
                         renderLeftIcon={() => (
                           <Octicons name='multi-select' size={20} color={COLORS.brand} style={{ marginHorizontal: 10 }} />
@@ -156,7 +156,7 @@ const LoanRequest = () => {
 
                       <StyledInputLabel>Condition</StyledInputLabel>
                           <Dropdown
-                            style={[styles.dropdown, isFocus && { borderColor: '#00b300' }]}
+                            style={[styles.dropdown, isFocus2 && { borderColor: '#00b300' }]}
                             placeholderStyle={styles.placeholderStyle}
                             selectedTextStyle={styles.selectedTextStyle}
                             inputSearchStyle={styles.inputSearchStyle}
@@ -166,14 +166,14 @@ const LoanRequest = () => {
                             maxHeight={300}
                             labelField="label"
                             valueField="value"
-                            placeholder={!isFocus ? 'New/Old' : '...'}
+                            placeholder={!isFocus2 ? 'New/Old' : '...'}
                             searchPlaceholder="Search..."
-                            value={value}
-                            onFocus={() => setIsFocus(true)}
-                            onBlur={() => setIsFocus(false)}
+                            value={values.condition}
+                            onFocus={() => setIsFocus2(true)}
+                            onBlur={() => setIsFocus2(false)}
                             onChange={item => {
-                              setValue(item.value);
-                              setIsFocus(false);
+                              handleChange('condition', item.value)
+                              setIsFocus2(false);
                             }}
                             renderLeftIcon={() => (
                               <Octicons name='multi-select' size={20} color={COLORS.brand} style={{ marginHorizontal: 10 }} />
@@ -185,8 +185,8 @@ const LoanRequest = () => {
                             icon= "rocket"
                             placeholder="..."
                             placeholderTextColor={COLORS.darkLight}   
-                            onChangeText={handleChange('Brand')}
-                            onBlur={handleBlur('Brand')}
+                            onChangeText={handleChange('brand')}
+                            onBlur={handleBlur('brand')}
                             value={values.brand}
                         />
 
@@ -196,9 +196,9 @@ const LoanRequest = () => {
                             icon= "id-badge"
                             placeholder="Model name - year"
                             placeholderTextColor={COLORS.darkLight}   
-                            onChangeText={handleChange('Password')}
-                            onBlur={handleBlur('Password')}
-                            value={values.Password}                  
+                            onChangeText={handleChange('model')}
+                            onBlur={handleBlur('model')}
+                            value={values.model}                  
                         />
 
                         <TextInput 
@@ -206,14 +206,14 @@ const LoanRequest = () => {
                             icon= "database"
                             placeholder="Rs. "
                             placeholderTextColor={COLORS.darkLight}   
-                            onChangeText={handleChange('ConfirmPassword')}
-                            onBlur={handleBlur('ConfirmPassword')}
-                            value={values.ConfirmPassword}                  
+                            onChangeText={handleChange('amount')}
+                            onBlur={handleBlur('amount')}
+                            value={values.amount}                  
                         />
 
                           <StyledInputLabel>Financial Institution</StyledInputLabel>
                           <Dropdown
-                            style={[styles.dropdown, isFocus && { borderColor: '#00b300' }]}
+                            style={[styles.dropdown, isFocus3 && { borderColor: '#00b300' }]}
                             placeholderStyle={styles.placeholderStyle}
                             selectedTextStyle={styles.selectedTextStyle}
                             inputSearchStyle={styles.inputSearchStyle}
@@ -223,14 +223,14 @@ const LoanRequest = () => {
                             maxHeight={300}
                             labelField="label"
                             valueField="value"
-                            placeholder={!isFocus ? 'Select item' : '...'}
+                            placeholder={!isFocus3 ? 'Select item' : '...'}
                             searchPlaceholder="Search..."
-                            value={value}
-                            onFocus={() => setIsFocus(true)}
-                            onBlur={() => setIsFocus(false)}
+                            value={values.bankName}
+                            // onFocus={() => setIsFocus3(true)}
+                            // onBlur={() => setIsFocus3(false)}
                             onChange={item => {
-                              setValue(item.value);
-                              setIsFocus(false);
+                              handleChange('bankName',)
+                              setIsFocus3(false);
                             }}
                             renderLeftIcon={() => (
                               <Octicons name='organization' size={20} color={COLORS.brand} style={{ marginHorizontal: 10 }} />
@@ -240,9 +240,9 @@ const LoanRequest = () => {
                           <TextInput2 
                             label= "How it will help you..."
                             placeholderTextColor={COLORS.darkLight}   
-                            onChangeText={handleChange('ConfirmPassword')}
-                            onBlur={handleBlur('ConfirmPassword')}
-                            value={values.ConfirmPassword}
+                            onChangeText={handleChange('reason')}
+                            onBlur={handleBlur('reason')}
+                            value={values.reason}
                             multiline = {true}
                             numberOfLines = {4}
                             // secureTextEntry={hidePassword}
