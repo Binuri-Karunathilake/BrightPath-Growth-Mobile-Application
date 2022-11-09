@@ -89,9 +89,9 @@ const Login = ({navigation}) =>{
                             <ButtonText>Sign In</ButtonText>
                         </StyleButton>
                         <Line />
-                        <StyleButton google={true} onPress={handleSubmit}>
-                            <Fontisto name="google" color={primary} size={25} />
-                            <ButtonText>   Sign In With Google</ButtonText>
+                        <StyleButton onPress={(handleSubmit)=> navigation.navigate('Admindashboard')}>
+                            <Fontisto name="person" color={primary} size={25} />
+                            <ButtonText>   Sign In As Admin</ButtonText>
                         </StyleButton>
                         <ExtraView>
                             <ExtraText>Don't have an account already?</ExtraText>
