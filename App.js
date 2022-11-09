@@ -6,7 +6,6 @@ import Request from './componenets/Request'
 import UserLoanLeaseRequests from './componenets/UserLoanLeaseRequests';
 import AdvisorsRequests from './componenets/AdvisorsRequests';
 import AdvisersList from './screens/Login';
-import { Dropdown } from 'react-native-element-dropdown';
 
 
 
