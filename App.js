@@ -13,8 +13,9 @@ import InquiryProfile from './componenets/InquiryProfile';
 //React navigation stack
 import RootStack from './navigators/RootStack';
 import Requst from './componenets/Request';
-import LoanRequest from './componenets/LoanRequest';
+import LeaseRequest from './componenets/LeaseRequest';
 import LoanLeaseInfo from './componenets/LoanLeaseInfo';
+import LoanRequest from './componenets/LoanRequest';
 
 export default function App() {
   return (
