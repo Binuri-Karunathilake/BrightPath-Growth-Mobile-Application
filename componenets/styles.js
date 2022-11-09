@@ -23,6 +23,12 @@ export const StyledContainer = styled.View`
     padding-top: ${StatusBarHeight +30}px;
     background-color: ${primary};
 `
+export const CardViewContainer = styled.View`
+    flex: 1;
+    padding: 2px;
+    padding-top: ${StatusBarHeight +30}px;
+    background-color: ${primary};
+`;
 
 export const InnerContrainer = styled.View`
     flex: 1;
@@ -88,7 +94,7 @@ export const SubTitle = styled.Text`
 `;
 
 export const StyledFormArea = styled.View`
-    width: 90%;    
+    width: 100%;    
 `;
 
 export const StyledTextInput = styled.TextInput`
@@ -135,6 +141,20 @@ export const StyledTextInput3 = styled.TextInput`
     color: ${tertiary};
 `;
 
+export const StyledTextInput4 = styled.TextInput`
+    background-color: "white";
+    padding: 1px;
+    padding-left: 30px;
+    padding-right: 30px;
+    border-radius: 8px;
+    border: 0.5px;
+    border-color: '#808080';
+    font-size: 12px;
+    margin-vertical: 3px;
+    margin-bottom: 10px;
+    color: ${tertiary};
+`;
+
 export const StyledTextInput1 = styled.TextInput`
     background-color: "white";
     padding: 10px;
@@ -156,8 +176,12 @@ export const StyledInputLabel = styled.Text`
     font-size: 15px;
     fontWeight: bold;
     text-align: left;
-    padding-top:35px;
-    padding-bottom: 5px;
+`;
+export const StyledInputLabel1 = styled.Text`
+    color: ${tertiary};
+    font-size: 13px;
+    fontWeight: bold;
+    text-align: left;
 `;
 
 export const LeftIcon = styled.View`
@@ -177,13 +201,11 @@ export const RightIcon = styled.TouchableOpacity`
 
 export const StyleButton = styled.TouchableOpacity`
     padding: 15px;
-    
     background-color: ${brand};
     justify-content: center;
     align-items: center;
     border-radius: 5px;
     height: 60px;
-    padding-top:10px;
 
     ${(props) => props.google == true &&`
         background-color: ${green};
@@ -209,13 +231,29 @@ export const StyleButton1 = styled.TouchableOpacity`
     `}
 `;
 
+export const StyleButton2 = styled.TouchableOpacity`
+    padding: 8px;
+    background-color: ${red};
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    margin-vertical: 5px;
+    height: 40px;
+    width: 120px
+
+    ${(props) => props.google == true &&`
+        background-color: ${red};
+        flex-direction: row;
+        justify-content: center;
+    `}
+`;
+
 export const ButtonText = styled.Text`
     color: ${primary};
     font-size: 16px;
     fontWeight: bold;
     ${(props) => props.google == true &&`
     padding: 25px;
-    
 
     `}
 `;
