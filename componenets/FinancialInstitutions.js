@@ -5,11 +5,12 @@ import {faker} from '@faker-js/faker'
 
 
 
+//====================dev variables start===========================
 faker.seed(10);
 const DATA = [...Array(30).keys()].map((_, i) => {
     return {
         key: faker.datatype.uuid(),
-        image: 'https://www.meme-arsenal.com/memes/d956d1dc006d59bbbf3894265db1bb8c.jpg',
+        image: 'https://loremflickr.com/cache/resized/65535_52440891686_c2b21da412_c_640_480_nofilter.jpg',
         name: 	faker.name.fullName(),
         jobTitle: faker.name.jobTitle(),
         email: faker.internet.email(),
@@ -17,24 +18,33 @@ const DATA = [...Array(30).keys()].map((_, i) => {
     };
 });
 
+//====================dev variables end===========================
+
 import logo from '../assets/loanbg.jpg'
 
 const SPACING = 20;
-const AVATAR_SIZE = 70;
+const AVATAR_SIZE = 120;
 const BUTTON_CONTAINER_SIZE = 38
 const ITEM_SIZE = AVATAR_SIZE + BUTTON_CONTAINER_SIZE + SPACING * 6 + 5
-const stage = 'approved'
 
-const UserLoanLeaseRequests = () => {
+//====================dev variables start===========================
+const stage = 'approved'
+const loanInterest = 12.5
+const leaseInterest = 30
+
+
+//====================dev variables end===========================
+
+const FinancialInstitutions = () => {
     const scrollY = React.useRef(new Animated.Value(0)).current;
   return (
     <View>
         <Image
         source={{
-            uri: 'https://images.pexels.com/photos/4386406/pexels-photo-4386406.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+            uri: 'https://images.pexels.com/photos/414144/pexels-photo-414144.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
         }}
         style={StyleSheet.absoluteFillObject}
-        blurRadius={10}
+        blurRadius={5}
         />
       <Animated.FlatList
         contentContainerStyle={styles.flatlist}
@@ -74,21 +84,24 @@ const UserLoanLeaseRequests = () => {
             )
             return <Animated.View style={[styles.imageView, {opacity, transform: [{scale}]}]}>
                 <View style={styles.detailsContainer}>
+                    <Image
+                        source={{
+                            uri: 'https://i.redd.it/a938db5q72l61.jpg'
+                        }}
+                        style={styles.image}
+                        />
                         <View style={styles.details}>
-                            <View style={styles.detailsContainer}>
-                                <Text style={styles.title}>{item.name}</Text>
-                                <Text style={styles.status_approved}>Approved</Text>
-                            </View>
-                            <Text style={styles.subtitle}>{item.email}</Text>
-                            <Text style={styles.description}>{item.jobTitle}</Text>
+                            <Text style={styles.title}>{item.name}</Text>
                             <Text style={styles.description}>{item.purpose}</Text>
+                            <View style={styles.interestRates}>
+                                <Text style={styles.subtitle}>Loan Interest : {loanInterest}</Text>
+                                <Text style={styles.subtitle}>Lease Interest : {leaseInterest}</Text>
+                            </View>
                         </View>
+                        
                 </View>
                 <View style={styles.buttonContainer}>
-                    <Text style={styles.title}>Rs.150000</Text>
-                    <Button 
-                        title='View More Details'
-                        color='#0BCE83' />
+                    <TouchableOpacity style={styles.button}><Text>More info+</Text></TouchableOpacity>
                 </View>
             </Animated.View>
         }}
@@ -97,7 +110,7 @@ const UserLoanLeaseRequests = () => {
   )
 }
 
-export default UserLoanLeaseRequests
+export default FinancialInstitutions
 
 const styles = StyleSheet.create({
     flatlist: {
@@ -106,6 +119,7 @@ const styles = StyleSheet.create({
     },
     imageView: {
         padding: SPACING,
+        paddingBottom: SPACING/4,
         backgroundColor: 'rgba(255, 255, 255, 0.8)',
         borderRadius: 12,
         marginBottom: SPACING,
@@ -117,45 +131,6 @@ const styles = StyleSheet.create({
         shadowOpacity: 1,
         shadowRadius: 20,
     },
-    statusBar: {
-        flexDirection: 'row'
-    },
-    status_approved: {
-        fontWeight: 'bold',
-        padding: 2,
-        paddingStart: 5,
-        paddingEnd: 5,
-        borderWidth: 1,
-        borderColor: '#ACADBC',
-        borderRadius: 6,
-        maxWidth: 80,
-        maxHeight: 25,
-        backgroundColor: '#D6FFDA'
-    },
-    status_pending: {
-        fontWeight: 'bold',
-        padding: 2,
-        paddingStart: 5,
-        paddingEnd: 5,
-        borderWidth: 1,
-        borderColor: '#ACADBC',
-        borderRadius: 6,
-        maxWidth: 80,
-        maxHeight: 25,
-        backgroundColor: '#F2E1A6'
-    },
-    status_inspecting: {
-        fontWeight: 'bold',
-        padding: 2,
-        paddingStart: 5,
-        paddingEnd: 5,
-        borderWidth: 1,
-        borderColor: '#ACADBC',
-        borderRadius: 6,
-        maxWidth: 80,
-        maxHeight: 25,
-        backgroundColor: '#FFF5FE'
-    },
     detailsContainer: {
         flexDirection: 'row',
         justifyContent: 'space-between',
@@ -164,7 +139,29 @@ const styles = StyleSheet.create({
     buttonContainer: {
         height: BUTTON_CONTAINER_SIZE,
         flexDirection: 'row',
-        justifyContent: 'space-between',
+        justifyContent: 'flex-end',
+        maxHeight: 28,
+        alignItems: 'center'
+    },
+    button: {
+        borderRadius: 9,
+        padding: 3,
+        paddingHorizontal: 8,
+        backgroundColor: '#0BCE83'
+    },
+    image: {
+        width: AVATAR_SIZE,
+        height: AVATAR_SIZE,
+        borderRadius: 15,
+        marginRight: SPACING/2
+    },
+    interestRates: {
+        padding: 8,
+        borderWidth: 2,
+        borderColor: '#ACADBC',
+        backgroundColor: '#ffff',
+        marginTop: 5,
+        borderRadius: 6
     },
     root: {
         flex: 1,
@@ -173,7 +170,6 @@ const styles = StyleSheet.create({
     title: {
         fontSize: 18,
         fontWeight: '700',
-        maxWidth: '70%',
     },
     subtitle: {
         fontSize: 14,
@@ -182,7 +178,7 @@ const styles = StyleSheet.create({
     description: {
         fontSize: 12,
         opacity: .8,
-        color: '#0099cc'
+        color: 'black'
     },
     details: {
         flexShrink: 1
