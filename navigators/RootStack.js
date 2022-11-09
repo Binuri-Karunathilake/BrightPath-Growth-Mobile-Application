@@ -14,6 +14,14 @@ import Admindashboard from '../screens/Admindashboard'
 import AdvisersList from '../screens/AdvisersList';
 import HomeScreen from '../screens/HomeScreen';
 import AdvisorsRequests from '../componenets/AdvisorsRequests'
+import LoanRequest from '../componenets/LoanRequest'
+import LeaseRequest from '../componenets/LeaseRequest'
+import LoanLeaseInfo from '../componenets/LoanLeaseInfo'
+import FinancialInstitutions from '../componenets/FinancialInstitutions'
+import CofounderList from '../screens/Co-founder/Co-founderList'
+import profile from '../componenets/profile'
+
+
 
 const Stack = createNativeStackNavigator();
 
@@ -45,8 +53,14 @@ const RootStack = () =>{
                 <Stack.Screen name="AdvisersList" component={AdvisersList} />
                 <Stack.Screen name="HomeScreen" component={HomeScreen} />
                 <Stack.Screen name="AdvisorsRequests" component={AdvisorsRequests} />
+                <Stack.Screen name="LoanRequest" component={LoanRequest} />
+                <Stack.Screen name="LeaseRequest" component={LeaseRequest} />
+                <Stack.Screen name="LoanLeaseInfo" component={LoanLeaseInfo} />
+                <Stack.Screen name="FinancialInstitutions" component={FinancialInstitutions} />
+                <Stack.Screen name="CofounderList" component={CofounderList} />
+                <Stack.Screen name="profile" component={profile} />
 
-
+                
             </Stack.Navigator>
         </NavigationContainer>
     )
