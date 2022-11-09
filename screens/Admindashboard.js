@@ -24,7 +24,7 @@ import {
   const { width } = Dimensions.get("window");
   
   
-  const HomeScreen = ({navigation}) => {
+  const Admindashboard = ({navigation}) => {
     const [activeCategoryId, setActiveCategoryId] = useState(null);
   
     return (
@@ -146,7 +146,7 @@ import {
 
                       onPress={() => {
                         console.log("Hello World");
-                        navigation.navigate('Welcome');
+                        navigation.navigate(caard.url);
                     }}
                     >
                       <Image
@@ -199,7 +199,7 @@ import {
     );
   };
   
-  export default HomeScreen;
+  export default Admindashboard;
   
   const styles = StyleSheet.create({});
   

@@ -92,7 +92,7 @@ const Login = ({navigation}) =>{
                         </StyleButton>
                         <ExtraView>
                             <ExtraText>Don't have an account already?</ExtraText>
-                            <TextLink onPress={() => navigation.navigate('Sign up')}>
+                            <TextLink onPress={() => navigation.navigate('HomeScreen')}>
                                 <TextLinkContent> Sign Up</TextLinkContent>
                             </TextLink>
                         </ExtraView>

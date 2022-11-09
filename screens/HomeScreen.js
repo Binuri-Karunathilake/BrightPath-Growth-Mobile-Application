@@ -24,7 +24,7 @@ import Admindashboard from"../screens/Admindashboard";
 const { width } = Dimensions.get("window");
 
 
-const HomeScreen = () => {
+const HomeScreen = ({navigation}) => {
   const [activeCategoryId, setActiveCategoryId] = useState(null);
 
   return (
@@ -143,6 +143,11 @@ const HomeScreen = () => {
                       height: 150,
                       width: "100%",
                     }}
+
+                    onPress={() => {
+                      console.log("Hello World");
+                      navigation.navigate(caard.url);
+                  }}
                   >
                     <Image
 

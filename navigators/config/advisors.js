@@ -7,15 +7,6 @@ export default [
     
   },
 
-
-
-
-
-
-  
-
-
-
   {
     id: 4,
     name: "Lasantha Wickrematunge",
@@ -29,12 +20,12 @@ export default [
    
   },
   {
-    id: 8,
-    name: "Balanadarajah Iyer",
-    image: require("../../assets/caards/confident-business-asian-woman-isolated-studio-shot-portrait-professional-working-people-holding-tablet-computer-copy-183114166.jpg"),
+    id: 3,
+    name: "Chandrabose Suthaharan",
+    image: require("../../assets/caards/download56.jpg"),
     
   },
-  
+
   {
     id: 7,
     name: "Sampath Lakmal de Silva",
@@ -42,15 +33,10 @@ export default [
    
   },
 
+ 
   {
-    id: 3,
-    name: "Chandrabose Suthaharan",
-    image: require("../../assets/caards/download56.jpg"),
-    
-  },
-  {
-    id: 3,
-    name: "Chandrabose Suthaharan",
+    id: 8,
+    name: "binuringa alponsu Dissanayaka",
     image: require("../../assets/caards/confident-business-asian-woman-isolated-studio-shot-portrait-professional-working-people-holding-tablet-computer-copy-183114166.jpg"),
     
   },

@@ -25,7 +25,7 @@ const BUTTON_CONTAINER_SIZE = 38
 const ITEM_SIZE = AVATAR_SIZE + BUTTON_CONTAINER_SIZE + SPACING * 6 + 5
 const stage = 'approved'
 
-const UserLoanLeaseRequests = () => {
+const AdvisorsRequests = () => {
     const scrollY = React.useRef(new Animated.Value(0)).current;
   return (
     <View>
@@ -101,7 +101,7 @@ const UserLoanLeaseRequests = () => {
   )
 }
 
-export default UserLoanLeaseRequests
+export default AdvisorsRequests
 
 const styles = StyleSheet.create({
     flatlist: {

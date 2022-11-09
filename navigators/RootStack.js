@@ -11,6 +11,9 @@ import Login from '../screens/Login';
 import Signup from '../screens/Signup';
 import Welcome from '../screens/Welcome';
 import Admindashboard from '../screens/Admindashboard'
+import AdvisersList from '../screens/AdvisersList';
+import HomeScreen from '../screens/HomeScreen';
+import AdvisorsRequests from '../componenets/AdvisorsRequests'
 
 const Stack = createNativeStackNavigator();
 
@@ -39,6 +42,10 @@ const RootStack = () =>{
                 <Stack.Screen 
                 // options={{headerTintColor: primary}}
                 name="Admindashboard" component={Admindashboard} />
+                <Stack.Screen name="AdvisersList" component={AdvisersList} />
+                <Stack.Screen name="HomeScreen" component={HomeScreen} />
+                <Stack.Screen name="AdvisorsRequests" component={AdvisorsRequests} />
+
 
             </Stack.Navigator>
         </NavigationContainer>
