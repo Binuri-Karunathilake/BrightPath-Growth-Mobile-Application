@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { View, Text, Image, TextInput,TouchableOpacity } from 'react-native';
+import { View, Text, Image, TextInput,Dropdown, TouchableOpacity } from 'react-native';
 import Constants from 'expo-constants';
 
 const StatusBarHeight = Constants.statusBarHeight;
@@ -95,22 +95,24 @@ export const StyledTextInput = styled.TextInput`
     background-color: ${secondary};
     padding: 15px;
     padding-left: 55px;
-    padding-top:5px;
+    padding-top:15px;
     padding-right: 55px;
-    border-radius: 10px;
+    border-radius: 8px;
     font-size: 16px;
-    height: 60px;
+    height: 50px;
     margin-vertical: 3px;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
     color: ${tertiary};
 `;
+
+
 
 export const StyledInputLabel = styled.Text`
     color: ${tertiary};
     font-size: 15px;
     fontWeight: bold;
     text-align: left;
-    padding-top:25px;
+    padding-top:35px;
     padding-bottom: 5px;
 `;
 
@@ -192,3 +194,29 @@ export const TextLinkContent =styled.Text`
     color: ${brand};
     font-size: 15px;
 `;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -3,62 +3,55 @@ export default [
   {
     id: 2,
     name: "Selvarajah Rajivarnam",
-    image: require("../../assets/caards/image-Advisor-16.jpg"),
-    
-  },
-
-  
-  {
-    id: 2,
-    name: "Selvarajah Rajivarnam",
-    image: require("../../assets/caards/image-Advisor-16.jpg"),
+    image: require("../../assets/caards/successful-young-indian-business-man-posing-white-background_75648-9397.jpg"),
     
   },
 
 
-  {
-    id: 2,
-    name: "Selvarajah Rajivarnam",
-    image: require("../../assets/caards/image-Advisor-16.jpg"),
-    
-  },
+
+
+
+
   
 
 
-  {
-    id: 3,
-    name: "Chandrabose Suthaharan",
-    image: require("../../assets/caards/RW_Breakdown_1018.jpg"),
-    
-  },
+
   {
     id: 4,
     name: "Lasantha Wickrematunge",
-    image: require("../../assets/caards/why-finance-a-good-career-option-1024x768.jpg"),
+    image: require("../../assets/caards/istockphoto-1364917563-170667a.jpg"),
     
   },
   {
     id: 5,
     name: "Champika Liyanaarachchi",
-    image: require("../../assets/caards/Acumen_Top3.jpg"),
-   
-  },
-  {
-    id: 6,
-    name: "Prageeth Eknaligoda",
-    image: require("../../assets/caards/man-inviting-people-join-social-260nw-1459737335.jpg"),
-    
-  },
-  {
-    id: 7,
-    name: "Sampath Lakmal de Silva",
-    image: require("../../assets/caards/79782042_442407466669628_3744279860755824640_n.jpg"),
+    image: require("../../assets/caards/istockphoto-482632465-612x612.jpg"),
    
   },
   {
     id: 8,
     name: "Balanadarajah Iyer",
-    image: require("../../assets/caards/10-profile-picture-ideas-to-make-you-stand-out.jpg"),
+    image: require("../../assets/caards/confident-business-asian-woman-isolated-studio-shot-portrait-professional-working-people-holding-tablet-computer-copy-183114166.jpg"),
+    
+  },
+  
+  {
+    id: 7,
+    name: "Sampath Lakmal de Silva",
+    image: require("../../assets/caards/serious-concentrated-financial-advisor-using-calculator_1262-14357.jpg"),
+   
+  },
+
+  {
+    id: 3,
+    name: "Chandrabose Suthaharan",
+    image: require("../../assets/caards/download56.jpg"),
+    
+  },
+  {
+    id: 3,
+    name: "Chandrabose Suthaharan",
+    image: require("../../assets/caards/confident-business-asian-woman-isolated-studio-shot-portrait-professional-working-people-holding-tablet-computer-copy-183114166.jpg"),
     
   },
 ];

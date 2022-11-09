@@ -87,13 +87,15 @@ const AdvisersList = () => {
         <View style={{ width: "80%", marginVertical: SPACING * 3 }}>
           <Text
             style={{
-              color: colors.white,
+              color: colors.dark,
               fontSize: SPACING * 3.5,
               fontWeight: "600",
-              
+              paddingLeft: 88,
+
             }}
           >
-            Home
+            Advisor list
+
           </Text>
         </View>
         <SearchField />
