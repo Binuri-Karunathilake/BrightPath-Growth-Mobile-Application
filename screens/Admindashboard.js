@@ -24,7 +24,7 @@ import {
   const { width } = Dimensions.get("window");
   
   
-  const HomeScreen = () => {
+  const HomeScreen = ({navigation}) => {
     const [activeCategoryId, setActiveCategoryId] = useState(null);
   
     return (
@@ -142,6 +142,11 @@ import {
                         height: 150,
                         width: "100%",
                       }}
+
+                      onPress={() => {
+                        console.log("Hello World");
+                        navigation.navigate('Welcome');
+                    }}
                     >
                       <Image
   

@@ -15,7 +15,7 @@ import Admindashboard from './screens/Admindashboard';
 
 export default function App() {
   return (
-    <Admindashboard />
+    <RootStack />
 
   );
   
