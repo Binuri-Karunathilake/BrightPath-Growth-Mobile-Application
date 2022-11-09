@@ -94,7 +94,7 @@ export const SubTitle = styled.Text`
 `;
 
 export const StyledFormArea = styled.View`
-    width: 90%;    
+    width: 100%;    
 `;
 
 export const StyledTextInput = styled.TextInput`
@@ -140,6 +140,20 @@ export const StyledTextInput3 = styled.TextInput`
     color: ${tertiary};
 `;
 
+export const StyledTextInput4 = styled.TextInput`
+    background-color: "white";
+    padding: 1px;
+    padding-left: 30px;
+    padding-right: 30px;
+    border-radius: 8px;
+    border: 0.5px;
+    border-color: '#808080';
+    font-size: 12px;
+    margin-vertical: 3px;
+    margin-bottom: 10px;
+    color: ${tertiary};
+`;
+
 export const StyledTextInput1 = styled.TextInput`
     background-color: "white";
     padding: 10px;
@@ -159,6 +173,12 @@ export const StyledTextInput1 = styled.TextInput`
 export const StyledInputLabel = styled.Text`
     color: ${tertiary};
     font-size: 15px;
+    fontWeight: bold;
+    text-align: left;
+`;
+export const StyledInputLabel1 = styled.Text`
+    color: ${tertiary};
+    font-size: 12px;
     fontWeight: bold;
     text-align: left;
 `;

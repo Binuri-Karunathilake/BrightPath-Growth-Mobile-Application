@@ -23,7 +23,9 @@ import {
   StyledTextInput1,
   StyleButton1,
   StyleButton2,
-  StyledTextInput3
+  StyledTextInput3,
+  StyledInputLabel1,
+  StyledTextInput4
 }from './styles';
 import COLORS from './Colors';
 
@@ -69,63 +71,108 @@ const CoFounderRegister = () => {
   ];
 
   const duration = [
-    { label: 'New', value: 'New' },
-    { label: 'Used', value: 'Used' },
+    { label: '0-10 hours per week', value: '0-10' },
+    { label: '10-20 hours per week', value: '10-20' },
+    { label: '20-30 hours per week', value: '20-30' },
+    { label: '30+ hours per week', value: '30+' },
+
   ];
 
     const [value, setValue] = useState(null);
-    const [isFocus, setIsFocus] = useState(false);
+    const [isFocus1, setIsFocus1] = useState(false);
+    const [isFocus2, setIsFocus2] = useState(false);
+    const [isFocus3, setIsFocus3] = useState(false);
 
-    const renderLabel = () => {
-      if (value || isFocus) {
-        return (
-          <Text style={[styles.label, isFocus && { color: '#00b300' }]}>
-            Dropdown label
-          </Text>
-        );
-      }
-      return null;
-    };
+    
+    const [myidea, setIdea ] = useState('');
+    const [industry, setIndustry] = useState('');
+    const [hours, setDuration] = useState('');
+    // const [myidea, setIdea ] = useState('');
+    // const [myidea, setIdea ] = useState('');
+    
+    // const renderLabel = () => {
+    //   if (value || isFocus) {
+    //     return (
+    //       <Text style={[styles.label, isFocus && { color: '#00b300' }]}>
+    //         Dropdown label
+    //       </Text>
+    //     );
+    //   }
+    //   return null;
+    // };
 
 
   return (
     <KeyboardAvoidingWrapper>
     <View>
-      <ScrollView style={styles.container}>
-
-          <View style={styles.imageView}>
-              <View style={styles.detailsContainer}>
-                  <Image
-                      source={{
-                          uri: 'https://loremflickr.com/cache/resized/65535_52440891686_c2b21da412_c_640_480_nofilter.jpg'
-                      }}
-                      style={styles.image}
-                      />
-                      <View style={styles.details}>
-                          <Text style={styles.title}>{item.name}</Text>
-                          <Text style={styles.subtitle}>{item.jobTitle}</Text>
-                          <Text style={styles.description}>{item.address}</Text>
-                          <Text style={styles.description}>{item.email}</Text>
-                      </View>
-              </View>
-          </View>
-
-          <View style={styles.form}>
+      <ScrollView>
+          <View style={styles.updateform}>
           <View>
 
             <View style={styles.container1}>
 
               <Formik
-                    initialValues={{idea: '', reason: '', myskills: '', wantskills: ''}}
+                    initialValues={{name:'', jobTitle: '', address: '',email: '', reason: '', myskills: '', wantskills: ''}}
                     onSubmit={(values) =>{
                         console.log(values);
+                        console.log("My idea " + myidea );
+                        console.log("Idea Industr " + industry );
+                        console.log("Hours per week " + hours);
                     }}>
                       
                       {({handleChange, handleBlur, handleSubmit, values}) => (
+                        
                     <StyledFormArea>
-                            <StyledInputLabel>My Idea</StyledInputLabel>
-                   <Dropdown
-                        style={[styles.dropdown, isFocus && { borderColor: '#00b300' }]}
+                      <View style={styles.container2}>
+                        <View style={styles.imageView1}>
+                          <View style={styles.updatedetailsContainer}>
+                            <Image 
+                              source={{
+                                  uri: 'https://images.pexels.com/photos/14208380/pexels-photo-14208380.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+                              }}
+                              style={styles.image}
+                            />
+                              <View>
+                                <TextInput3 
+                                    label= "Name"
+                                    placeholder="name "
+                                    placeholderTextColor={COLORS.darkLight}   
+                                    onChangeText={handleChange('name')}
+                                    onBlur={handleBlur('name')}
+                                    value={values.name}                  
+                                />
+                                    <TextInput3 
+                                    label= "job Title"
+                                    placeholder="jobTitle "
+                                    placeholderTextColor={COLORS.darkLight}   
+                                    onChangeText={handleChange('jobTitle')}
+                                    onBlur={handleBlur('jobTitle')}
+                                    value={values.jobTitle}                  
+                                />
+                                    <TextInput3 
+                                    label= "Address"
+                                    placeholder="address "
+                                    placeholderTextColor={COLORS.darkLight}   
+                                    onChangeText={handleChange('address')}
+                                    onBlur={handleBlur('address')}
+                                    value={values.address}                  
+                                />
+                                    <TextInput3 
+                                    label= "Email"
+                                    placeholder="email "
+                                    placeholderTextColor={COLORS.darkLight}   
+                                    onChangeText={handleChange('email')}
+                                    onBlur={handleBlur('email')}
+                                    value={values.email}                  
+                                />
+                              </View>
+                          </View>
+                        </View>
+                      </View>
+                      <View style={styles.container3}>
+                  <StyledInputLabel>My Idea</StyledInputLabel>
+                     <Dropdown
+                        style={[styles.dropdown, isFocus1 && { borderColor: '#00b300' }]}
                         placeholderStyle={styles.placeholderStyle}
                         selectedTextStyle={styles.selectedTextStyle}
                         inputSearchStyle={styles.inputSearchStyle}
@@ -135,14 +182,14 @@ const CoFounderRegister = () => {
                         maxHeight={300}
                         labelField="label"
                         valueField="value"
-                        placeholder={!isFocus ? 'Select' : '...'}
+                        placeholder={!isFocus1 ? 'Select' : '...'}
                         searchPlaceholder="Search..."
-                        value={value}
-                        onFocus={() => setIsFocus(true)}
-                        onBlur={() => setIsFocus(false)}
+                        value={myidea}
+                        onFocus={() => setIsFocus1(true)}
+                        onBlur={() => setIsFocus1(false)}
                         onChange={item => {
-                          setValue(item.value);
-                          setIsFocus(false);
+                          setIdea(item.value);
+                          setIsFocus1(false);
                         }}
                         renderLeftIcon={() => (
                           <Octicons name='multi-select' size={20} color={COLORS.brand} style={{ marginHorizontal: 10 }} />
@@ -162,7 +209,7 @@ const CoFounderRegister = () => {
 
                       <StyledInputLabel>Idea Industry</StyledInputLabel>
                           <Dropdown
-                            style={[styles.dropdown, isFocus && { borderColor: '#00b300' }]}
+                            style={[styles.dropdown, isFocus2 && { borderColor: '#00b300' }]}
                             placeholderStyle={styles.placeholderStyle}
                             selectedTextStyle={styles.selectedTextStyle}
                             inputSearchStyle={styles.inputSearchStyle}
@@ -172,14 +219,14 @@ const CoFounderRegister = () => {
                             maxHeight={300}
                             labelField="label"
                             valueField="value"
-                            placeholder={!isFocus ? 'Select Industry' : '...'}
+                            placeholder={!isFocus2 ? 'Select Industry' : '...'}
                             searchPlaceholder="Search..."
-                            value={value}
-                            onFocus={() => setIsFocus(true)}
-                            onBlur={() => setIsFocus(false)}
+                            value={industry}
+                            onFocus={() => setIsFocus2(true)}
+                            onBlur={() => setIsFocus2(false)}
                             onChange={item => {
-                              setValue(item.value);
-                              setIsFocus(false);
+                              setIndustry(item.value);
+                              setIsFocus2(false);
                             }}
                             renderLeftIcon={() => (
                               <Octicons name='multi-select' size={20} color={COLORS.brand} style={{ marginHorizontal: 10 }} />
@@ -188,7 +235,7 @@ const CoFounderRegister = () => {
 
                           <StyledInputLabel>Hours per week available to work</StyledInputLabel>
                           <Dropdown
-                            style={[styles.dropdown, isFocus && { borderColor: '#00b300' }]}
+                            style={[styles.dropdown, isFocus3 && { borderColor: '#00b300' }]}
                             placeholderStyle={styles.placeholderStyle}
                             selectedTextStyle={styles.selectedTextStyle}
                             inputSearchStyle={styles.inputSearchStyle}
@@ -198,14 +245,14 @@ const CoFounderRegister = () => {
                             maxHeight={300}
                             labelField="label"
                             valueField="value"
-                            placeholder={!isFocus ? 'Select hours' : '...'}
+                            placeholder={!isFocus3 ? 'Select hours' : '...'}
                             searchPlaceholder="Search..."
-                            value={value}
-                            onFocus={() => setIsFocus(true)}
-                            onBlur={() => setIsFocus(false)}
+                            value={hours}
+                            onFocus={() => setIsFocus3(true)}
+                            onBlur={() => setIsFocus3(false)}
                             onChange={item => {
-                              setValue(item.value);
-                              setIsFocus(false);
+                              setDuration(item.value);
+                              setIsFocus3(false);
                             }}
                             renderLeftIcon={() => (
                               <Octicons name='clock' size={20} color={COLORS.brand} style={{ marginHorizontal: 10 }} />
@@ -231,7 +278,7 @@ const CoFounderRegister = () => {
                             multiline = {true}
                             numberOfLines = {4}                 
                         />
-                          
+                          </View>
 
 
                         <MsgBox>...</MsgBox>
@@ -296,6 +343,19 @@ const TextInput2 =({label, icon, ...props}) =>{
   )
 }
 
+const TextInput3 =({label, icon, ...props}) =>{
+  return (
+      <View>
+                
+          <StyledInputLabel1> {label}</StyledInputLabel1>
+  
+          <StyledTextInput4 {...props} />
+
+      </View>
+  )
+}
+
+
 export default CoFounderRegister
 
 const styles = StyleSheet.create({
@@ -308,14 +368,39 @@ const styles = StyleSheet.create({
     marginBottom: SPACING/2,
     
   },
+  
+  updatedetailsContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-evenly',
+    marginBottom: SPACING/80,
+    
+  },
+
   container: {
     backgroundColor: '#E3E9E2'
+  },
+  container2: {
+    backgroundColor: '#E3E9E2',
+    borderRadius: 20
+  },
+
+  container3: {
+    backgroundColor: '#ffffff',
+    borderRadius: 10,
+    marginTop:20
   },
   form: {
     opacity: 5,
     backgroundColor: '#F2F2F2',
     padding: 20,
   },
+  updateform: {
+    opacity: 5,
+    backgroundColor: '#F2F2F2',
+    padding: 20,
+    marginTop:30,
+  },
+  
   imageView: {
     padding: SPACING,
     marginTop: 30,
@@ -330,13 +415,28 @@ const styles = StyleSheet.create({
     shadowOpacity: 1,
     shadowRadius: 20,
 },
+imageView1: {
+  padding: SPACING,
+  marginTop: 10,
+  backgroundColor: 'rgba(255, 255, 255, 0.0)',
+  borderRadius: 12,
+  shadowColor: 'black',
+  shadowOffset: {
+      width: 0,
+      height: 10
+  },
+  shadowOpacity: 1,
+  shadowRadius: 20,
+},
+
   image: {
       width: 120,
       height: 120,
       borderRadius: AVATAR_SIZE,
       backgroundColor: 'red',
-      marginEnd: 20
+      marginEnd: 20,
   },
+
   btntext: {
     color: '#ffff',
     fontWeight: 'bold',
