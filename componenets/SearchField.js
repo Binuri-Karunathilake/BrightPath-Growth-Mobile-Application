@@ -1,8 +1,8 @@
 import { StyleSheet, Text, TextInput, View } from "react-native";
 import React from "react";
 import { BlurView } from "expo-blur";
-import colors from "../config/colors";
-import SPACING from "../config/SPACING";
+import colors from "../navigators/config/colors";
+import SPACING from "../navigators/config/SPACING";
 
 import { Ionicons } from "@expo/vector-icons";
 
@@ -24,13 +24,13 @@ const SearchField = () => {
         <TextInput
           style={{
             width: "100%",
-            color: colors.white,
+            color: colors.dark,
             fontSize: SPACING * 1.7,
             padding: SPACING,
             paddingLeft: SPACING * 3.5,
           }}
-          placeholder="Find Your Coffee..."
-          placeholderTextColor={colors.light}
+          placeholder="Find"
+          placeholderTextColor={colors.dark}
         />
         <Ionicons
           style={{
@@ -38,7 +38,7 @@ const SearchField = () => {
             left: SPACING,
           }}
           name="search"
-          color={colors.light}
+          color={colors.dark}
           size={SPACING * 2}
         />
       </BlurView>

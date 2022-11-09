@@ -54,7 +54,7 @@ const item = {
 
 
 
-const LoanRequest = () => {
+const Calculator = () => {
 
   const [institute, setInstitute] = React.useState("");
   
@@ -68,6 +68,15 @@ const LoanRequest = () => {
     { label: 'Used', value: 'Used' },
   ];
 
+  const periods = [
+    { label: '6 months', value: '6' },
+    { label: '1 year', value: '12' },
+    { label: '2 year', value: '24' },
+    { label: '3 year', value: '36' },
+    { label: '4 year', value: '48' },
+    { label: '5 year', value: '60' },
+  ];
+
   const institutes = [
     { label: 'BOC', value: 'BOC' },
     { label: "Peoples' bank", value: "Peoples' bank" },
@@ -77,6 +86,10 @@ const LoanRequest = () => {
     const [isFocus, setIsFocus] = useState(false);
 
     const [bankName, setBankName] = useState('');
+    const [requestType, setRequestType] = useState('');
+    const [period, setPeriod] = useState('');
+    const [interestRate1, setInterestRate1] = useState(0);
+    const [rental, setRental] = useState(0);
 
     const renderLabel = () => {
       if (value || isFocus) {
@@ -94,53 +107,48 @@ const LoanRequest = () => {
     <View>
       <ScrollView style={styles.container}>
 
-          <View style={styles.imageView}>
-              <View style={styles.detailsContainer}>
-                  <Image
-                      source={{
-                          uri: 'https://loremflickr.com/cache/resized/65535_52440891686_c2b21da412_c_640_480_nofilter.jpg'
-                      }}
-                      style={styles.image}
-                      />
-                      <View style={styles.details}>
-                              <Text style={styles.title}>{item.name}</Text>
-                          <Text style={styles.subtitle}>{item.email}</Text>
-                          <Text style={styles.description}>{item.jobTitle}</Text>
-                          <Text style={styles.description}>{item.purpose}</Text>
-                      </View>
-              </View>
-          </View>
 
           <View style={styles.form}>
-          <View style={styles.calButtonView}>
-            <TouchableOpacity style={styles.calButton}>
-                <Text style={styles.btntext}>Loan/Lease Calculator</Text>
-            </TouchableOpacity>
-          </View>
           <View>
 
             <View style={styles.container1}>
 
               <Formik
-                    initialValues={{ amount: '', reason: '', history: ''}}
+                    initialValues={{ amount: '', interestRate: ''}}
                     onSubmit={(values) =>{
                         console.log(values);
+                        setInterestRate1(values.interestRate)
                     }}>
                       
                       {({handleChange, handleBlur, handleSubmit, values}) => (
                     <StyledFormArea>
 
-                        
-                          <TextInput 
-                            label= "Lease Amount"
-                            icon= "database"
-                            placeholder="Rs. "
-                            placeholderTextColor={COLORS.darkLight}   
-                            onChangeText={handleChange('amount')}
-                            onBlur={handleBlur('amount')}
-                            value={values.amount}                  
-                        />
-                      
+                        <StyledInputLabel>Loan or Lease</StyledInputLabel>
+                          <Dropdown
+                            style={[styles.dropdown, isFocus && { borderColor: '#00b300' }]}
+                            placeholderStyle={styles.placeholderStyle}
+                            selectedTextStyle={styles.selectedTextStyle}
+                            inputSearchStyle={styles.inputSearchStyle}
+                            iconStyle={styles.iconStyle}
+                            data={institutes}
+                            search
+                            maxHeight={300}
+                            labelField="label"
+                            valueField="value"
+                            placeholder={!isFocus ? 'Select item' : '...'}
+                            searchPlaceholder="Search..."
+                            value={requestType}
+                            onFocus={() => setIsFocus(true)}
+                            onBlur={() => setIsFocus(false)}
+                            onChange={item => {
+                              setRequestType(item.value);
+                              setIsFocus(false);
+                            }}
+                            renderLeftIcon={() => (
+                              <Octicons name='check' size={20} color={COLORS.brand} style={{ marginHorizontal: 10 }} />
+                            )}
+                          />
+
                         <StyledInputLabel>Financial Institution</StyledInputLabel>
                           <Dropdown
                             style={[styles.dropdown, isFocus && { borderColor: '#00b300' }]}
@@ -167,40 +175,59 @@ const LoanRequest = () => {
                             )}
                           />
 
-                          <TextInput2 
-                            label= "How it will help you..."
+                        
+                          <TextInput 
+                            label= "Interest Rate"
+                            icon= "graph"
+                            placeholder="Rs. "
                             placeholderTextColor={COLORS.darkLight}   
-                            onChangeText={handleChange('reason')}
-                            onBlur={handleBlur('reason')}
-                            value={values.reason}
-                            multiline = {true}
-                            numberOfLines = {4}
-                            // secureTextEntry={hidePassword}
-                            // isPassword={true}    
-                            // hidePassword={hidePassword}
-                            // setHidePassword={setHidePassword}                     
-                        />  
+                            onChangeText={handleChange('interestRate')}
+                            onBlur={handleBlur('interestRate')}
+                            value={values.interestRate}                  
+                        />
+                      
+                        <StyledInputLabel>Period</StyledInputLabel>
+                          <Dropdown
+                            style={[styles.dropdown, isFocus && { borderColor: '#00b300' }]}
+                            placeholderStyle={styles.placeholderStyle}
+                            selectedTextStyle={styles.selectedTextStyle}
+                            inputSearchStyle={styles.inputSearchStyle}
+                            iconStyle={styles.iconStyle}
+                            data={periods}
+                            search
+                            maxHeight={300}
+                            labelField="label"
+                            valueField="value"
+                            placeholder={!isFocus ? 'Select item' : '...'}
+                            searchPlaceholder="Search..."
+                            value={period}
+                            onFocus={() => setIsFocus(true)}
+                            onBlur={() => setIsFocus(false)}
+                            onChange={item => {
+                                setPeriod(item.value);
+                              setIsFocus(false);
+                            }}
+                            renderLeftIcon={() => (
+                              <Octicons name='clock' size={20} color={COLORS.brand} style={{ marginHorizontal: 10 }} />
+                            )}
+                          />
 
-                          <TextInput2 
-                            label= "Have you obtained a loan before?"
+                        <TextInput 
+                            label= "Amount (Rs.)"
+                            icon= "database"
+                            placeholder="Rs. "
                             placeholderTextColor={COLORS.darkLight}   
-                            onChangeText={handleChange('history')}
-                            onBlur={handleBlur('history')}
-                            value={values.history}
-                            multiline = {true}
-                            numberOfLines = {4}
-                            // secureTextEntry={hidePassword}
-                            // isPassword={true}    
-                            // hidePassword={hidePassword}
-                            // setHidePassword={setHidePassword}                     
+                            onChangeText={handleChange('amount')}
+                            onBlur={handleBlur('amount')}
+                            value={values.amount}                  
                         />
 
 
                         <MsgBox>...</MsgBox>
                         
-                        <View style={{flexDirection: 'row', justifyContent: 'flex-end'}}>
+                        <View style={{flexDirection: 'row', justifyContent: 'center'}}>
                         <StyleButton1 onPress={handleSubmit}>
-                            <ButtonText>Request</ButtonText>
+                            <ButtonText>Calculate</ButtonText>
                         </StyleButton1>
                         </View>
 
@@ -215,6 +242,16 @@ const LoanRequest = () => {
           
           </View>
 
+          </View>
+
+          <View style={styles.imageView}>
+              <View style={styles.detailsContainer}>
+                      <View style={styles.details}>
+                            <Text style={styles.title}>Monthly Rental</Text>
+                          <Text style={styles.subtitle}>Rs.{(Math.round(rental * 100) / 100).toFixed(2)}</Text>
+                          <Text style={styles.title}>at {(Math.round(interestRate1 * 100) / 100).toFixed(1)} % </Text>
+                      </View>
+              </View>
           </View>
 
           </ScrollView>
@@ -252,7 +289,7 @@ const TextInput2 =({label, icon, ...props}) =>{
   )
 }
 
-export default LoanRequest
+export default Calculator
 
 const styles = StyleSheet.create({
   inputField: {
@@ -271,11 +308,11 @@ const styles = StyleSheet.create({
     opacity: 5,
     backgroundColor: '#F2F2F2',
     padding: 20,
+    marginTop: 30
   },
   imageView: {
     padding: SPACING,
     marginTop: 30,
-    backgroundColor: 'rgba(255, 255, 255, 0.0)',
     borderRadius: 12,
     marginBottom: SPACING,
     shadowColor: 'black',
@@ -290,7 +327,6 @@ const styles = StyleSheet.create({
       width: 120,
       height: 120,
       borderRadius: AVATAR_SIZE,
-      backgroundColor: 'red',
       marginEnd: 20
   },
   calButtonView: {
@@ -316,12 +352,16 @@ const styles = StyleSheet.create({
   title: {
       fontSize: 18,
       fontWeight: '700',
-      maxWidth: '70%',
-      marginBottom: 5
+      marginBottom: 5,
+    textAlign: 'center',
+    fontFamily: 'monospace',
   },
   subtitle: {
-      fontSize: 14,
-      opacity: .7
+      fontSize: 28,
+      opacity: .7,
+      textAlign: 'center',
+      marginVertical: 10,
+      fontFamily: 'monospace',
   },
   description: {
       fontSize: 12,
@@ -329,6 +369,8 @@ const styles = StyleSheet.create({
       color: '#0099cc'
   },
   details: {
+    flexDirection: 'column',
+    justifyContent: 'center',
       flexShrink: 1,
       width: 200
   },
