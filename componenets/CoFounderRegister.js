@@ -50,8 +50,8 @@ const CoFounderRegister = () => {
   const [selected, setSelected] = React.useState("");
   
   const idea = [
-    { label: "I have an idea for a startup and I'm looking for a co-founder", value: 'Startup' },
-    { label: "I am looking to partner up on someone else's idea as a co-founder", value: "Partnership" },
+    { label: "I have an idea for a startup and I'm looking for a co-founder", value: "I have an idea for a startup and I'm looking for a co-founder" },
+    { label: "I am looking to partner up on someone else's idea as a co-founder", value: "I am looking to partner up on someone else's idea as a co-founder" },
   ];
 
   const ideaIndustry = [
@@ -71,10 +71,10 @@ const CoFounderRegister = () => {
   ];
 
   const duration = [
-    { label: '0-10 hours per week', value: '0-10' },
-    { label: '10-20 hours per week', value: '10-20' },
-    { label: '20-30 hours per week', value: '20-30' },
-    { label: '30+ hours per week', value: '30+' },
+    { label: '0-10 hours per week', value: '0-10 hours per week' },
+    { label: '10-20 hours per week', value: '10-20 hours per week' },
+    { label: '20-30 hours per week', value: '20-30 hours per week' },
+    { label: '30+ hours per week', value: '30+ hours per week' },
 
   ];
 
