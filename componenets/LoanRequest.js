@@ -76,6 +76,8 @@ const LoanRequest = () => {
     const [value, setValue] = useState(null);
     const [isFocus, setIsFocus] = useState(false);
 
+    const [bankName, setBankName] = useState('');
+
     const renderLabel = () => {
       if (value || isFocus) {
         return (
@@ -153,11 +155,11 @@ const LoanRequest = () => {
                             valueField="value"
                             placeholder={!isFocus ? 'Select item' : '...'}
                             searchPlaceholder="Search..."
-                            value={value}
+                            value={bankName}
                             onFocus={() => setIsFocus(true)}
                             onBlur={() => setIsFocus(false)}
                             onChange={item => {
-                              setInstitute(item.value);
+                              setBankName(item.value);
                               setIsFocus(false);
                             }}
                             renderLeftIcon={() => (
@@ -168,8 +170,8 @@ const LoanRequest = () => {
                           <TextInput2 
                             label= "How it will help you..."
                             placeholderTextColor={COLORS.darkLight}   
-                            onChangeText={handleChange('ConfirmPassword')}
-                            onBlur={handleBlur('ConfirmPassword')}
+                            onChangeText={handleChange('reason')}
+                            onBlur={handleBlur('reason')}
                             value={values.reason}
                             multiline = {true}
                             numberOfLines = {4}
@@ -182,8 +184,8 @@ const LoanRequest = () => {
                           <TextInput2 
                             label= "Have you obtained a loan before?"
                             placeholderTextColor={COLORS.darkLight}   
-                            onChangeText={handleChange('ConfirmPassword')}
-                            onBlur={handleBlur('ConfirmPassword')}
+                            onChangeText={handleChange('history')}
+                            onBlur={handleBlur('history')}
                             value={values.history}
                             multiline = {true}
                             numberOfLines = {4}

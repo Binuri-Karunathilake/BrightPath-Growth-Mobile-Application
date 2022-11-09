@@ -14,10 +14,11 @@ import Requst from './componenets/Request';
 import LeaseRequest from './componenets/LeaseRequest';
 import LoanLeaseInfo from './componenets/LoanLeaseInfo';
 import LoanRequest from './componenets/LoanRequest';
+import Calculator from './componenets/Calculator';
 
 export default function App() {
   return (
-      <LoanRequest />
+      <FinancialInstitutions />
   );
   
 }
