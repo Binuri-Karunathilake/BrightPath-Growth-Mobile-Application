@@ -10,10 +10,10 @@ import LoanLeaseDetails from './componenets/LoanLeaseDetails';
 
 //React navigation stack
 import RootStack from './navigators/RootStack';
-import CofounderList from './screens/Co-founder/Co-founderList';
-
 import Requst from './componenets/Request';
+import LoanRequest from './componenets/LoanRequest';
 import LoanLeaseInfo from './componenets/LoanLeaseInfo';
+import CofounderList from './screens/Co-founder/Co-founderList';
 
 export default function App() {
   return (
