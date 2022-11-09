@@ -4,28 +4,28 @@ export default [
       id: 1,
       name: "Requested loan",
       image: require("../../assets/caards/qwa.jpg"),
-      url: 'Welcome'
+      url: 'LoanListView'
       
     },
     {
       id: 2,
       name: "Requested lease",
       image: require("../../assets/caards/istockphoto-612027090-1024x1024.jpg"),
-      url: 'Welcome'
+      url: 'LoanListView'
       
     },
     {
       id: 3,
       name: "Financial Institutions ",
       image: require("../../assets/caards/1668025816654.jpg"),
-      url: 'Welcome'
+      url: 'FinancialInstitutions'
       
     },
     {
       id: 4,
       name: "View Inquiries",
       image: require("../../assets/caards/1668026046945.jpg"),
-      url: 'Welcome'
+      url: 'LoanListView'
       
     },
     {
