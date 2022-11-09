@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import { StatusBar } from 'expo-status-bar';
 
 //API client
-import axiosa from "axios";
+import axios from "axios";
 
 //formik
 import { Formik } from "formik";
