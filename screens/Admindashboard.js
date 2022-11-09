@@ -86,18 +86,19 @@ import {
                 />
               </BlurView>
             </View> */}
+            
           </View>
-          <View style={{ width: "80%", marginVertical: SPACING * 3 }}>
+          <View style={{ width: "90%", marginVertical: SPACING * 3 }}>
             <Text
               style={{
                 color: colors.light,
                 fontSize: SPACING * 3.5,
                 fontWeight: "600",
-                paddingLeft: 137,
+                paddingLeft: 68,
                 
               }}
             >
-              Home
+              Admin Dashboard
             </Text>
           </View>
           <SearchField />
@@ -129,7 +130,7 @@ import {
   
                   <BlurView
                     tint="light"
-                    intensity={95}
+                    intensity={99}
                     style={{
                       padding: SPACING,
                     }}
@@ -139,7 +140,7 @@ import {
                     
                       style={{
                         
-                        height: 150,
+                        height: 120,
                         width: "100%",
                       }}
 

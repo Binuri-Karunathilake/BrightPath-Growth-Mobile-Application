@@ -18,7 +18,7 @@ import SearchField from "../componenets/SearchField";
 //import Categories from "../components/Categories";
 import caards from "../navigators/config/caards";
 //import { createStackNavigator, createAppContainer } from 'react-navigation';  
-import Login from"../screens/Login";
+import Admindashboard from"../screens/Admindashboard";
 
 
 const { width } = Dimensions.get("window");
@@ -135,7 +135,8 @@ const HomeScreen = () => {
                   }}
                 >
                 
-                  <TouchableOpacity
+                  <TouchableOpacity 
+                  // onPress={() => navigation.navigate("Admin")}
                   
                     style={{
                       
