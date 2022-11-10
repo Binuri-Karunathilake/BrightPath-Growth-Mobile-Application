@@ -53,7 +53,15 @@ const Request = ({navigation}) =>{
         { label: 'financial advisor', value: 'financial advisor' },
         { label: 'Marketing advisor', value: 'Marketing advisor' },
       ];
-
+    const type = [
+    { label: 'Sunday', value: 'Loan' },
+    { label: 'Monday', value: 'Lease' },
+    { label: 'Tuesday', value: 'Tuesday' },
+    { label: 'Wednesday', value: 'Wednesday' },
+    { label: 'Thursday', value: 'Thursday' },
+    { label: 'Friday', value: 'Friday' },
+    { label: 'Saturday', value: 'Saturday' },
+    ];
 
     const onChange= (event, selectedDate) => {
         const currentDate = selectDate ||date;
@@ -72,10 +80,14 @@ const showDatePicker = () => {
         <StyledContainer>
             <StatusBar style="dark" />
             <InnerContrainer>
-
+            <Text> {"\n"} </Text>
+            <Text> {"\n"} </Text>
                 <PageTitle >Request a new Adviser</PageTitle>
                 
-                
+                <Text> {"\n"} </Text>
+                <Text> {"\n"} </Text>
+
+
 
 
 
@@ -86,7 +98,7 @@ const showDatePicker = () => {
                     initialValues={{adviser: '', catogory: '', date: ''}}
                     onSubmit={(values) =>{
                         console.log(values);
-                        navigation.navigate('Welcome');
+                        navigation.navigate('AdvisersList');
                     }}
                 >{({handleChange, handleBlur, handleSubmit, values}) => (
                     <StyledFormArea>
@@ -99,6 +111,7 @@ const showDatePicker = () => {
                             onBlur={handleBlur('adviser')}
                             value={values.adviser}
                         />
+            <Text> {"\n"} </Text>
 
 
                       
@@ -109,7 +122,6 @@ const showDatePicker = () => {
                            selectedTextStyle={styles.selectedTextStyle}
                            inputSearchStyle={styles.inputSearchStyle}
                            iconStyle={styles.iconStyle}
-                           
                             data={conditionTypes}
                             search
                             maxHeight={300}
@@ -129,17 +141,37 @@ const showDatePicker = () => {
                               <Octicons name='multi-select' size={20} color={COLORS.brand} style={{ marginHorizontal: 10 }} />
                             )}
                           />
-                        <TextInput 
-                            label= "Date"
-                            placeholder=" YYYY - MM -DD"
-                            placeholderTextColor={darkLight}   
-                            onChangeText={handleChange('date')}
-                            onBlur={handleBlur('date')}
-                            value={dob ? dob.toDateString() : ''}
-                            isDate={true}
-                            editable={false}
-                            showDatePicker={showDatePicker}
-                        />
+<Text> {"\n"} </Text>
+                            <StyledInputLabel>Available Day</StyledInputLabel>
+                      <Dropdown
+                        style={[styles.dropdown, isFocus1 && { borderColor:{darkLight} }]}
+                        placeholderStyle={styles.placeholderStyle}
+                        selectedTextStyle={styles.selectedTextStyle}
+                        inputSearchStyle={styles.inputSearchStyle}
+                        iconStyle={styles.iconStyle}
+                        data={type}
+                        search
+                        maxHeight={300}
+                        labelField="label"
+                        valueField="value"
+                        placeholder={!isFocus1 ? '  Select Day' : '...'}
+                        searchPlaceholder="Search..."
+                        value={leaseType}
+                        onFocus={() => setIsFocus1(true)}
+                        onBlur={() => setIsFocus1(false)}
+                        onChange={item => {
+                          // handleChange('leaseType')
+                          setLeaseType(item.value)
+                          setIsFocus1(false);
+                        }}
+                        renderLeftIcon={() => (
+                          <Octicons name='multi-select' size={20} color={COLORS.brand} style={{ marginHorizontal: 10 }} />
+                        )}
+                      />
+
+
+
+            <Text> {"\n"} </Text>
 
                         
                         <MsgBox>...</MsgBox>
@@ -151,7 +183,10 @@ const showDatePicker = () => {
                         <Line />
                     
                         
-                        
+                        <Text> {"\n"} </Text>
+                        <Text> {"\n"} </Text>
+                        <Text> {"\n"} </Text>
+
                         
 
                     </StyledFormArea>
@@ -187,9 +222,6 @@ const TextInput =({isDate, showDatePicker,  label, ...props}) =>{
 export default Request;
 
 
-
-
-
 const styles = StyleSheet.create({
     dropdown: {
         height: 50,
@@ -209,8 +241,7 @@ const styles = StyleSheet.create({
         color: COLORS.darkLight,
       },
       selectedTextStyle: {
-        fontSize: 8,
-        color: COLORS.grey,
+        fontSize: 12,
 
       },
       iconStyle: {

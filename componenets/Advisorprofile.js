@@ -44,18 +44,26 @@ const BUTTON_CONTAINER_SIZE = 38
 const ITEM_SIZE = AVATAR_SIZE + BUTTON_CONTAINER_SIZE + SPACING * 6 + 5
 const stage = 'approved'
 
+
+
+
 const user = {
-  name: 'Author Morgan', 
-  jobTitle: "Architect", 
+  name: '      Author Morgan', 
+  
   email: 'authormorgan@gmail.com', 
-  address: 'somewhere and nowhere', 
-  idea: "I have an idea for a startup and I'm looking for a co-founder",
-  ideaIndustry: "Retail", 
-  reason: "T shirt printing.Print t shirts with the skills of own designing skills.Need a co-founder who has experience and knowledge on retail industry and job market.",
-  hours: "0-10 hours per week"}
+  address: '       somewhere and nowhere', 
 
 
-const Profile = () => {
+
+  details: "Experienced and driven Financial Advisor with over five years of experience providing clients with optimal assistance with retirement planning, estate planning, investment advice, tax strategies, and overall support managing their finances. Proven track record of competitive market share expansion and assisting corporations in reaching goals. Driven and detail-oriented with the ability to thrive in high pressure environments. Adept at developing key relationships and furthering business development.",
+
+  Category: "       financial advisor",
+  phonenumber:"       0779814934",
+  Availabledays:"       Monday and saturday"
+}
+
+
+const Advisorprofile = () => {
 
   return (
     <View>
@@ -63,61 +71,60 @@ const Profile = () => {
       <ScrollView style={styles.container}>
 
           <View style={styles.imageView}>
+          <Text>
+
+{"\n"}
+</Text>
               <View style={styles.detailsContainer}>
+                
                   <Image
                       source={{
-                          uri: 'https://images.pexels.com/photos/14208380/pexels-photo-14208380.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+                          uri: 'https://images.pexels.com/photos/13747843/pexels-photo-13747843.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
                       }}
                       style={styles.image}
                       />
                       <View style={styles.details}>
+                      <Text>
+{"\n"}
+
+</Text>
                               <Text style={styles.title}>{user.name}</Text>
-                          <Text style={styles.subtitle}>{user.jobTitle}</Text>
+                          <Text style={styles.subtitle}>{user.Category}</Text>
                           <Text style={styles.subtitle}>{user.address}</Text>
-                          <Text style={styles.description}>{user.email}</Text>
+                          <Text style={styles.subtitle}>{user.phonenumber}</Text>
+                          <Text style={styles.subtitle}>{user.Availabledays}</Text>
+
+
+                          
                       </View>
               </View>
           </View>
 
           <View style={styles.form}>
+            
           <View>
 
             <View style={styles.container1}>
 
-              <View>
-                            <Text style={styles.questions}>My Idea :</Text>
-                            <View style={styles.textcontainer}>
-                            <Text style={styles.features}>{user.idea}</Text>
-                            </View>
-                            <Text style={styles.questions}>Why join with me : </Text>
-                            <View style={styles.textcontainer}>
-                            <Text style={styles.paragraph}>{user.reason}</Text>
-                            </View>
-                            <Text style={styles.questions}>Idea Industry : </Text>
-                            <View style={styles.textcontainer}>
-                            <Text style={styles.paragraph}>{user.ideaIndustry}</Text>
-                            </View>
-                            <Text style={styles.questions}>Hours per week available to work : </Text>
-                            <View style={styles.textcontainer}>
-                            <Text style={styles.paragraph}>{user.hours}</Text>
-                            </View>
-                            <Text style={styles.questions}>My skills: </Text>
-                            <View style={styles.textcontainer}>
-                            <Text style={styles.paragraph}>{user.hours}</Text>
-                            </View>
-                            <Text style={styles.questions}>Has skills: </Text>
-                            <View style={styles.textcontainer}>
-                            <Text style={styles.paragraph}>{user.hours}</Text>
-                            </View>
-              </View>
-              
-              <MsgBox>...</MsgBox>
+            <View>
+                            <Text> {"\n"} </Text>
+                            
+                            <Text style={styles.questions}>Details :</Text>
+                            <Text style={styles.features}>{user.details}</Text>
+                            <Text> {"\n"} </Text>
+
+
+                        </View>
                         
-              <View style={{flexDirection: 'row', justifyContent: 'flex-end'}}>
-                <StyleButton1>
-                    <ButtonText>Edit</ButtonText>
-                </StyleButton1>
-                    </View>
+        
+
+                        <MsgBox>...</MsgBox>
+                        
+                        <View style={{flexDirection: 'row', justifyContent: 'flex-end'}}>
+                        <StyleButton1>
+                            <ButtonText>+ Contact</ButtonText>
+                        </StyleButton1>
+                        </View>
               </View>
 
           
@@ -160,13 +167,17 @@ const TextInput2 =({label, icon, ...props}) =>{
   )
 }
 
-export default Profile
+export default Advisorprofile
 
 const styles = StyleSheet.create({
+  inputField: {
+
+  },
   detailsContainer: {
     flexDirection: 'row',
     justifyContent: 'space-evenly',
     marginBottom: SPACING/2,
+    
   },
   container: {
     backgroundColor: '#E3E9E2'
@@ -176,7 +187,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#F2F2F2',
     padding: 20,
   },
-  
   imageView: {
     padding: SPACING,
     marginTop: 30,
@@ -187,7 +197,7 @@ const styles = StyleSheet.create({
     shadowOffset: {
         width: 0,
         height: 10
-  },
+    },
     shadowOpacity: 1,
     shadowRadius: 20,
 },
@@ -275,8 +285,7 @@ paragraph: {
 questions: {
     fontWeight: 'bold',
     fontSize: 18,
-    marginBottom: 8,
-    marginTop:8
+    marginBottom: 8
 },
 features: {
     fontWeight: '500',
@@ -284,13 +293,5 @@ features: {
     marginBottom: 15,
     color: '#1d1f1e',
 
-},
-textcontainer: {
-  padding: 8,
-  borderWidth: 2,
-  borderColor: '#ACADBC',
-  backgroundColor: '#ffff',
-  marginTop: 5,
-  borderRadius: 6
 },
 })

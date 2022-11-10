@@ -31,6 +31,8 @@ const LoanLeaseInfo = () => {
     <SafeAreaView>
         <StatusBar hidden />
         <ScrollView style={styles.ScrollView}>
+        <Text> {"\n"} </Text>
+
             <Text style={styles.heading}>{text.type==='Loan'? 'Loan ': 'Lease '}Details</Text>
                         <View>
                             <Image style={styles.image} source={{uri: 'https://images.pexels.com/photos/7620697/pexels-photo-7620697.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'}} />
@@ -144,7 +146,6 @@ const styles = StyleSheet.create({
         fontSize: 15,
         marginBottom: 15,
         color: '#1d1f1e',
-        fontFamily: 'monospace',
 
     },
     ScrollView: {
