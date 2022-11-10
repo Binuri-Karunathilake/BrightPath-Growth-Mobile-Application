@@ -5,15 +5,31 @@ const { width, height } = Dimensions.get('screen');
 import { Entypo } from '@expo/vector-icons';
 import Constants from 'expo-constants';
 
-const articleParagraphs = [
-    {title: 'What is a loan?', description: 'One advanced diverted domestic sex repeated bringing you old. Possible procured her trifling laughter thoughts property she met way. Companions shy had solicitude favourable own. Which could saw guest man now heard but. Lasted my coming uneasy marked so should. Gravity letters it amongst herself dearest an windows by. Wooded ladies she basket season age her uneasy saw. Discourse unwilling am no described dejection incommode no listening of. Before nature his parish boy. '},
-    {title: 'What is a lease?', description: 'Folly words widow one downs few age every seven. If miss part by fact he park just shew. Discovered had get considered projection who favourable. Necessary up knowledge it tolerably. Unwilling departure education is be dashwoods or an. Use off agreeable law unwilling sir deficient curiosity instantly. Easy mind life fact with see has bore ten. Parish any chatty can elinor direct for former. Up as meant widow equal an share least. '},
-    {title: 'How do you obtain one?', description: 'Another journey chamber way yet females man. Way extensive and dejection get delivered deficient sincerity gentleman age. Too end instrument possession contrasted motionless. Calling offence six joy feeling. Coming merits and was talent enough far. Sir joy northward sportsmen education. Discovery incommode earnestly no he commanded if. Put still any about manor heard. '},
-    {title: 'How do pay one back?', description: 'Village did removed enjoyed explain nor ham saw calling talking. Securing as informed declared or margaret. Joy horrible moreover man feelings own shy. Request norland neither mistake for yet. Between the for morning assured country believe. On even feet time have an no at. Relation so in confined smallest children unpacked delicate. Why sir end believe uncivil respect. Always get adieus nature day course for common. My little garret repair to desire he esteem. '},
-    {title: 'What are some consideration you should make?', description: 'In it except to so temper mutual tastes mother. Interested cultivated its continuing now yet are. Out interested acceptance our partiality affronting unpleasant why add. Esteem garden men yet shy course. Consulted up my tolerably sometimes perpetual oh. Expression acceptance imprudence particular had eat unsatiable. '},
-    {title: 'Frequently asked questions', description: 'Had denoting properly jointure you occasion directly raillery. In said to of poor full be post face snug. Introduced imprudence see say unpleasing devonshire acceptance son. Exeter longer wisdom gay nor design age. Am weather to entered norland no in showing service. Nor repeated speaking shy appetite. Excited it hastily an pasture it observe. Snug hand how dare here too. '}
-];
-
+import {
+    StyledContainer,
+    InnerContrainer,
+    PageTitle,
+    StyledFormArea,
+    LeftIcon, 
+    StyledInputLabel,
+    StyledTextInput,
+    RightIcon,
+    StyleButton,
+    ButtonText,
+    Colors,
+    Line,
+    MsgBox,
+    ExtraText,
+    ExtraView,
+    TextLink,
+    TextLinkContent,
+    StyledTextInput1,
+    StyleButton1,
+    StyledTextInput2,
+    StyledTextInput3
+  }from './styles';
+  import COLORS from './Colors';
+  
 
 
 const text = {title: 'What is a loan?', description: 'One advanced diverted domestic sex repeated bringing you old. Possible procured her trifling laughter thoughts property she met way. Companions shy had solicitude favourable own. Which could saw guest man now heard but. Lasted my coming uneasy marked so should. Gravity letters it amongst herself dearest an windows by. Wooded ladies she basket season age her uneasy saw. Discourse unwilling am no described dejection incommode no listening of. Before nature his parish boy. ',
@@ -27,6 +43,27 @@ const user = {name: "Marty Byrde", jobTitle: "Architect", contactNumber: '071454
 const getImage = (i) => `https://source.unsplash.com/600x${400 + i}/?blackandwhite`;
 
 const InquiryProfile = () => {
+    const [selected, setSelected] = React.useState("");
+  
+    const type = [
+      { label: 'Loan', value: 'Pending' },
+      { label: 'Lease', value: 'Processing' },
+    ];
+  
+
+  
+      //const [value, setValue] = useState(null);
+      //const [isFocus1, setIsFocus1] = useState(false);
+
+      //const [condition, setCondition] = useState('');
+     const [leaseType, setLeaseType] = useState('');
+      // const [brand, setbrand] = useState('');
+      // const [model, setmodel] = useState('');
+      // const [amount, setAmount] = useState(0);
+     // const [bankName, setBankName] = useState('');
+      // const [interestRate, setInterestRate] = useState(0);
+      // const [reason, setReason] = useState('');
+  
   return (
     <SafeAreaView>
         <StatusBar hidden />
@@ -42,6 +79,31 @@ const InquiryProfile = () => {
                             <Text style={styles.questions}>Reason : </Text>
                             <Text style={styles.paragraph}>{text.description}</Text>
                         </View>
+                        <Dropdown
+                        style={[styles.dropdown, isFocus1 && { borderColor: '#00b300' }]}
+                        placeholderStyle={styles.placeholderStyle}
+                        selectedTextStyle={styles.selectedTextStyle}
+                        inputSearchStyle={styles.inputSearchStyle}
+                        iconStyle={styles.iconStyle}
+                        data={type}
+                        search
+                        maxHeight={300}
+                        labelField="label"
+                        valueField="value"
+                        placeholder={!isFocus1 ? 'Lease/Loan' : '...'}
+                        searchPlaceholder="Search..."
+                        value={leaseType}
+                        onFocus={() => setIsFocus1(true)}
+                        onBlur={() => setIsFocus1(false)}
+                        onChange={item => {
+                          // handleChange('leaseType')
+                          setLeaseType(item.value)
+                          setIsFocus1(false);
+                        }}
+                        renderLeftIcon={() => (
+                          <Octicons name='multi-select' size={20} color={COLORS.brand} style={{ marginHorizontal: 10 }} />
+                        )}
+                      />
                         
                        
         </ScrollView>
