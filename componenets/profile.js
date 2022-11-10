@@ -280,7 +280,6 @@ features: {
     fontSize: 15,
     marginBottom: 15,
     color: '#1d1f1e',
-    fontFamily: 'monospace',
 
 },
 })

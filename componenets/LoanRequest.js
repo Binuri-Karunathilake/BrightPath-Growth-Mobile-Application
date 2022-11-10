@@ -92,10 +92,13 @@ const LoanRequest = () => {
 
   return (
     <View>
+                              <Text> {"\n\n"} </Text>
+
       <ScrollView style={styles.container}>
 
           <View style={styles.imageView}>
               <View style={styles.detailsContainer}>
+                
                   <Image
                       source={{
                           uri: 'https://loremflickr.com/cache/resized/65535_52440891686_c2b21da412_c_640_480_nofilter.jpg'

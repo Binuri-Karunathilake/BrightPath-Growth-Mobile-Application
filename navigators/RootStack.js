@@ -19,11 +19,12 @@ import LeaseRequest from '../componenets/LeaseRequest'
 import LoanLeaseInfo from '../componenets/LoanLeaseInfo'
 import FinancialInstitutions from '../componenets/FinancialInstitutions'
 import CofounderList from '../screens/Co-founder/Co-founderList'
-import profile from '../componenets/Advisorprofile'
+import profile from '../componenets/profile'
 import LoanListView from '../componenets/LoanListView'
 import Request from '../componenets/Request'
 
 import Advisorprofile from '../componenets/Advisorprofile'
+
 
 
 
