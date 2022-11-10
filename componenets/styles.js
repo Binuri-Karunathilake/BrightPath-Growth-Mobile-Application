@@ -93,6 +93,7 @@ export const SubTitle = styled.Text`
 `}
 `;
 
+
 export const StyledFormArea = styled.View`
     width: 100%;    
 `;

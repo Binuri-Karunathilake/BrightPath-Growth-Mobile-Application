@@ -21,6 +21,8 @@ import FinancialInstitutions from '../componenets/FinancialInstitutions'
 import CofounderList from '../screens/Co-founder/Co-founderList'
 import profile from '../componenets/profile'
 import LoanListView from '../componenets/LoanListView'
+import Request from '../componenets/Request'
+
 
 
 
@@ -62,6 +64,7 @@ const RootStack = () =>{
                 <Stack.Screen name="CofounderList" component={CofounderList} />
                 <Stack.Screen name="profile" component={profile} />
                 <Stack.Screen name="LoanListView" component={LoanListView} />
+                <Stack.Screen name="Request" component={Request} />
 
                 
             </Stack.Navigator>

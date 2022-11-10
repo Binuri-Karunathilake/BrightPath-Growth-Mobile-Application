@@ -16,12 +16,32 @@ import colors from "../navigators/config/colors";
 import SearchField from "../componenets/SearchField";
 //import Categories from "../components/Categories";
 import advisors from "../navigators/config/advisors";
-
+import {
+  StyledContainer,
+  InnerContrainer,
+  PageLogo,
+  PageTitle,
+  SubTitle,
+  StyledFormArea,
+  LeftIcon, 
+  StyledInputLabel,
+  StyledTextInput,
+  RightIcon,
+  StyleButton,
+  ButtonText,
+  Colors,
+  Line,
+  MsgBox,
+  ExtraText,
+  ExtraView,
+  TextLink,
+  TextLinkContent
+}from '../componenets/styles';
 //const avatar = require("../../assets/avatar.jpg");
 
 const { width } = Dimensions.get("window");
 
-const AdvisersList = () => {
+const AdvisersList = ({navigation}) => {
   const [activeCategoryId, setActiveCategoryId] = useState(null);
 
   return (
@@ -172,8 +192,29 @@ const AdvisersList = () => {
                   
                   
                 </BlurView>
+                
               </View>
-            ))}
+              
+            ))
+                    
+
+            
+             
+            
+
+
+
+
+
+            }
+        </View>
+
+        <View>
+        <StyledFormArea>
+              <StyleButton  onPress={() => navigation.navigate('Request')}>
+                          <ButtonText>Request new Advisor</ButtonText>
+                      </StyleButton>
+            </StyledFormArea>
         </View>
       </ScrollView>
     </SafeAreaView>
