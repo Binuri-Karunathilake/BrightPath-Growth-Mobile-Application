@@ -72,10 +72,14 @@ const showDatePicker = () => {
         <StyledContainer>
             <StatusBar style="dark" />
             <InnerContrainer>
-
+            <Text> {"\n"} </Text>
+            <Text> {"\n"} </Text>
                 <PageTitle >Request a new Adviser</PageTitle>
                 
-                
+                <Text> {"\n"} </Text>
+                <Text> {"\n"} </Text>
+
+
 
 
 
@@ -99,6 +103,7 @@ const showDatePicker = () => {
                             onBlur={handleBlur('adviser')}
                             value={values.adviser}
                         />
+            <Text> {"\n"} </Text>
 
 
                       
@@ -129,6 +134,9 @@ const showDatePicker = () => {
                               <Octicons name='multi-select' size={20} color={COLORS.brand} style={{ marginHorizontal: 10 }} />
                             )}
                           />
+
+<Text> {"\n"} </Text>
+
                         <TextInput 
                             label= "Date"
                             placeholder=" YYYY - MM -DD"
@@ -140,6 +148,7 @@ const showDatePicker = () => {
                             editable={false}
                             showDatePicker={showDatePicker}
                         />
+            <Text> {"\n"} </Text>
 
                         
                         <MsgBox>...</MsgBox>
@@ -151,7 +160,10 @@ const showDatePicker = () => {
                         <Line />
                     
                         
-                        
+                        <Text> {"\n"} </Text>
+                        <Text> {"\n"} </Text>
+                        <Text> {"\n"} </Text>
+
                         
 
                     </StyledFormArea>

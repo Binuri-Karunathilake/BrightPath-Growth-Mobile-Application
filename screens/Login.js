@@ -49,7 +49,11 @@ const Login = ({navigation}) =>{
         <StyledContainer>
             <StatusBar style="dark" />
             <InnerContrainer>
+            <Text> {"\n"} </Text>
+
                 <PageLogo resizeMode="cover" source={require('../assets/img/UEE_logo_2.png')}/>
+                <Text> {"\n"} </Text>
+
                 <PageTitle>Sign In</PageTitle>
                 {/* <SubTitle>Sign In</SubTitle> */}
  
@@ -71,6 +75,7 @@ const Login = ({navigation}) =>{
                             value={values.email}
                             keyboardTypes="email-address"
                         />
+
                         <TextInput 
                             label= "Password"
                             icon= "lock"
@@ -84,18 +89,20 @@ const Login = ({navigation}) =>{
                             hidePassword={hidePassword}
                             setHidePassword={setHidePassword}                     
                         />
+                                    <Text> {"\n"} </Text>
+
                         <MsgBox>...</MsgBox>
                         <StyleButton onPress={handleSubmit}>
-                            <ButtonText>Sign In</ButtonText>
+                            <ButtonText>Sign In As Admin</ButtonText>
                         </StyleButton>
                         <Line />
-                        <StyleButton onPress={(handleSubmit)=> navigation.navigate('Admindashboard')}>
+                        <StyleButton onPress={(handleSubmit)=> navigation.navigate('HomeScreen')}>
                             <Fontisto name="person" color={primary} size={25} />
-                            <ButtonText>   Sign In As Admin</ButtonText>
+                            <ButtonText>   Sign In As User</ButtonText>
                         </StyleButton>
                         <ExtraView>
                             <ExtraText>Don't have an account already?</ExtraText>
-                            <TextLink onPress={() => navigation.navigate('HomeScreen')}>
+                            <TextLink onPress={() => navigation.navigate('Sign up')}>
                                 <TextLinkContent> Sign Up</TextLinkContent>
                             </TextLink>
                         </ExtraView>

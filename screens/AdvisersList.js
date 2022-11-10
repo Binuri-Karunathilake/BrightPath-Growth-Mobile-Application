@@ -156,6 +156,11 @@ const AdvisersList = ({navigation}) => {
                       height: 150,
                       width: "100%",
                     }}
+
+                    onPress={() => {
+                      console.log("Hello World");
+                      navigation.navigate(advisor.url);
+                  }}
                   >
                     <Image
                       source={advisor.image}
@@ -214,6 +219,8 @@ const AdvisersList = ({navigation}) => {
               <StyleButton  onPress={() => navigation.navigate('Request')}>
                           <ButtonText>Request new Advisor</ButtonText>
                       </StyleButton>
+                      <Text> {"\n"} </Text>
+
             </StyledFormArea>
         </View>
       </ScrollView>
