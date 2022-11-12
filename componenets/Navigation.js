@@ -30,7 +30,7 @@ export default class App extends React.Component{
     <View style={styles.NavBar}>
         <Pressable onPress={() => this.changeText('fovourites')} style={styles.IconeBehave}
         android_ripple={{borderless:true, radius:50}}>
-            <Icon name="favorite-heart-button" height={iconHight} width={iconWidth} color='#448aff'/>
+            <Icon name="favorite-heart-button" height={iconHight} width={iconWidth} color='#5E5E5E'/>
         </Pressable>
 
 
