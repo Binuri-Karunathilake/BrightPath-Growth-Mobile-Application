@@ -33,6 +33,7 @@ import {
   StyledTextInput1,
   StyleButton1,
   StyledTextInput2,
+  
   StyledTextInput3
 }from './styles';
 import COLORS from './Colors';
