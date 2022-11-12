@@ -55,8 +55,8 @@ const user = {
   hours: "0-10 hours per week"}
 
 
-const Profile = () => {
-
+const Profile = ({navigation}) => {
+  
   return (
     <View>
       <StatusBar hidden />
@@ -114,7 +114,7 @@ const Profile = () => {
               <MsgBox>...</MsgBox>
                         
               <View style={{flexDirection: 'row', justifyContent: 'flex-end'}}>
-                <StyleButton1>
+                <StyleButton1 onPress={() => navigation.navigate('CoFounderRegister')}>
                     <ButtonText>Edit</ButtonText>
                 </StyleButton1>
                     </View>

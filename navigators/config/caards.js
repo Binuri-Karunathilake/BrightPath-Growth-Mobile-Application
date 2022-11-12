@@ -46,7 +46,7 @@ export default [
   },
   {
     id: 8,
-    name: "View               Profile",
+    name: "View Profile",
     image: require("../../assets/caards/10-profile-picture-ideas-to-make-you-stand-out.jpg"),
     url: 'profile'
 
