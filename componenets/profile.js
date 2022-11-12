@@ -44,15 +44,6 @@ const BUTTON_CONTAINER_SIZE = 38
 const ITEM_SIZE = AVATAR_SIZE + BUTTON_CONTAINER_SIZE + SPACING * 6 + 5
 const stage = 'approved'
 
-
-
-const text = {title: 'What is a loan?', description: 'One advanced diverted domestic sex repeated bringing you old. Possible procured her trifling laughter thoughts property she met way. Companions shy had solicitude favourable own. Which could saw guest man now heard but. Lasted my coming uneasy marked so should. Gravity letters it amongst herself dearest an windows by. Wooded ladies she basket season age her uneasy saw. Discourse unwilling am no described dejection incommode no listening of. Before nature his parish boy. ',
-                type: 'Lease',
-                financialInstitute: 'Bank of Ceylon',
-                interestRate: 22.9,
-                period: 24,
-                amount: 1200000,
-                history: 'Village did removed enjoyed explainer man feelings own shy. Request norland neither ssured country believe. On even feet time have an no at. Relation so in confined smallest children unpacked delicate. Why sir end believe'}
 const user = {
   name: 'Author Morgan', 
   jobTitle: "Architect", 
@@ -64,8 +55,8 @@ const user = {
   hours: "0-10 hours per week"}
 
 
-const Profile = () => {
-
+const Profile = ({navigation}) => {
+  
   return (
     <View>
       <StatusBar hidden />
@@ -93,26 +84,40 @@ const Profile = () => {
 
             <View style={styles.container1}>
 
-            <View>
+              <View>
                             <Text style={styles.questions}>My Idea :</Text>
+                            <View style={styles.textcontainer}>
                             <Text style={styles.features}>{user.idea}</Text>
+                            </View>
                             <Text style={styles.questions}>Why join with me : </Text>
+                            <View style={styles.textcontainer}>
                             <Text style={styles.paragraph}>{user.reason}</Text>
+                            </View>
                             <Text style={styles.questions}>Idea Industry : </Text>
+                            <View style={styles.textcontainer}>
                             <Text style={styles.paragraph}>{user.ideaIndustry}</Text>
+                            </View>
                             <Text style={styles.questions}>Hours per week available to work : </Text>
+                            <View style={styles.textcontainer}>
                             <Text style={styles.paragraph}>{user.hours}</Text>
-                        </View>
+                            </View>
+                            <Text style={styles.questions}>My skills: </Text>
+                            <View style={styles.textcontainer}>
+                            <Text style={styles.paragraph}>{user.hours}</Text>
+                            </View>
+                            <Text style={styles.questions}>Has skills: </Text>
+                            <View style={styles.textcontainer}>
+                            <Text style={styles.paragraph}>{user.hours}</Text>
+                            </View>
+              </View>
+              
+              <MsgBox>...</MsgBox>
                         
-        
-
-                        <MsgBox>...</MsgBox>
-                        
-                        <View style={{flexDirection: 'row', justifyContent: 'flex-end'}}>
-                        <StyleButton1>
-                            <ButtonText>Request</ButtonText>
-                        </StyleButton1>
-                        </View>
+              <View style={{flexDirection: 'row', justifyContent: 'flex-end'}}>
+                <StyleButton1 onPress={() => navigation.navigate('CoFounderRegister')}>
+                    <ButtonText>Edit</ButtonText>
+                </StyleButton1>
+                    </View>
               </View>
 
           
@@ -158,14 +163,10 @@ const TextInput2 =({label, icon, ...props}) =>{
 export default Profile
 
 const styles = StyleSheet.create({
-  inputField: {
-
-  },
   detailsContainer: {
     flexDirection: 'row',
     justifyContent: 'space-evenly',
     marginBottom: SPACING/2,
-    
   },
   container: {
     backgroundColor: '#E3E9E2'
@@ -175,6 +176,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#F2F2F2',
     padding: 20,
   },
+  
   imageView: {
     padding: SPACING,
     marginTop: 30,
@@ -185,7 +187,7 @@ const styles = StyleSheet.create({
     shadowOffset: {
         width: 0,
         height: 10
-    },
+  },
     shadowOpacity: 1,
     shadowRadius: 20,
 },
@@ -273,7 +275,8 @@ paragraph: {
 questions: {
     fontWeight: 'bold',
     fontSize: 18,
-    marginBottom: 8
+    marginBottom: 8,
+    marginTop:8
 },
 features: {
     fontWeight: '500',
@@ -281,5 +284,13 @@ features: {
     marginBottom: 15,
     color: '#1d1f1e',
 
+},
+textcontainer: {
+  padding: 8,
+  borderWidth: 2,
+  borderColor: '#ACADBC',
+  backgroundColor: '#ffff',
+  marginTop: 5,
+  borderRadius: 6
 },
 })

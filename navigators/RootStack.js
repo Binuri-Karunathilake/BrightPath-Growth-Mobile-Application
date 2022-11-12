@@ -13,12 +13,13 @@ import Welcome from '../screens/Welcome';
 import Admindashboard from '../screens/Admindashboard'
 import AdvisersList from '../screens/AdvisersList';
 import HomeScreen from '../screens/HomeScreen';
-import AdvisorsRequests from '../componenets/AdvisorsRequests'
-import LoanRequest from '../componenets/LoanRequest'
-import LeaseRequest from '../componenets/LeaseRequest'
-import LoanLeaseInfo from '../componenets/LoanLeaseInfo'
-import FinancialInstitutions from '../componenets/FinancialInstitutions'
-import CofounderList from '../screens/Co-founder/Co-founderList'
+import AdvisorsRequests from '../componenets/AdvisorsRequests';
+import LoanRequest from '../componenets/LoanRequest';
+import LeaseRequest from '../componenets/LeaseRequest';
+import LoanLeaseInfo from '../componenets/LoanLeaseInfo';
+import FinancialInstitutions from '../componenets/FinancialInstitutions';
+import CofounderList from '../screens/Co-founder/Co-founderList';
+import CoFounderRegister from '../componenets/CoFounderRegister';
 import profile from '../componenets/profile'
 import LoanListView from '../componenets/LoanListView'
 import Request from '../componenets/Request'
@@ -64,6 +65,7 @@ const RootStack = () =>{
                 <Stack.Screen name="LoanLeaseInfo" component={LoanLeaseInfo} />
                 <Stack.Screen name="FinancialInstitutions" component={FinancialInstitutions} />
                 <Stack.Screen name="CofounderList" component={CofounderList} />
+                <Stack.Screen name="CoFounderRegister" component={CoFounderRegister} />
                 <Stack.Screen name="profile" component={profile} />
                 <Stack.Screen name="LoanListView" component={LoanListView} />
                 <Stack.Screen name="Request" component={Request} />
