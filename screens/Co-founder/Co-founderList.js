@@ -23,11 +23,11 @@ import {
   const { width } = Dimensions.get("window");
   
   const CofounderList = () => {
-    const [activeCategoryId] = useState(null);
+  const [activeCategoryId] = useState(null);
   
-    return (
-        <CardViewContainer>
-        <StatusBar style="dark" />
+return (
+  <CardViewContainer>
+    <StatusBar style="dark" />
       <SafeAreaView>
         <ScrollView
           style={{

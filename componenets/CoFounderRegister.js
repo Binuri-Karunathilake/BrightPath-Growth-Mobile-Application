@@ -45,7 +45,7 @@ const item = {
 }
 //===============================
 
-const CoFounderRegister = () => {
+const CoFounderRegister = ({navigation}) => {
 
   const [selected, setSelected] = React.useState("");
   
@@ -284,12 +284,12 @@ const CoFounderRegister = () => {
                         <MsgBox>...</MsgBox>
                         
                         <View style={{flexDirection: 'row', justifyContent: 'flex-end'}}>
-                        <StyleButton1 onPress={handleSubmit}>
+                        <StyleButton1 onPress={() => navigation.navigate('profile')} >
                             <ButtonText>Save</ButtonText>
                         </StyleButton1>
                         </View>
                         <View style={{flexDirection: 'row', color: '#000000' , justifyContent: 'flex-end'}}>
-                        <StyleButton2 onPress={handleSubmit}>
+                        <StyleButton2 onPress={() => navigation.navigate('profile')}>
                             <ButtonText>Cancel</ButtonText>
                         </StyleButton2>
                         </View>
