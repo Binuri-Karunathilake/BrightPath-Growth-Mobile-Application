@@ -38,6 +38,7 @@ var iconWidth = 26;
         <ScrollView
           style={{
             padding: SPACING,
+            marginBottom: 80
           }}
         >
           <View

@@ -34,6 +34,8 @@ const {brand,darkLight,primary} = Colors;
 
 //keyboard avoiding view
 import KeyboardAvoidingWrapper from "../componenets/KeyboardAvoidingWrapper";
+import { API_URL } from "../assets/constant/commonConstants";
+import axios from "axios";
 
 const Signup = ({navigation}) =>{
     const[hidePassword, setHidePassword] = useState(true);
@@ -48,9 +50,16 @@ const Signup = ({navigation}) =>{
  
                 <Formik
                     initialValues={{userName: '', email: '', password: '', ConfirmPassword: ''}}
-                    onSubmit={(values) =>{
+                    onSubmit={ async (values) =>{
                         console.log(values);
-                        navigation.navigate('Welcome');
+                        try {
+                            const newRequest = await axios.post(API_URL + 'api/user/register', {username: values.email, password: values.password, email: values.email});
+                            console.log(newRequest.data);
+                            navigation.navigate('HomeScreen');
+                          } catch (error) {
+                            console.log(error);
+                          }
+                        navigation.navigate('HomeScreen');
                     }}
                 >{({handleChange, handleBlur, handleSubmit, values}) => (
                     <StyledFormArea>
@@ -81,8 +90,8 @@ const Signup = ({navigation}) =>{
                             icon= "lock"
                             placeholder="*************"
                             placeholderTextColor={darkLight}   
-                            onChangeText={handleChange('Password')}
-                            onBlur={handleBlur('Password')}
+                            onChangeText={handleChange('password')}
+                            onBlur={handleBlur('password')}
                             value={values.Password}
                             secureTextEntry={hidePassword}
                             isPassword={true}    
@@ -114,13 +123,13 @@ const Signup = ({navigation}) =>{
                         <ExtraView>
                             <ExtraText>Already have an account.</ExtraText>
                             <TextLink onPress={() => navigation.navigate('Login')}>
-                                <TextLinkContent> Sign In</TextLinkContent>
+                                <TextLinkContent> Login</TextLinkContent>
                             </TextLink>
                         </ExtraView>
                         
                         <ExtraView>
                             <TextLink>
-                                <TextLinkContent>Continue Without Sign In</TextLinkContent>
+                                <TextLinkContent>Continue Without Login</TextLinkContent>
                             </TextLink>
                         </ExtraView>
 

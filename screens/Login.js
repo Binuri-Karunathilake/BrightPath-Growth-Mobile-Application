@@ -40,6 +40,7 @@ const {brand,darkLight,primary} = Colors;
 
 //keyboard avoiding view
 import KeyboardAvoidingWrapper from "../componenets/KeyboardAvoidingWrapper";
+import { API_URL } from "../assets/constant/commonConstants";
 
 const Login = ({navigation}) =>{
     const[hidePassword, setHidePassword] = useState(true);
@@ -54,14 +55,28 @@ const Login = ({navigation}) =>{
                 <PageLogo resizeMode="cover" source={require('../assets/img/UEE_logo_2.png')}/>
                 <Text> {"\n"} </Text>
 
-                <PageTitle>Sign In</PageTitle>
+                <PageTitle>Login</PageTitle>
                 {/* <SubTitle>Sign In</SubTitle> */}
  
                 <Formik
                     initialValues={{email: '', password: ''}}
-                    onSubmit={(values) =>{
-                        console.log(values);
-                        navigation.navigate('Admindashboard');
+                    onSubmit={async (values) =>{
+
+                        if(values.email === 'Admin1234' && values.password === 'Admin1234') {
+                            navigation.navigate("Admindashboard");
+                        }
+
+                        try {
+                            console.log(API_URL + 'api/user');
+                            const newRequest = await axios.post(API_URL + 'api/user', {username: values.email, password: values.password});
+                            console.log(newRequest.data);
+                            navigation.navigate('HomeScreen');
+                          } catch (error) {
+                            console.log(error);
+                          }
+
+                        // console.log(values);
+                        // navigation.navigate('Admindashboard');
                     }}
                 >{({handleChange, handleBlur, handleSubmit, values}) => (
                     <StyledFormArea>
@@ -81,8 +96,8 @@ const Login = ({navigation}) =>{
                             icon= "lock"
                             placeholder="*************"
                             placeholderTextColor={darkLight}   
-                            onChangeText={handleChange('Password')}
-                            onBlur={handleBlur('Password')}
+                            onChangeText={handleChange('password')}
+                            onBlur={handleBlur('password')}
                             value={values.Password}
                             secureTextEntry={hidePassword}
                             isPassword={true}    
@@ -93,22 +108,13 @@ const Login = ({navigation}) =>{
 
                         <MsgBox>...</MsgBox>
                         <StyleButton onPress={handleSubmit}>
-                            <ButtonText>Sign In As Admin</ButtonText>
+                            <ButtonText>Login</ButtonText>
                         </StyleButton>
                         <Line />
-                        <StyleButton onPress={(handleSubmit)=> navigation.navigate('HomeScreen')}>
-                            <Fontisto name="person" color={primary} size={25} />
-                            <ButtonText>   Sign In As User</ButtonText>
-                        </StyleButton>
                         <ExtraView>
                             <ExtraText>Don't have an account already?</ExtraText>
-                            <TextLink onPress={() => navigation.navigate('Sign up')}>
+                            <TextLink onPress={() => navigation.navigate('Signup')}>
                                 <TextLinkContent> Sign Up</TextLinkContent>
-                            </TextLink>
-                        </ExtraView>
-                        <ExtraView>
-                            <TextLink>
-                                <TextLinkContent>Continue Without Sign In</TextLinkContent>
                             </TextLink>
                         </ExtraView>
                     </StyledFormArea>

@@ -34,6 +34,8 @@ import {Octicons,Ionicons, Fontisto} from '@expo/vector-icons';
 
 //keyboard avoiding view
 import KeyboardAvoidingWrapper from "../componenets/KeyboardAvoidingWrapper";
+import { API_URL } from "../assets/constant/commonConstants";
+import axios from "axios";
 
 const Request = ({navigation}) =>{
     const[hidePassword, setHidePassword] = useState(true);
@@ -54,8 +56,8 @@ const Request = ({navigation}) =>{
         { label: 'Marketing advisor', value: 'Marketing advisor' },
       ];
     const type = [
-    { label: 'Sunday', value: 'Loan' },
-    { label: 'Monday', value: 'Lease' },
+    { label: 'Sunday', value: 'Sumday' },
+    { label: 'Monday', value: 'Monday' },
     { label: 'Tuesday', value: 'Tuesday' },
     { label: 'Wednesday', value: 'Wednesday' },
     { label: 'Thursday', value: 'Thursday' },
@@ -73,6 +75,9 @@ const Request = ({navigation}) =>{
 const showDatePicker = () => {
     setShow(true);
 }
+
+const [day, setDay] = useState('');
+const [cat, setCat] = useState('');
     
     
     return(
@@ -96,9 +101,19 @@ const showDatePicker = () => {
 
                 <Formik
                     initialValues={{adviser: '', catogory: '', date: ''}}
-                    onSubmit={(values) =>{
-                        console.log(values);
-                        navigation.navigate('AdvisersList');
+                    onSubmit={ async (values) =>{
+                        console.log(values + cat + day);
+
+                        try {
+                          console.log(API_URL + 'api/user');
+                          const newRequest = await axios.post(API_URL + 'api/advisor', {advisorName: values.adviser, category: cat, dateWanted: day});
+                          console.log(newRequest.data);
+                          navigation.navigate('HomeScreen');
+                        } catch (error) {
+                          console.log(error);
+                        }
+
+                        // navigation.navigate('AdvisersList');
                     }}
                 >{({handleChange, handleBlur, handleSubmit, values}) => (
                     <StyledFormArea>
@@ -129,12 +144,12 @@ const showDatePicker = () => {
                             valueField="value"
                             placeholder={!isFocus2 ? '  Select Category' : '...'}
                             searchPlaceholder="Search..."
-                            value={condition}
+                            value={cat}
                             onFocus={() => setIsFocus2(true)}
                             onBlur={() => setIsFocus2(false)}
                             onChange={item => {
                               // handleChange('condition', item.value)
-                              setCondition(item.value)
+                              setCat(item.value)
                               setIsFocus2(false);
                             }}
                             renderLeftIcon={() => (
@@ -156,12 +171,12 @@ const showDatePicker = () => {
                         valueField="value"
                         placeholder={!isFocus1 ? '  Select Day' : '...'}
                         searchPlaceholder="Search..."
-                        value={leaseType}
+                        value={day}
                         onFocus={() => setIsFocus1(true)}
                         onBlur={() => setIsFocus1(false)}
                         onChange={item => {
                           // handleChange('leaseType')
-                          setLeaseType(item.value)
+                          setDay(item.value)
                           setIsFocus1(false);
                         }}
                         renderLeftIcon={() => (
