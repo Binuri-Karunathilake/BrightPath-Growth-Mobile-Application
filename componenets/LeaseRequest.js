@@ -120,7 +120,7 @@ const LeaseRequest = () => {
             <View style={styles.container1}>
 
               <Formik
-                    initialValues={{condition : '', leaseType: '', brand: '', model: '', amount: '', bankName: '', reason: ''}}
+                    initialValues={{ brand: '', model: '', amount: '', reason: ''}}
                     onSubmit={(values) =>{
                         console.log(values);
                         console.log("type " + leaseType);

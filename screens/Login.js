@@ -1,6 +1,9 @@
 import React, {useState} from "react";
 import { StatusBar } from 'expo-status-bar';
 
+//API client
+import axios from "axios";
+
 //formik
 import { Formik } from "formik";
 
@@ -46,7 +49,11 @@ const Login = ({navigation}) =>{
         <StyledContainer>
             <StatusBar style="dark" />
             <InnerContrainer>
+            <Text> {"\n"} </Text>
+
                 <PageLogo resizeMode="cover" source={require('../assets/img/UEE_logo_2.png')}/>
+                <Text> {"\n"} </Text>
+
                 <PageTitle>Sign In</PageTitle>
                 {/* <SubTitle>Sign In</SubTitle> */}
  
@@ -54,7 +61,7 @@ const Login = ({navigation}) =>{
                     initialValues={{email: '', password: ''}}
                     onSubmit={(values) =>{
                         console.log(values);
-                        navigation.navigate('Welcome');
+                        navigation.navigate('Admindashboard');
                     }}
                 >{({handleChange, handleBlur, handleSubmit, values}) => (
                     <StyledFormArea>
@@ -68,6 +75,7 @@ const Login = ({navigation}) =>{
                             value={values.email}
                             keyboardTypes="email-address"
                         />
+
                         <TextInput 
                             label= "Password"
                             icon= "lock"
@@ -81,14 +89,16 @@ const Login = ({navigation}) =>{
                             hidePassword={hidePassword}
                             setHidePassword={setHidePassword}                     
                         />
+                                    <Text> {"\n"} </Text>
+
                         <MsgBox>...</MsgBox>
                         <StyleButton onPress={handleSubmit}>
-                            <ButtonText>Sign In</ButtonText>
+                            <ButtonText>Sign In As Admin</ButtonText>
                         </StyleButton>
                         <Line />
-                        <StyleButton google={true} onPress={handleSubmit}>
-                            <Fontisto name="google" color={primary} size={25} />
-                            <ButtonText>   Sign In With Google</ButtonText>
+                        <StyleButton onPress={(handleSubmit)=> navigation.navigate('HomeScreen')}>
+                            <Fontisto name="person" color={primary} size={25} />
+                            <ButtonText>   Sign In As User</ButtonText>
                         </StyleButton>
                         <ExtraView>
                             <ExtraText>Don't have an account already?</ExtraText>

@@ -10,6 +10,24 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Login from '../screens/Login';
 import Signup from '../screens/Signup';
 import Welcome from '../screens/Welcome';
+import Admindashboard from '../screens/Admindashboard'
+import AdvisersList from '../screens/AdvisersList';
+import HomeScreen from '../screens/HomeScreen';
+import AdvisorsRequests from '../componenets/AdvisorsRequests'
+import LoanRequest from '../componenets/LoanRequest'
+import LeaseRequest from '../componenets/LeaseRequest'
+import LoanLeaseInfo from '../componenets/LoanLeaseInfo'
+import FinancialInstitutions from '../componenets/FinancialInstitutions'
+import CofounderList from '../screens/Co-founder/Co-founderList'
+import profile from '../componenets/profile'
+import LoanListView from '../componenets/LoanListView'
+import Request from '../componenets/Request'
+
+import Advisorprofile from '../componenets/Advisorprofile'
+
+
+
+
 
 const Stack = createNativeStackNavigator();
 
@@ -35,7 +53,23 @@ const RootStack = () =>{
                 <Stack.Screen 
                 // options={{headerTintColor: primary}}
                 name="Welcome" component={Welcome} />
+                <Stack.Screen 
+                // options={{headerTintColor: primary}}
+                name="Admindashboard" component={Admindashboard} />
+                <Stack.Screen name="AdvisersList" component={AdvisersList} />
+                <Stack.Screen name="HomeScreen" component={HomeScreen} />
+                <Stack.Screen name="AdvisorsRequests" component={AdvisorsRequests} />
+                <Stack.Screen name="LoanRequest" component={LoanRequest} />
+                <Stack.Screen name="LeaseRequest" component={LeaseRequest} />
+                <Stack.Screen name="LoanLeaseInfo" component={LoanLeaseInfo} />
+                <Stack.Screen name="FinancialInstitutions" component={FinancialInstitutions} />
+                <Stack.Screen name="CofounderList" component={CofounderList} />
+                <Stack.Screen name="profile" component={profile} />
+                <Stack.Screen name="LoanListView" component={LoanListView} />
+                <Stack.Screen name="Request" component={Request} />
+                <Stack.Screen name="Advisorprofile" component={Advisorprofile} />
 
+                
             </Stack.Navigator>
         </NavigationContainer>
     )

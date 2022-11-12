@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { View, Text, Image, TextInput,TouchableOpacity } from 'react-native';
+import { View, Text, Image, TextInput,Dropdown, TouchableOpacity } from 'react-native';
 import Constants from 'expo-constants';
 
 const StatusBarHeight = Constants.statusBarHeight;
@@ -9,12 +9,13 @@ export const Colors = {
     secondary: "#E5E7EB",
     tertiary: "#1F2937",
     darkLight: "#9CA3AF",
-    brand: "#6D28D9",
+    brand: "#0BCE83",
     green: "#10B981",
-    red: "#EF4444"
+    red: "#EF4444",
+    kkk:"#16537e"
 };
 
-const {primary, secondary, tertiary,darkLight, brand, green, red }= Colors;
+const {primary, secondary, tertiary,darkLight, brand, green, red, kkk }= Colors;
 
 export const StyledContainer = styled.View`
     flex: 1;
@@ -22,6 +23,12 @@ export const StyledContainer = styled.View`
     padding-top: ${StatusBarHeight +30}px;
     background-color: ${primary};
 `
+export const CardViewContainer = styled.View`
+    flex: 1;
+    padding: 2px;
+    padding-top: ${StatusBarHeight +30}px;
+    background-color: ${primary};
+`;
 
 export const InnerContrainer = styled.View`
     flex: 1;
@@ -57,10 +64,12 @@ export const WelcomeImage = styled.Image`
 `;
 
 export const PageTitle = styled.Text`
-    font-size: 30px;
+    font-size: 35px;
     text-align: center;
     font-weight: bold;
-    color: ${brand};
+    
+
+    color: ${kkk};
     padding: 10px;
 
     ${(props) => props.Welcome &&`
@@ -84,20 +93,22 @@ export const SubTitle = styled.Text`
 `}
 `;
 
+
 export const StyledFormArea = styled.View`
-    width: 90%;    
+    width: 100%;    
 `;
 
 export const StyledTextInput = styled.TextInput`
     background-color: ${secondary};
     padding: 15px;
     padding-left: 55px;
+    padding-top:15px;
     padding-right: 55px;
-    border-radius: 5px;
+    border-radius: 8px;
     font-size: 16px;
-    height: 60px;
+    height: 50px;
     margin-vertical: 3px;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
     color: ${tertiary};
 `;
 
@@ -131,6 +142,20 @@ export const StyledTextInput3 = styled.TextInput`
     color: ${tertiary};
 `;
 
+export const StyledTextInput4 = styled.TextInput`
+    background-color: "white";
+    padding: 1px;
+    padding-left: 30px;
+    padding-right: 30px;
+    border-radius: 8px;
+    border: 0.5px;
+    border-color: '#808080';
+    font-size: 12px;
+    margin-vertical: 3px;
+    margin-bottom: 10px;
+    color: ${tertiary};
+`;
+
 export const StyledTextInput1 = styled.TextInput`
     background-color: "white";
     padding: 10px;
@@ -149,20 +174,27 @@ export const StyledTextInput1 = styled.TextInput`
 
 export const StyledInputLabel = styled.Text`
     color: ${tertiary};
+    font-size: 15px;
+    fontWeight: bold;
+    text-align: left;
+`;
+export const StyledInputLabel1 = styled.Text`
+    color: ${tertiary};
     font-size: 13px;
+    fontWeight: bold;
     text-align: left;
 `;
 
 export const LeftIcon = styled.View`
     left: 15px;
-    top:38px;
+    top:28px;
     position: absolute;
     z-index: 1;
 `;
 
 export const RightIcon = styled.TouchableOpacity`
     right: 15px;
-    top:38px;
+    top:28px;
     position: absolute;
     z-index: 1;
 `;
@@ -200,10 +232,27 @@ export const StyleButton1 = styled.TouchableOpacity`
     `}
 `;
 
+export const StyleButton2 = styled.TouchableOpacity`
+    padding: 8px;
+    background-color: ${red};
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    margin-vertical: 5px;
+    height: 40px;
+    width: 120px
+
+    ${(props) => props.google == true &&`
+        background-color: ${red};
+        flex-direction: row;
+        justify-content: center;
+    `}
+`;
+
 export const ButtonText = styled.Text`
     color: ${primary};
     font-size: 16px;
-
+    fontWeight: bold;
     ${(props) => props.google == true &&`
     padding: 25px;
 
@@ -245,3 +294,29 @@ export const TextLinkContent =styled.Text`
     color: ${brand};
     font-size: 15px;
 `;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
