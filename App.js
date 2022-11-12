@@ -8,16 +8,19 @@ import UserLoanLeaseRequests from './componenets/UserLoanLeaseRequests';
 import LoanLeaseDetails from './componenets/LoanLeaseDetails';
 import InquiresList from './componenets/InquiresList';
 import InspectionList from './componenets/InspectionList';
+import InquiryProfile from './componenets/InquiryProfile';
+import Inspection from './componenets/InspectionForm';
 
 //React navigation stack
 import RootStack from './navigators/RootStack';
 import Requst from './componenets/Request';
-import LoanRequest from './componenets/LoanRequest';
+import LeaseRequest from './componenets/LeaseRequest';
 import LoanLeaseInfo from './componenets/LoanLeaseInfo';
+import LoanRequest from './componenets/LoanRequest';
 
 export default function App() {
   return (
-      <LoanLeaseInfo />
+      < InspectionList/>
   );
   
 }

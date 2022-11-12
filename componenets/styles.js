@@ -101,17 +101,50 @@ export const StyledTextInput = styled.TextInput`
     color: ${tertiary};
 `;
 
-export const StyledTextInput1 = styled.TextInput`
+export const StyledTextInput2 = styled.TextInput`
     background-color: "white";
-    padding: 15px;
+    padding: 10px;
     padding-left: 55px;
     padding-right: 55px;
-    border-radius: 5px;
+    border-radius: 8px;
+    border: 0.5px;
+    border-color: '#808080';
     font-size: 16px;
-    height: 60px;
+    height: 50px;
     margin-vertical: 3px;
     margin-bottom: 10px;
     color: ${tertiary};
+    width: 150px;
+`;
+
+export const StyledTextInput3 = styled.TextInput`
+    background-color: "white";
+    padding: 10px;
+    padding-left: 55px;
+    padding-right: 55px;
+    border-radius: 8px;
+    border: 0.5px;
+    border-color: '#808080';
+    font-size: 16px;
+    margin-vertical: 3px;
+    margin-bottom: 10px;
+    color: ${tertiary};
+`;
+
+export const StyledTextInput1 = styled.TextInput`
+    background-color: "white";
+    padding: 10px;
+    padding-left: 55px;
+    padding-right: 55px;
+    border-radius: 8px;
+    border: 0.5px;
+    border-color: '#808080';
+    font-size: 16px;
+    height: 50px;
+    margin-vertical: 3px;
+    margin-bottom: 10px;
+    color: ${tertiary};
+
 `;
 
 export const StyledInputLabel = styled.Text`
@@ -141,7 +174,6 @@ export const StyleButton = styled.TouchableOpacity`
     justify-content: center;
     align-items: center;
     border-radius: 5px;
-    margin-vertical: 5px;
     height: 60px;
 
     ${(props) => props.google == true &&`
@@ -150,6 +182,24 @@ export const StyleButton = styled.TouchableOpacity`
         justify-content: center;
     `}
 `;
+
+export const StyleButton1 = styled.TouchableOpacity`
+    padding: 8px;
+    background-color: ${green};
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    margin-vertical: 5px;
+    height: 40px;
+    width: 120px
+
+    ${(props) => props.google == true &&`
+        background-color: ${green};
+        flex-direction: row;
+        justify-content: center;
+    `}
+`;
+
 export const ButtonText = styled.Text`
     color: ${primary};
     font-size: 16px;

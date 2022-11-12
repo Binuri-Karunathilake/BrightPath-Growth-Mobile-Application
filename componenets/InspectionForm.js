@@ -45,35 +45,18 @@ const ITEM_SIZE = AVATAR_SIZE + BUTTON_CONTAINER_SIZE + SPACING * 6 + 5
 const stage = 'approved'
 
 const item = {
-  name: 'Author Morgan',
-  email: 'authorm@gmail.com',
-  jobTitle: 'Operations Specialist',
-  purpose: 'for fun'
+  name: 'Inspection form ',
 }
 //===============================
 
 
 
-const LoanRequest = () => {
+const Inspection = () => {
 
   const [institute, setInstitute] = React.useState("");
   
-  const type = [
-    { label: 'Machinery', value: 'Machinery' },
-    { label: 'Vehicle', value: 'Vehicle' },
-  ];
 
-  const conditionTypes = [
-    { label: 'New', value: 'New' },
-    { label: 'Used', value: 'Used' },
-  ];
-
-  const institutes = [
-    { label: 'BOC', value: 'BOC' },
-    { label: "Peoples' bank", value: "Peoples' bank" },
-  ];
-
-    const [value, setValue] = useState(null);
+   const [value, setValue] = useState(null);
     const [isFocus, setIsFocus] = useState(false);
 
     const renderLabel = () => {
@@ -93,34 +76,27 @@ const LoanRequest = () => {
       <ScrollView style={styles.container}>
 
           <View style={styles.imageView}>
-              <View style={styles.detailsContainer}>
-                  <Image
+
+                  {/* <Image
                       source={{
                           uri: 'https://loremflickr.com/cache/resized/65535_52440891686_c2b21da412_c_640_480_nofilter.jpg'
                       }}
                       style={styles.image}
-                      />
+                      /> */}
                       <View style={styles.details}>
-                              <Text style={styles.title}>{item.name}</Text>
-                          <Text style={styles.subtitle}>{item.email}</Text>
-                          <Text style={styles.description}>{item.jobTitle}</Text>
-                          <Text style={styles.description}>{item.purpose}</Text>
+                            <Text style={styles.title}>{item.name}</Text>
                       </View>
-              </View>
+
           </View>
 
           <View style={styles.form}>
-          <View style={styles.calButtonView}>
-            <TouchableOpacity style={styles.calButton}>
-                <Text style={styles.btntext}>Loan/Lease Calculator</Text>
-            </TouchableOpacity>
-          </View>
+ 
           <View>
 
             <View style={styles.container1}>
 
               <Formik
-                    initialValues={{ amount: '', reason: '', history: ''}}
+                    initialValues={{ name: '', nic: '', history: ''}}
                     onSubmit={(values) =>{
                         console.log(values);
                     }}>
@@ -129,58 +105,25 @@ const LoanRequest = () => {
                     <StyledFormArea>
 
                         
-                          <TextInput 
-                            label= "Lease Amount"
-                            icon= "database"
-                            placeholder="Rs. "
+                        <TextInput 
+                            label= "Name"
                             placeholderTextColor={COLORS.darkLight}   
-                            onChangeText={handleChange('amount')}
-                            onBlur={handleBlur('amount')}
+                            onChangeText={handleChange('name')}
+                            onBlur={handleBlur('name')}
                             value={values.amount}                  
                         />
-                      
-                        <StyledInputLabel>Financial Institution</StyledInputLabel>
-                          <Dropdown
-                            style={[styles.dropdown, isFocus && { borderColor: '#00b300' }]}
-                            placeholderStyle={styles.placeholderStyle}
-                            selectedTextStyle={styles.selectedTextStyle}
-                            inputSearchStyle={styles.inputSearchStyle}
-                            iconStyle={styles.iconStyle}
-                            data={institutes}
-                            search
-                            maxHeight={300}
-                            labelField="label"
-                            valueField="value"
-                            placeholder={!isFocus ? 'Select item' : '...'}
-                            searchPlaceholder="Search..."
-                            value={value}
-                            onFocus={() => setIsFocus(true)}
-                            onBlur={() => setIsFocus(false)}
-                            onChange={item => {
-                              setInstitute(item.value);
-                              setIsFocus(false);
-                            }}
-                            renderLeftIcon={() => (
-                              <Octicons name='organization' size={20} color={COLORS.brand} style={{ marginHorizontal: 10 }} />
-                            )}
-                          />
 
-                          <TextInput2 
-                            label= "How it will help you..."
+                        <TextInput 
+                            label= "NIC Number"
                             placeholderTextColor={COLORS.darkLight}   
-                            onChangeText={handleChange('ConfirmPassword')}
-                            onBlur={handleBlur('ConfirmPassword')}
-                            value={values.reason}
-                            multiline = {true}
-                            numberOfLines = {4}
-                            // secureTextEntry={hidePassword}
-                            // isPassword={true}    
-                            // hidePassword={hidePassword}
-                            // setHidePassword={setHidePassword}                     
-                        />  
-
+                            onChangeText={handleChange('nic')}
+                            onBlur={handleBlur('nic')}
+                            value={values.amount}                  
+                        />
+                    
                           <TextInput2 
-                            label= "Have you obtained a loan before?"
+                            label= "Description"
+                            placeholder="About inspection"
                             placeholderTextColor={COLORS.darkLight}   
                             onChangeText={handleChange('ConfirmPassword')}
                             onBlur={handleBlur('ConfirmPassword')}
@@ -193,12 +136,13 @@ const LoanRequest = () => {
                             // setHidePassword={setHidePassword}                     
                         />
 
-
-                        <MsgBox>...</MsgBox>
                         
                         <View style={{flexDirection: 'row', justifyContent: 'flex-end'}}>
                         <StyleButton1 onPress={handleSubmit}>
-                            <ButtonText>Request</ButtonText>
+                            <ButtonText>Clear</ButtonText>
+                        </StyleButton1>
+                        <StyleButton1 onPress={handleSubmit}>
+                            <ButtonText>Save</ButtonText>
                         </StyleButton1>
                         </View>
 
@@ -250,7 +194,7 @@ const TextInput2 =({label, icon, ...props}) =>{
   )
 }
 
-export default LoanRequest
+export default Inspection
 
 const styles = StyleSheet.create({
   inputField: {
@@ -272,10 +216,9 @@ const styles = StyleSheet.create({
   },
   imageView: {
     padding: SPACING,
-    marginTop: 30,
+    marginTop: 20,
     backgroundColor: 'rgba(255, 255, 255, 0.0)',
     borderRadius: 12,
-    marginBottom: SPACING,
     shadowColor: 'black',
     shadowOffset: {
         width: 0,

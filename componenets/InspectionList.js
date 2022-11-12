@@ -3,7 +3,30 @@ import { StatusBar, FlatList, Image, Animated, Text, View, Dimensions, StyleShee
 const { width, height } = Dimensions.get('screen');
 import {faker} from '@faker-js/faker'
 
-
+import {
+    StyledContainer,
+    InnerContrainer,
+    PageTitle,
+    StyledFormArea,
+    LeftIcon, 
+    StyledInputLabel,
+    StyledTextInput,
+    RightIcon,
+    StyleButton,
+    ButtonText,
+    Colors,
+    Line,
+    MsgBox,
+    ExtraText,
+    ExtraView,
+    TextLink,
+    TextLinkContent,
+    StyledTextInput1,
+    StyleButton1,
+    StyledTextInput2,
+    StyledTextInput3
+  }from './styles';
+  import COLORS from './Colors';
 
 faker.seed(10);
 const DATA = [...Array(30).keys()].map((_, i) => {
@@ -73,7 +96,7 @@ const InspectionList = () => {
                 <View style={styles.detailsContainer}>
                     <Image
                         source={{
-                            uri: 'https://loremflickr.com/cache/resized/65535_52440891686_c2b21da412_c_640_480_nofilter.jpg'
+                            uri: 'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=800'
                         }}
                         style={styles.image}
                         />
@@ -83,13 +106,18 @@ const InspectionList = () => {
                                 
                             </View>
                                 <Text style={styles.subtitle}>{item.nic}</Text>
-                            <View>
-                            </View>    
-                            <Button title='Update'
-                                color='#0BCE83'/>
-                            <Button title='Delete'
-                                color='#CE5D0B'/>
-                            </View>
+                            
+                        <View style={{flexDirection: '', justifyContent: 'flex-end'}}>
+                        <StyleButton1 >
+                            <ButtonText>Save</ButtonText>
+                        </StyleButton1>
+                        <StyleButton1 >
+                            <ButtonText>Clear</ButtonText>
+                        </StyleButton1>
+                        </View>    
+                        
+
+                        </View>
                 </View>
             </Animated.View>
         }}
