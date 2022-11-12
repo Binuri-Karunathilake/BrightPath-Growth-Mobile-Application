@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { StatusBar, FlatList, Image, Animated, Text, View, Dimensions, StyleSheet, TouchableOpacity, Easing, SafeAreaViewBase, SafeAreaView, Button } from 'react-native';
 const { width, height } = Dimensions.get('screen');
 import {faker} from '@faker-js/faker'
@@ -18,6 +18,7 @@ const DATA = [...Array(30).keys()].map((_, i) => {
 });
 
 import logo from '../assets/loanbg.jpg'
+import axios from 'axios';
 
 const SPACING = 20;
 const AVATAR_SIZE = 70;
@@ -26,7 +27,26 @@ const ITEM_SIZE = AVATAR_SIZE + BUTTON_CONTAINER_SIZE + SPACING * 6 + 5
 const stage = 'approved'
 
 const LoanListView = () => {
+
+    const [loans, setLoans] = useState([]);
+
+    const getLoans = async () => {
+        const loans = await axios.get('https://bright-path-growth-hexclan.herokuapp.com/api/loan');
+        console.log(loans.data);
+        setLoans(loans.data);
+    }
+
+    const handleViewMore = () => {
+        
+    }
+
     const scrollY = React.useRef(new Animated.Value(0)).current;
+
+    useEffect(() => {
+      getLoans();
+    }, []);
+    
+
   return (
     <View>
         <Image
@@ -42,7 +62,7 @@ const LoanListView = () => {
             [{nativeEvent: {contentOffset: {y: scrollY}}}],
             { useNativeDriver: true}
         )}
-        data={DATA}
+        data={loans}
         keyExtractor={item => item.key}
         renderItem={({item, index}) => {
             const inputRange = [
@@ -82,17 +102,20 @@ const LoanListView = () => {
                         />
                         <View style={styles.details}>
                             <View style={styles.detailsContainer}>
-                                <Text style={styles.title}>{item.name}</Text>
-                                <Text style={styles.status_approved}>Approved</Text>
+                                <Text style={styles.title}>{item._id}</Text>
+                                {item.status=='pending'? (<Text style={styles.status_pending}>{item.status}</Text>) :
+                                 item.status=='inspecting'? (<Text style={styles.status_inspecting}>{item.status}</Text>) :
+                                  (<Text style={styles.status_approved}>{item.status}</Text>)}
                             </View>
-                            <Text style={styles.subtitle}>{item.email}</Text>
-                            <Text style={styles.description}>{item.jobTitle}</Text>
-                            <Text style={styles.description}>{item.purpose}</Text>
+                            <Text style={styles.subtitle}>{item.interestRate}</Text>
+                            <Text style={styles.description}>{item.history}</Text>
+                            <Text style={styles.description}>{item.bankName}</Text>
                         </View>
                 </View>
                 <View style={styles.buttonContainer}>
-                    <Text style={styles.title}>Rs.150000</Text>
+                    <Text style={styles.title}>Rs. {item.amount}</Text>
                     <Button 
+                        onPress={handleViewMore}
                         title='View More Details'
                         color='#0BCE83' />
                 </View>

@@ -19,7 +19,7 @@ import FinancialInstitutionsDetails from './componenets/FinancialInstitutionDeta
 
 export default function App() {
   return (
-      <FinancialInstitutionsDetails/>
+      <LoanListView/>
   );
   
 }
