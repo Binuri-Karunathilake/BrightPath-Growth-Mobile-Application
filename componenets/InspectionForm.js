@@ -96,7 +96,7 @@ const Inspection = () => {
             <View style={styles.container1}>
 
               <Formik
-                    initialValues={{ name: '', nic: '', history: ''}}
+                    initialValues={{ name: '', nic: '', description: ''}}
                     onSubmit={(values) =>{
                         console.log(values);
                     }}>
@@ -110,7 +110,7 @@ const Inspection = () => {
                             placeholderTextColor={COLORS.darkLight}   
                             onChangeText={handleChange('name')}
                             onBlur={handleBlur('name')}
-                            value={values.amount}                  
+                            value={values.name}                  
                         />
 
                         <TextInput 
@@ -118,16 +118,16 @@ const Inspection = () => {
                             placeholderTextColor={COLORS.darkLight}   
                             onChangeText={handleChange('nic')}
                             onBlur={handleBlur('nic')}
-                            value={values.amount}                  
+                            value={values.nic}                  
                         />
                     
                           <TextInput2 
                             label= "Description"
                             placeholder="About inspection"
                             placeholderTextColor={COLORS.darkLight}   
-                            onChangeText={handleChange('ConfirmPassword')}
-                            onBlur={handleBlur('ConfirmPassword')}
-                            value={values.history}
+                            onChangeText={handleChange('description')}
+                            onBlur={handleBlur('description')}
+                            value={values.description}
                             multiline = {true}
                             numberOfLines = {4}
                             // secureTextEntry={hidePassword}
@@ -141,6 +141,7 @@ const Inspection = () => {
                         <StyleButton1 onPress={handleSubmit}>
                             <ButtonText>Clear</ButtonText>
                         </StyleButton1>
+                        
                         <StyleButton1 onPress={handleSubmit}>
                             <ButtonText>Save</ButtonText>
                         </StyleButton1>
