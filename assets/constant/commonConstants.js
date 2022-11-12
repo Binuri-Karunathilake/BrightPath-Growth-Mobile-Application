@@ -1,0 +1,1 @@
+export const API_URL = 'https://bright-path-growth-hexclan.herokuapp.com/';

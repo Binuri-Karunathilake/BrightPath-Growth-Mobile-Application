@@ -2,14 +2,14 @@ import React, { useEffect, useState } from 'react'
 import { StatusBar, FlatList, Image, Animated, Text, View, Dimensions, StyleSheet, TouchableOpacity, Easing, SafeAreaViewBase, SafeAreaView, Button } from 'react-native';
 const { width, height } = Dimensions.get('screen');
 import {faker} from '@faker-js/faker'
-import logo from '../assets/loanbg.jpg'
-import axios from 'axios';
+
+
 
 faker.seed(10);
 const DATA = [...Array(30).keys()].map((_, i) => {
     return {
         key: faker.datatype.uuid(),
-        image: 'https://www.meme-arsenal.com/memes/d956d1dc006d59bbbf3894265db1bb8c.jpg',
+        image: 'https://loremflickr.com/cache/resized/65535_52440891686_c2b21da412_c_640_480_nofilter.jpg',
         name: 	faker.name.fullName(),
         jobTitle: faker.name.jobTitle(),
         email: faker.internet.email(),
@@ -17,7 +17,9 @@ const DATA = [...Array(30).keys()].map((_, i) => {
     };
 });
 
-
+import logo from '../assets/loanbg.jpg'
+import axios from 'axios';
+import colors from '../config/colors';
 
 const SPACING = 20;
 const AVATAR_SIZE = 70;
@@ -25,23 +27,46 @@ const BUTTON_CONTAINER_SIZE = 38
 const ITEM_SIZE = AVATAR_SIZE + BUTTON_CONTAINER_SIZE + SPACING * 6 + 5
 const stage = 'approved'
 
-const UserLoanLeaseRequests = () => {
-    const scrollY = React.useRef(new Animated.Value(0)).current;
+const LeaseListView = ({navigation}) => {
 
     const [loans, setLoans] = useState([]);
-    
+
     const getLoans = async () => {
-        const refLoans = await axios.get('https://bright-path-growth-hexclan.herokuapp.com/api/loan');
-        console.log(refLoans.data);
-        setLoans(refLoans.data);
+        const loans = await axios.get('https://bright-path-growth-hexclan.herokuapp.com/api/loan');
+        console.log(loans.data);
+        setLoans(loans.data.filter( (item) => {
+            if(item.type === "Lease")
+                return item
+        } ));
     }
 
+    const handleViewMore = () => {
+        navigation.navigate('LoanLeaseInfo');
+    }
+
+    const scrollY = React.useRef(new Animated.Value(0)).current;
+
     useEffect(() => {
-        getLoans();
-        }, []);
+      getLoans();
+    }, []);
+    
 
   return (
     <View>
+        <View style={{ width: "80%", marginVertical:20 }}>
+            <Text
+                style={{
+                color: 'white',
+                fontSize: 24,
+                fontWeight: "600",
+                paddingLeft: 88,
+
+                }}
+            >
+                Lease Requests
+
+            </Text>
+        </View>
         <Image
         source={{
             uri: 'https://images.pexels.com/photos/4386406/pexels-photo-4386406.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
@@ -85,45 +110,42 @@ const UserLoanLeaseRequests = () => {
                     outputRange: [1,1,1,0]
                 }
             )
-            return <Animated.View key={index} style={[styles.imageView, {opacity, transform: [{scale}]}]}>
+            return <Animated.View style={[styles.imageView, {opacity, transform: [{scale}]}]}>
                 <View style={styles.detailsContainer}>
+                    <Image
+                        source={{
+                            uri: 'https://loremflickr.com/cache/resized/65535_52440891686_c2b21da412_c_640_480_nofilter.jpg'
+                        }}
+                        style={styles.image}
+                        />
                         <View style={styles.details}>
-                            <View style={styles.detailsContainer1}>
+                            <View style={styles.detailsContainer}>
                                 <Text style={styles.title}>{item.type}</Text>
                                 {item.status=='pending'? (<Text style={styles.status_pending}>{item.status}</Text>) :
                                  item.status=='inspecting'? (<Text style={styles.status_inspecting}>{item.status}</Text>) :
                                   (<Text style={styles.status_approved}>{item.status}</Text>)}
                             </View>
-                            {item.type=="Lease"? (
-                                <>
-                                    <Text style={styles.subtitle}>{item.leaseType}</Text>
-                                    <Text style={styles.subtitle}>{item.condition}</Text>
-                                    <Text style={styles.subtitle}>{item.brand} - {item.model}</Text>
-                                    <Text style={styles.description}>{item.bankName}</Text>
-                                </>
-                            ) : (
-                                <>
-                                    <Text style={styles.subtitle}>{item.type}</Text>
-                                    <Text style={styles.description}>{item.bankName}</Text>
-                                </>
-                            )}
+                                <Text style={styles.subtitle}>{item.leaseType}</Text>
+                                <Text style={styles.subtitle}>{item.condition}</Text>
+                                <Text style={styles.subtitle}>{item.brand} - {item.model}</Text>
+                                <Text style={styles.description}>{item.bankName}</Text>
                         </View>
                 </View>
                 <View style={styles.buttonContainer}>
-                    <Text style={styles.title1}>Rs.{item.amount}</Text>
+                    <Text style={styles.title}>Rs. {item.amount}</Text>
                     <Button 
+                        onPress={handleViewMore}
                         title='View More Details'
                         color='#0BCE83' />
                 </View>
             </Animated.View>
         }}
     />
-                                {/* <Text style={styles.description}>{item.}</Text> */}
     </View>
   )
 }
 
-export default UserLoanLeaseRequests
+export default LeaseListView
 
 const styles = StyleSheet.create({
     flatlist: {
@@ -187,15 +209,17 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
         marginBottom: SPACING/2
     },
-    detailsContainer1: {
-        flexDirection: 'row',
-        justifyContent: 'space-evenly',
-        marginBottom: SPACING
-    },
     buttonContainer: {
         height: BUTTON_CONTAINER_SIZE,
         flexDirection: 'row',
         justifyContent: 'space-between',
+        marginTop: SPACING
+    },
+    image: {
+        width: AVATAR_SIZE,
+        height: AVATAR_SIZE,
+        borderRadius: AVATAR_SIZE,
+        marginRight: SPACING/2
     },
     root: {
         flex: 1,
@@ -205,23 +229,19 @@ const styles = StyleSheet.create({
         fontSize: 18,
         fontWeight: '700',
         maxWidth: '70%',
-        marginRight: '60%'
-    },
-    title1: {
-        fontSize: 18,
-        fontWeight: '700',
-        maxWidth: '70%',
     },
     subtitle: {
         fontSize: 14,
         opacity: .7
     },
     description: {
+        marginTop: 5,
         fontSize: 12,
         opacity: .8,
         color: '#0099cc'
     },
     details: {
-        flexShrink: 1
+        flexShrink: 1,
+        width: 220
     }
 })

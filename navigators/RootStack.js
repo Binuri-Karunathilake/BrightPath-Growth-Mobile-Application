@@ -24,6 +24,10 @@ import LoanListView from '../componenets/LoanListView'
 import Request from '../componenets/Request'
 
 import Advisorprofile from '../componenets/Advisorprofile'
+import UserLoanLeaseRequests from '../componenets/UserLoanLeaseRequests';
+import Calculator from '../componenets/Calculator';
+import LeaseListView from '../componenets/LeaseListView';
+import LoanLeaseDetails from '../componenets/LoanLeaseDetails';
 
 
 
@@ -62,12 +66,16 @@ const RootStack = () =>{
                 <Stack.Screen name="LoanRequest" component={LoanRequest} />
                 <Stack.Screen name="LeaseRequest" component={LeaseRequest} />
                 <Stack.Screen name="LoanLeaseInfo" component={LoanLeaseInfo} />
+                <Stack.Screen name="LoanLeaseDetails" component={LoanLeaseDetails} />
                 <Stack.Screen name="FinancialInstitutions" component={FinancialInstitutions} />
                 <Stack.Screen name="CofounderList" component={CofounderList} />
                 <Stack.Screen name="profile" component={profile} />
                 <Stack.Screen name="LoanListView" component={LoanListView} />
+                <Stack.Screen name="LeaseListView" component={LeaseListView} />
                 <Stack.Screen name="Request" component={Request} />
                 <Stack.Screen name="Advisorprofile" component={Advisorprofile} />
+                <Stack.Screen name="UserLoanRequests" component={UserLoanLeaseRequests} />
+                <Stack.Screen name="Calculator" component={Calculator} />
 
                 
             </Stack.Navigator>

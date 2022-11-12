@@ -36,6 +36,8 @@ import {
   StyledTextInput3
 }from './styles';
 import COLORS from './Colors';
+import axios from 'axios';
+import { API_URL } from '../assets/constant/commonConstants';
 
 //====================dev Data ignore
 const SPACING = 20
@@ -54,13 +56,13 @@ const item = {
 
 
 
-const LeaseRequest = () => {
+const LeaseRequest = ({navigation}) => {
 
   const [selected, setSelected] = React.useState("");
   
   const type = [
-    { label: 'Loan', value: 'Loan' },
-    { label: 'Lease', value: 'Lease' },
+    { label: 'Machinery', value: 'Machinery' },
+    { label: 'Vehicle', value: 'Vehicle' },
   ];
 
   const conditionTypes = [
@@ -88,8 +90,24 @@ const LeaseRequest = () => {
     // const [reason, setReason] = useState('');
 
 
+
   return (
     <View>
+      <Text> {"\n"} </Text>
+                              <View style={{ width: "80%", marginVertical:10 }}>
+            <Text
+                style={{
+                color: 'black',
+                fontSize: 24,
+                fontWeight: "600",
+                paddingLeft: 88,
+
+                }}
+            >
+                Lease Requests
+
+            </Text>
+        </View>
       <ScrollView style={styles.container}>
 
           <View style={styles.imageView}>
@@ -111,7 +129,7 @@ const LeaseRequest = () => {
 
           <View style={styles.form}>
           <View style={styles.calButtonView}>
-            <TouchableOpacity style={styles.calButton}>
+            <TouchableOpacity style={styles.calButton} onPress={() => {navigation.navigate('Calculator')}}>
                 <Text style={styles.btntext}>Loan/Lease Calculator</Text>
             </TouchableOpacity>
           </View>
@@ -121,12 +139,19 @@ const LeaseRequest = () => {
 
               <Formik
                     initialValues={{ brand: '', model: '', amount: '', reason: ''}}
-                    onSubmit={(values) =>{
+                    onSubmit={ async (values) =>{
                         console.log(values);
                         console.log("type " + leaseType);
                         console.log("condition " + condition);
                         console.log("bank Name " + bankName);
-                    }}>
+                        try {
+                          const newRequest = await axios.post(API_URL + 'api/loan/lease', {customerId: 'hello123', customerName: 'Marty Byrde', email: 'hello@gmail.com', amount: values.amount, bankName: bankName, reason: values.reason, brand: values.brand, model: values.model, leaseType, condition});
+                          console.log(newRequest);
+                          navigation.navigate('UserLoanRequests');
+                        } catch (error) {
+                          console.log(error);
+                        }
+                        }}>
                       
                       {({handleChange, handleBlur, handleSubmit, values}) => (
                     <StyledFormArea>
@@ -142,7 +167,7 @@ const LeaseRequest = () => {
                         maxHeight={300}
                         labelField="label"
                         valueField="value"
-                        placeholder={!isFocus1 ? 'Lease/Loan' : '...'}
+                        placeholder={!isFocus1 ? 'Machinery/Vehicle' : '...'}
                         searchPlaceholder="Search..."
                         value={leaseType}
                         onFocus={() => setIsFocus1(true)}

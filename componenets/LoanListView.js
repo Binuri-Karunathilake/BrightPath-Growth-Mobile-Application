@@ -26,18 +26,21 @@ const BUTTON_CONTAINER_SIZE = 38
 const ITEM_SIZE = AVATAR_SIZE + BUTTON_CONTAINER_SIZE + SPACING * 6 + 5
 const stage = 'approved'
 
-const LoanListView = () => {
+const LoanListView = ({navigation}) => {
 
     const [loans, setLoans] = useState([]);
 
     const getLoans = async () => {
         const loans = await axios.get('https://bright-path-growth-hexclan.herokuapp.com/api/loan');
         console.log(loans.data);
-        setLoans(loans.data);
+        setLoans(loans.data.filter( (item) => {
+            if(item.type === "Loan")
+                return item
+        } ));
     }
 
     const handleViewMore = () => {
-        
+        navigation.navigate('LoanLeaseInfo');
     }
 
     const scrollY = React.useRef(new Animated.Value(0)).current;
@@ -102,7 +105,7 @@ const LoanListView = () => {
                         />
                         <View style={styles.details}>
                             <View style={styles.detailsContainer}>
-                                <Text style={styles.title}>{item._id}</Text>
+                                <Text style={styles.title}>{item.type}</Text>
                                 {item.status=='pending'? (<Text style={styles.status_pending}>{item.status}</Text>) :
                                  item.status=='inspecting'? (<Text style={styles.status_inspecting}>{item.status}</Text>) :
                                   (<Text style={styles.status_approved}>{item.status}</Text>)}
@@ -221,6 +224,7 @@ const styles = StyleSheet.create({
         color: '#0099cc'
     },
     details: {
-        flexShrink: 1
+        flexShrink: 1,
+        width: 220
     }
 })
