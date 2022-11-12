@@ -18,6 +18,9 @@ const DATA = [...Array(30).keys()].map((_, i) => {
 });
 
 import logo from '../assets/loanbg.jpg'
+import { useEffect } from 'react';
+import { useState } from 'react';
+import axios from 'axios';
 
 const SPACING = 20;
 const AVATAR_SIZE = 70;
@@ -27,6 +30,17 @@ const stage = 'approved'
 
 const AdvisorsRequests = () => {
     const scrollY = React.useRef(new Animated.Value(0)).current;
+
+    const [loans, setLoans] = useState([]);
+    const getLoans = async () => {
+        const loans = await axios.get('https://bright-path-growth-hexclan.herokuapp.com/api/advisor');
+        console.log(loans.data);
+        setLoans(loans.data);
+    }
+    useEffect(() => {
+      getLoans();
+    }, []);
+
   return (
     <View>
         <Image
@@ -42,7 +56,7 @@ const AdvisorsRequests = () => {
             [{nativeEvent: {contentOffset: {y: scrollY}}}],
             { useNativeDriver: true}
         )}
-        data={DATA}
+        data={loans}
         keyExtractor={item => item.key}
         renderItem={({item, index}) => {
             const inputRange = [
@@ -76,16 +90,16 @@ const AdvisorsRequests = () => {
                 <View style={styles.detailsContainer}>
                         <View style={styles.details}>
                             <View style={styles.detailsContainer}>
-                                <Text style={styles.title}>Adviser Name                                    </Text>
+                                <Text style={styles.title}>Advisor Name                                   </Text>
                                 <Text style={styles.status_approved}>Approved</Text>
                             </View>
-                            <Text style={styles.subtitle}>Ravindu Wickramasinghe</Text>
+                            <Text style={styles.subtitle}>{item.advisorName} </Text>
                             <Text style={styles.subtitle}>{"\n"}</Text>
 
                             <View style={styles.detailsContainer}>
                             <Text style={styles.title}>Category</Text>
                             </View>
-                            <Text style={styles.description}>Finance Advisor</Text>
+                            <Text style={styles.description}>{item.category}</Text>
                         </View>
                 </View>
                 <View style={styles.buttonContainer}>
