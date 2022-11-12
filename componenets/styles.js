@@ -231,19 +231,18 @@ export const StyleButton1 = styled.TouchableOpacity`
         justify-content: center;
     `}
 `;
-
 export const StyleButton2 = styled.TouchableOpacity`
     padding: 8px;
-    background-color: ${red};
+    background-color: ${green};
     justify-content: center;
     align-items: center;
     border-radius: 20px;
     margin-vertical: 5px;
     height: 40px;
-    width: 120px
+    width: 120px;
 
     ${(props) => props.google == true &&`
-        background-color: ${red};
+        background-color: ${green};
         flex-direction: row;
         justify-content: center;
     `}

@@ -1,7 +1,7 @@
 import React from 'react'
 import { StatusBar, FlatList, Image, Animated, Text, View, Dimensions, StyleSheet, TouchableOpacity, Easing, SafeAreaViewBase, SafeAreaView, Button } from 'react-native';
 const { width, height } = Dimensions.get('screen');
-import {faker} from '@faker-js/faker'
+// import {faker} from '@faker-js/faker'
 
 import {
     StyledContainer,
@@ -28,15 +28,30 @@ import {
   }from './styles';
   import COLORS from './Colors';
 
-faker.seed(10);
-const DATA = [...Array(30).keys()].map((_, i) => {
-    return {
-        key: faker.datatype.uuid(),
+// faker.seed(10);
+// const DATA = [...Array(30).keys()].map((_, i) => {
+//     return {
+//         key: faker.datatype.uuid(),
+//         image: 'https://loremflickr.com/cache/resized/65535_52440891686_c2b21da412_c_640_480_nofilter.jpg',
+//         name: faker.name.fullName(),
+//         nic: faker.datatype.number(),
+//     };
+// });
+
+const DATA = [
+    {
+        key: '1234',
         image: 'https://loremflickr.com/cache/resized/65535_52440891686_c2b21da412_c_640_480_nofilter.jpg',
-        name: faker.name.fullName(),
-        nic: faker.datatype.number(),
-    };
-});
+        name: "hello",
+        nic : "123456"
+    },
+    {
+        key: '123465',
+        image: 'https://loremflickr.com/cache/resized/65535_52440891686_c2b21da412_c_640_480_nofilter.jpg',
+        name: "hello2",
+        nic : "123456"
+    }
+]
 
 import logo from '../assets/loanbg.jpg'
 

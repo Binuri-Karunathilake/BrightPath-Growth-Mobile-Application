@@ -23,9 +23,11 @@ import CoFounderRegister from '../componenets/CoFounderRegister';
 import profile from '../componenets/profile'
 import LoanListView from '../componenets/LoanListView'
 import Request from '../componenets/Request'
-
+import InquiryProfile from '../componenets/InquiryProfile'
 import Advisorprofile from '../componenets/Advisorprofile'
-
+import InquiresList from '../componenets/InquiresList'
+import Inspection from '../componenets/InspectionForm';
+import InspectionList from '../componenets/InspectionList';
 
 
 
@@ -70,6 +72,10 @@ const RootStack = () =>{
                 <Stack.Screen name="LoanListView" component={LoanListView} />
                 <Stack.Screen name="Request" component={Request} />
                 <Stack.Screen name="Advisorprofile" component={Advisorprofile} />
+                <Stack.Screen name="InquiryProfile" component={InquiryProfile} />
+                <Stack.Screen name="InquiresList" component={InquiresList} />
+                <Stack.Screen name="Inspection" component={Inspection} />
+                <Stack.Screen name="InspectionList" component={InspectionList} />
 
                 
             </Stack.Navigator>

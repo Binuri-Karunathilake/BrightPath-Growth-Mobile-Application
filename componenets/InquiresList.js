@@ -23,7 +23,7 @@ const AVATAR_SIZE = 120;
 const BUTTON_CONTAINER_SIZE = 40
 const ITEM_SIZE = AVATAR_SIZE + BUTTON_CONTAINER_SIZE + SPACING * 6 + 5
 
-const InquiresList = () => {
+const InquiresList = ({navigation}) => {
     const scrollY = React.useRef(new Animated.Value(0)).current;
   return (
     <View>
@@ -86,7 +86,7 @@ const InquiresList = () => {
                             <Text style={styles.description}>{item.loantype}</Text>
                             <View>
                                 <Button title='View More Details'
-                                color='#0BCE83'/>
+                                color='#0BCE83' onPress={() => navigation.navigate('InquiryProfile')}/>
                             </View>
                         </View>
                 </View>
@@ -145,12 +145,15 @@ const styles = StyleSheet.create({
     },
     subtitle: {
         fontSize: 16,
-        opacity: .7
+        opacity: .7,
+        paddingBottom:5
+        
     },
     description: {
         fontSize: 16,
         opacity: .8,
-        
+        paddingBottom:5
+
     },
     button1:{
         buttonRadius: '50%',
