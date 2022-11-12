@@ -7,7 +7,7 @@ import {
   TouchableOpacity,
   Image,
   Dimensions,
-  TextLink,
+  TextLink,Pressable
 } from "react-native";
 import React, { useState } from "react";
 import SPACING from "../navigators/config/SPACING";
@@ -19,8 +19,11 @@ import SearchField from "../componenets/SearchField";
 import caards from "../navigators/config/caards";
 //import { createStackNavigator, createAppContainer } from 'react-navigation';  
 import Admindashboard from"../screens/Admindashboard";
+import Icon from 'react-native-ico-material-design';
+import { StatusBar } from 'expo-status-bar';
 
-
+var iconHight = 26;
+var iconWidth = 26;
 const { width } = Dimensions.get("window");
 
 
@@ -28,7 +31,17 @@ const HomeScreen = ({navigation}) => {
   const [activeCategoryId, setActiveCategoryId] = useState(null);
 
   return (
+
+
+
+
+
+
+
+
+
     <SafeAreaView>
+      
       <ScrollView
         style={{
           padding: SPACING,
@@ -195,10 +208,74 @@ const HomeScreen = ({navigation}) => {
             ))}
         </View>
       </ScrollView>
+
+      <View style={StyleSheet.container}>
+
+<StatusBar style="auto"/>
+
+
+<View style={styles.NavContainer}>
+<View style={styles.NavBar}>
+
+    <Pressable onPress={() => {
+                    navigation.navigate('Admindashboard');
+                    }} style={styles.IconeBehave}
+                    android_ripple={{borderless:true, radius:50}}>
+        <Icon Icon name="home-button" group="material-design"  height={iconHight} width={iconWidth} color='#448aff'/>
+    </Pressable>
+   
+
+    <Pressable onPress={() => {
+                        navigation.navigate('Admindashboard');
+                    }} style={styles.IconeBehave}
+    android_ripple={{borderless:true, radius:50}}>
+        <Icon name="user-shape" group="material-design" height={iconHight} width={iconWidth} color='#448aff'/>
+    </Pressable>
+    <Pressable onPress={() => {
+                        navigation.navigate('Admindashboard');
+                    }} style={styles.IconeBehave}
+    android_ripple={{borderless:true, radius:50}}>
+        <Icon name="forward-arrow" group="material-design" height={iconHight} width={iconWidth} color='#448aff'/>
+    </Pressable>
+    
+</View>
+
+</View>
+</View>
+
+
+
+
     </SafeAreaView>
+
+  
   );
 };
 
 export default HomeScreen;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({container: {
+  flex: 1,
+  backgroundColor: '#',
+  alignItems: 'center',
+  justifyContent: 'center',
+},
+
+NavContainer: {
+  position: 'absolute',
+  alignItems: 'center',
+  bottom: 0,
+},
+
+NavBar: {
+  flexDirection:'row',
+  backgroundColor:'#eee',
+  width: '100%',
+  justifyContent: 'space-evenly',
+  borderRadius: 20
+},
+IconeBehave: {
+  padding: 14
+}
+
+});
