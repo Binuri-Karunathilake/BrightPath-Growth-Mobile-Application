@@ -16,7 +16,7 @@ export default [
     id: 3,
     name: "Loan and Lease    Info",
     image: require("../../assets/caards/RW_Breakdown_1018.jpg"),
-    url: 'LoanLeaseInfo'
+    url: 'LoanLeaseDetails'
   },
   {
     id: 4,

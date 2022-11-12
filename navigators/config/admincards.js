@@ -11,7 +11,7 @@ export default [
       id: 2,
       name: "Requested lease",
       image: require("../../assets/caards/istockphoto-612027090-1024x1024.jpg"),
-      url: 'LoanListView'
+      url: 'LeaseListView'
       
     },
     {

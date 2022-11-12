@@ -54,7 +54,7 @@ const item = {
 
 
 
-const LoanRequest = () => {
+const LoanRequest = ({navigation}) => {
 
   const [institute, setInstitute] = React.useState("");
   
@@ -92,10 +92,23 @@ const LoanRequest = () => {
 
   return (
     <View>
-                              <Text> {"\n\n"} </Text>
+                              <Text> {"\n"} </Text>
+                              <View style={{ width: "80%", marginVertical:5 }}>
+            <Text
+                style={{
+                color: 'black',
+                fontSize: 24,
+                fontWeight: "600",
+                paddingLeft: 88,
+
+                }}
+            >
+                Loan Requests
+
+            </Text>
+        </View>
 
       <ScrollView style={styles.container}>
-
           <View style={styles.imageView}>
               <View style={styles.detailsContainer}>
                 
@@ -112,11 +125,14 @@ const LoanRequest = () => {
                           <Text style={styles.description}>{item.purpose}</Text>
                       </View>
               </View>
+              <TouchableOpacity style={styles.calButton2} onPress={() => {navigation.navigate('UserLoanRequests')}}>
+                <Text style={styles.btntext2}>Current Loans/Leases</Text>
+            </TouchableOpacity>
           </View>
 
           <View style={styles.form}>
           <View style={styles.calButtonView}>
-            <TouchableOpacity style={styles.calButton}>
+            <TouchableOpacity style={styles.calButton} onPress={() => {navigation.navigate('Calculator')}}>
                 <Text style={styles.btntext}>Loan/Lease Calculator</Text>
             </TouchableOpacity>
           </View>
@@ -128,6 +144,7 @@ const LoanRequest = () => {
                     initialValues={{ amount: '', reason: '', history: ''}}
                     onSubmit={(values) =>{
                         console.log(values);
+                        navigation.navigate('UserLoanRequests');
                     }}>
                       
                       {({handleChange, handleBlur, handleSubmit, values}) => (
@@ -135,7 +152,7 @@ const LoanRequest = () => {
 
                         
                           <TextInput 
-                            label= "Lease Amount"
+                            label= "Loan Amount"
                             icon= "database"
                             placeholder="Rs. "
                             placeholderTextColor={COLORS.darkLight}   
@@ -268,7 +285,9 @@ const styles = StyleSheet.create({
     
   },
   container: {
-    backgroundColor: '#E3E9E2'
+    backgroundColor: '#E3E9E2',
+    marginVertical: 20,
+    marginBottom: 80
   },
   form: {
     opacity: 5,
@@ -308,9 +327,20 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     marginEnd: 20,
   },
+  calButton2: {
+    paddingHorizontal: 20,
+    borderRadius: 20,
+    marginEnd: 20,
+    marginLeft: '40%'
+  },
   btntext: {
     color: '#ffff',
     fontWeight: 'bold',
+  },
+  btntext2: {
+    color: 'grey',
+    fontWeight: 'bold',
+    fontStyle: 'italic'
   },
   root: {
       flex: 1,
