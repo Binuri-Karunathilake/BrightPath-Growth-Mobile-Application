@@ -40,8 +40,8 @@ const LeaseListView = ({navigation}) => {
         } ));
     }
 
-    const handleViewMore = () => {
-        navigation.navigate('LoanLeaseInfo');
+    const handleViewMore = (item) => {
+        navigation.navigate('LoanLeaseInfo', item);
     }
 
     const scrollY = React.useRef(new Animated.Value(0)).current;
@@ -120,7 +120,7 @@ const LeaseListView = ({navigation}) => {
                 <View style={styles.buttonContainer}>
                     <Text style={styles.title}>Rs. {item.amount}</Text>
                     <Button 
-                        onPress={handleViewMore}
+                        onPress={handleViewMore(item)}
                         title='View More Details'
                         color='#0BCE83' />
                 </View>

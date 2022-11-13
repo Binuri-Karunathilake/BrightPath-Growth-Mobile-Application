@@ -48,9 +48,9 @@ const stage = 'approved'
 
 const item = {
   name: 'Author Morgan',
-  email: 'authorm@gmail.com',
+  email: 'boi@gmail.ccom',
   jobTitle: 'Operations Specialist',
-  purpose: 'for fun'
+  purpose: 'Business Development'
 }
 //===============================
 
@@ -114,7 +114,7 @@ const LeaseRequest = ({navigation}) => {
               <View style={styles.detailsContainer}>
                   <Image
                       source={{
-                          uri: 'https://loremflickr.com/cache/resized/65535_52440891686_c2b21da412_c_640_480_nofilter.jpg'
+                          uri: 'https://images.pexels.com/photos/6206971/pexels-photo-6206971.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
                       }}
                       style={styles.image}
                       />
