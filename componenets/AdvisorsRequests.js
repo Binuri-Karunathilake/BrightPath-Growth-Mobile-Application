@@ -102,11 +102,16 @@ const AdvisorsRequests = () => {
                             </View>
                             <Text style={styles.subtitle}>       {item.category}</Text>
                         </View>
+                        
                 </View>
+              
+
                 
             </Animated.View>
-        }}
+        }
+    }
     />
+    
     </View>
   )
 }

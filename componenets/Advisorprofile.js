@@ -49,7 +49,7 @@ const stage = 'approved'
 
 
 const user = {
-  name: '      Author Morgan', 
+  name: '      Selvarajah Rajivarnam', 
   
   email: 'authormorgan@gmail.com', 
   address: '       somewhere and nowhere', 
