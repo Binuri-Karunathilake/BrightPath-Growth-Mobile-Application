@@ -49,7 +49,7 @@ const stage = 'approved'
 
 
 const user = {
-  name: '      binuringa Rajivarnam', 
+  name: '      binuringa ', 
   
   email: 'Selvarajah@gmail.com', 
   address: '       somewhere and nowhere', 
@@ -78,11 +78,8 @@ const Advisorprofile = () => {
 </Text>
               <View style={styles.detailsContainer}>
                 
-                  <Image
-                      source={{
-                          uri: 'https://images.pexels.com/photos/13747843/pexels-photo-13747843.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
-                      }}
-                      style={styles.image}
+              <Image
+                         source={require('../assets/caards/confident-business-asian-woman-isolated-studio-shot-portrait-professional-working-people-holding-tablet-computer-copy-183114166.jpg')}  style={styles.image}
                       />
                       <View style={styles.details}>
                       <Text>

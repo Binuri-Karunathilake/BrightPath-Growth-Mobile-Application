@@ -41,7 +41,7 @@ export default [
     id: 8,
     name: "binuringa alponsu Dissanayaka",
     image: require("../../assets/caards/confident-business-asian-woman-isolated-studio-shot-portrait-professional-working-people-holding-tablet-computer-copy-183114166.jpg"),
-    url: 'Advisorprofile'
+    url: 'Advisorprofile6'
 
   },
 ];

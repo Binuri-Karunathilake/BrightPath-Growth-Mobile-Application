@@ -36,6 +36,7 @@ import Advisorprofile2 from '../componenets/Advisorprofile2'
 import Advisorprofile3 from '../componenets/Advisorprofile3'
 import Advisorprofile4 from '../componenets/Advisorprofile4'
 import Advisorprofile5 from '../componenets/Advisorprofile5'
+import Advisorprofile6 from '../componenets/Advisorprofile6'
 
 
 const Stack = createNativeStackNavigator();
@@ -90,6 +91,7 @@ const RootStack = () =>{
                 <Stack.Screen name="Advisorprofile3" component={Advisorprofile3} />
                 <Stack.Screen name="Advisorprofile4" component={Advisorprofile4} />
                 <Stack.Screen name="Advisorprofile5" component={Advisorprofile5} />
+                <Stack.Screen name="Advisorprofile6" component={Advisorprofile6} />
 
 
                 

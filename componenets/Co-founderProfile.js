@@ -47,7 +47,7 @@ const stage = 'approved'
 const user = {
   name: 'Author Morgan', 
   jobTitle: "Architect", 
-  email: 'authormorgan@gmail.com', 
+  email: 'boi@gmail.com', 
   address: 'somewhere and nowhere', 
   idea: "I have an idea for a startup and I'm looking for a co-founder",
   ideaIndustry: "Retail", 
