@@ -7,9 +7,9 @@ import Request from './componenets/Request'
 import UserLoanLeaseRequests from './componenets/UserLoanLeaseRequests';
 import LoanLeaseDetails from './componenets/LoanLeaseDetails';
 import InquiresList from './componenets/InquiresList';
-import InspectionList from './componenets/InspectionList';
 import InquiryProfile from './componenets/InquiryProfile';
 import Inspection from './componenets/InspectionForm';
+import InspectionList2 from './componenets/InspectionList2';
 
 //React navigation stack
 import RootStack from './navigators/RootStack';
@@ -22,7 +22,7 @@ import FinancialInstitutionsDetails from './componenets/FinancialInstitutionDeta
 
 export default function App() {
   return (
-      < InquiryProfile/>
+    < InspectionList2 />
   );
   
 }
