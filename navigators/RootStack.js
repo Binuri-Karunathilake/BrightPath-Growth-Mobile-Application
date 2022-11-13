@@ -32,6 +32,11 @@ import LoanLeaseDetails from '../componenets/LoanLeaseDetails';
 import InquiresList from '../componenets/InquiresList';
 import Inspectionform from '../componenets/InspectionForm';
 import Inseptionlist from '../componenets/InspectionList2'
+import Advisorprofile2 from '../componenets/Advisorprofile2'
+import Advisorprofile3 from '../componenets/Advisorprofile3'
+import Advisorprofile4 from '../componenets/Advisorprofile4'
+import Advisorprofile5 from '../componenets/Advisorprofile5'
+
 
 const Stack = createNativeStackNavigator();
 
@@ -81,6 +86,11 @@ const RootStack = () =>{
                 <Stack.Screen name="InquiresList" component={InquiresList} />
                 <Stack.Screen name="Inspectionform" component={Inspectionform} />
                 <Stack.Screen name="Inseptionlist" component={Inseptionlist} />
+                <Stack.Screen name="Advisorprofile2" component={Advisorprofile2} />
+                <Stack.Screen name="Advisorprofile3" component={Advisorprofile3} />
+                <Stack.Screen name="Advisorprofile4" component={Advisorprofile4} />
+                <Stack.Screen name="Advisorprofile5" component={Advisorprofile5} />
+
 
                 
             </Stack.Navigator>

@@ -100,7 +100,7 @@ const LeaseListView = ({navigation}) => {
                 <View style={styles.detailsContainer}>
                     <Image
                         source={{
-                            uri: 'https://loremflickr.com/cache/resized/65535_52440891686_c2b21da412_c_640_480_nofilter.jpg'
+                            uri: 'https://thumbs.dreamstime.com/b/manos-ejecutivas-sosteniendo-un-bol%C3%ADgrafo-e-indicando-d%C3%B3nde-firmar-contrato-en-la-oficina-primer-plano-de-ejecutivo-211497472.jpg'
                         }}
                         style={styles.image}
                         />
@@ -120,7 +120,7 @@ const LeaseListView = ({navigation}) => {
                 <View style={styles.buttonContainer}>
                     <Text style={styles.title}>Rs. {item.amount}</Text>
                     <Button 
-                        onPress={handleViewMore(item)}
+                        onPress={handleViewMore}
                         title='View More Details'
                         color='#0BCE83' />
                 </View>

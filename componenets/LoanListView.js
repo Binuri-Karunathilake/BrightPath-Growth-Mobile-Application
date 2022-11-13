@@ -9,7 +9,7 @@ faker.seed(10);
 const DATA = [...Array(30).keys()].map((_, i) => {
     return {
         key: faker.datatype.uuid(),
-        image: 'https://loremflickr.com/cache/resized/65535_52440891686_c2b21da412_c_640_480_nofilter.jpg',
+        image: 'https://thumbs.dreamstime.com/b/manos-ejecutivas-sosteniendo-un-bol%C3%ADgrafo-e-indicando-d%C3%B3nde-firmar-contrato-en-la-oficina-primer-plano-de-ejecutivo-211497472.jpg',
         name: 	faker.name.fullName(),
         jobTitle: faker.name.jobTitle(),
         email: faker.internet.email(),
@@ -99,7 +99,7 @@ const LoanListView = ({navigation}) => {
                 <View style={styles.detailsContainer}>
                     <Image
                         source={{
-                            uri: 'https://loremflickr.com/cache/resized/65535_52440891686_c2b21da412_c_640_480_nofilter.jpg'
+                            uri: 'https://thumbs.dreamstime.com/b/manos-ejecutivas-sosteniendo-un-bol%C3%ADgrafo-e-indicando-d%C3%B3nde-firmar-contrato-en-la-oficina-primer-plano-de-ejecutivo-211497472.jpg'
                         }}
                         style={styles.image}
                         />

@@ -49,7 +49,7 @@ const stage = 'approved'
 
 
 const user = {
-  name: '      Selvarajah     ', 
+  name: '      Lasantha ', 
   
   email: 'Selvarajah@gmail.com', 
   address: '       somewhere and nowhere', 
@@ -78,8 +78,8 @@ const Advisorprofile = () => {
 </Text>
               <View style={styles.detailsContainer}>
                 
-                  <Image
-                         source={require('../assets/caards/successful-young-indian-business-man-posing-white-background_75648-9397.jpg')}  style={styles.image}
+              <Image
+                         source={require('../assets/caards/istockphoto-1364917563-170667a.jpg')}  style={styles.image}
                       />
                       <View style={styles.details}>
                       <Text>

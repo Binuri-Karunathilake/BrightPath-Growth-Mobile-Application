@@ -37,6 +37,8 @@ const HomeScreen = ({navigation}) => {
       <ScrollView
         style={{
           padding: SPACING,
+          marginBottom: 80
+
         }}
       >
         <View
