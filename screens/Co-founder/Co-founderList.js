@@ -5,8 +5,8 @@ import { Ionicons } from "@expo/vector-icons";
 import colors from "../../config/colors";
 import SearchField from "../../componenets/SearchField";
 import coffees from "../../config/CoFounders";
-import { StatusBar } from "expo-status-bar";
 import { CardViewContainer } from "../../componenets/styles";
+
 import {
     SafeAreaView,
     ScrollView,
@@ -15,14 +15,20 @@ import {
     View,
     TouchableOpacity,
     Image,
-    Dimensions,
+    Dimensions,Pressable,
   } from "react-native";
+  import Icon from 'react-native-ico-material-design';
+import { StatusBar } from 'expo-status-bar';
+
+
+var iconHight = 26;
+var iconWidth = 26;
     
   const avatar = require("../../assets/img/Welcome.jpg");
   
   const { width } = Dimensions.get("window");
   
-  const CofounderList = () => {
+  const CofounderList = ({navigation}) => {
   const [activeCategoryId] = useState(null);
   
 return (
@@ -114,7 +120,7 @@ return (
                         marginBottom: SPACING / 2,
                       }}
                     >
-                      {coffee.name}
+                      {coffee.occupation}
                     </Text>
                     <Text
                       numberOfLines={1}
@@ -139,13 +145,17 @@ return (
                           padding: SPACING / 2,
                           borderRadius: SPACING,
                         }}
-                      >
+                                              >
                         <View style={{ flexDirection: "row"}}>
                         <Text
                           style={{
                             color: colors.white,
                             fontSize: SPACING * 1.6,
                           }}
+                          onPress={() => {
+                            navigation.navigate(coffee.url)
+                          }}
+  
                         >
                           Quick View
                         </Text>
@@ -163,6 +173,42 @@ return (
               ))}
           </View>
         </ScrollView>
+        
+
+      <View style={StyleSheet.container}>
+
+<StatusBar style="auto"/>
+
+
+<View style={styles.NavContainer}>
+<View style={styles.NavBar}>
+
+    <Pressable onPress={() => {
+                    navigation.navigate('Admindashboard');
+                    }} style={styles.IconeBehave}
+                    android_ripple={{borderless:true, radius:50}}>
+        <Icon Icon name="home-button" group="material-design"  height={iconHight} width={iconWidth} color='#448aff'/>
+    </Pressable>
+   
+
+    <Pressable onPress={() => {
+                        navigation.navigate('profile');
+                    }} style={styles.IconeBehave}
+    android_ripple={{borderless:true, radius:50}}>
+        <Icon name="user-shape" group="material-design" height={iconHight} width={iconWidth} color='#448aff'/>
+    </Pressable>
+    <Pressable onPress={() => {
+                        navigation.navigate('Login');
+                    }} style={styles.IconeBehave}
+    android_ripple={{borderless:true, radius:50}}>
+        <Icon name="forward-arrow" group="material-design" height={iconHight} width={iconWidth} color='#448aff'/>
+    </Pressable>
+    
+</View>
+
+</View>
+</View>
+
       </SafeAreaView>
       </CardViewContainer>
     );
