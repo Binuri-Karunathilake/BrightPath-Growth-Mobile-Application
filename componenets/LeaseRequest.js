@@ -125,6 +125,9 @@ const LeaseRequest = ({navigation}) => {
                           <Text style={styles.description}>{item.purpose}</Text>
                       </View>
               </View>
+              <TouchableOpacity style={styles.calButton2} onPress={() => {navigation.navigate('UserLoanRequests')}}>
+                <Text style={styles.btntext2}>Current Loans/Leases</Text>
+            </TouchableOpacity>
           </View>
 
           <View style={styles.form}>
@@ -352,7 +355,8 @@ const styles = StyleSheet.create({
     
   },
   container: {
-    backgroundColor: '#E3E9E2'
+    backgroundColor: '#E3E9E2',
+    marginBottom: 80
   },
   form: {
     opacity: 5,
@@ -395,6 +399,17 @@ const styles = StyleSheet.create({
   btntext: {
     color: '#ffff',
     fontWeight: 'bold',
+  },
+  calButton2: {
+    paddingHorizontal: 20,
+    borderRadius: 20,
+    marginEnd: 20,
+    marginLeft: '40%'
+  },
+  btntext2: {
+    color: 'grey',
+    fontWeight: 'bold',
+    fontStyle: 'italic'
   },
   root: {
       flex: 1,

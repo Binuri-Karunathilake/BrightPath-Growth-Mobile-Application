@@ -111,9 +111,7 @@ const UserLoanLeaseRequests = () => {
                 </View>
                 <View style={styles.buttonContainer}>
                     <Text style={styles.title1}>Rs.{item.amount}</Text>
-                    <Button 
-                        title='View More Details'
-                        color='#0BCE83' />
+                    <TouchableOpacity style={styles.button}><Text>More info+</Text></TouchableOpacity>
                 </View>
             </Animated.View>
         }}
@@ -223,5 +221,20 @@ const styles = StyleSheet.create({
     },
     details: {
         flexShrink: 1
-    }
+    },
+    buttonContainer: {
+    height: BUTTON_CONTAINER_SIZE,
+    flexDirection: 'row',
+    justifyContent: 'flex-end',
+    maxHeight: 40,
+    alignItems: 'center'
+    },
+    button: {
+    borderRadius: 9,
+    padding: 10,
+    paddingHorizontal: 15,
+    backgroundColor: '#0BCE83',
+    marginLeft: 120
+    },
+    
 })

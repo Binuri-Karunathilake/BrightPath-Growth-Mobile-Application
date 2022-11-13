@@ -78,12 +78,14 @@ const Calculator = () => {
   ];
 
   const institutes = [
-    { label: 'BOC', value: 'BOC' },
-    { label: "Peoples' bank", value: "Peoples' bank" },
+    { label: 'Loan', value: 'Loan' },
+    { label: "Lease", value: "Lease" },
   ];
 
     const [value, setValue] = useState(null);
     const [isFocus, setIsFocus] = useState(false);
+    const [isFocus1, setIsFocus1] = useState(false);
+    const [isFocus2, setIsFocus2] = useState(false);
 
     const [bankName, setBankName] = useState('');
     const [requestType, setRequestType] = useState('');
@@ -106,8 +108,18 @@ const Calculator = () => {
   return (
     <View>
       <ScrollView style={styles.container}>
+      <Text
+                style={{
+                color: 'black',
+                fontSize: 24,
+                fontWeight: "800",
+                marginTop: 40,
+                textAlign: 'center'
 
+                }}
+            > Calculator
 
+            </Text>
           <View style={styles.form}>
           <View>
 
@@ -118,6 +130,9 @@ const Calculator = () => {
                     onSubmit={(values) =>{
                         console.log(values);
                         setInterestRate1(values.interestRate)
+                        if(requestType === "Loan"){
+                          const ref = values.amount/(((1 + values.interestRate)))
+                        }
                     }}>
                       
                       {({handleChange, handleBlur, handleSubmit, values}) => (
@@ -149,7 +164,7 @@ const Calculator = () => {
                             )}
                           />
 
-                        <StyledInputLabel>Financial Institution</StyledInputLabel>
+                        {/* <StyledInputLabel>Financial Institution</StyledInputLabel>
                           <Dropdown
                             style={[styles.dropdown, isFocus && { borderColor: '#00b300' }]}
                             placeholderStyle={styles.placeholderStyle}
@@ -173,7 +188,7 @@ const Calculator = () => {
                             renderLeftIcon={() => (
                               <Octicons name='organization' size={20} color={COLORS.brand} style={{ marginHorizontal: 10 }} />
                             )}
-                          />
+                          /> */}
 
                         
                           <TextInput 
@@ -302,13 +317,14 @@ const styles = StyleSheet.create({
     
   },
   container: {
-    backgroundColor: '#E3E9E2'
+    backgroundColor: '#E3E9E2',
+    height: '100%',
   },
   form: {
     opacity: 5,
     backgroundColor: '#F2F2F2',
     padding: 20,
-    marginTop: 30
+    marginTop: 10
   },
   imageView: {
     padding: SPACING,

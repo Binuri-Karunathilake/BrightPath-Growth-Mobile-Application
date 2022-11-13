@@ -2,6 +2,8 @@ import React from 'react'
 import { StatusBar, FlatList, Image, Animated, Text, View, Dimensions, StyleSheet, TouchableOpacity, Easing, SafeAreaViewBase, SafeAreaView, Button } from 'react-native';
 const { width, height } = Dimensions.get('screen');
 import {faker} from '@faker-js/faker'
+import logo from '../assets/loanbg.jpg'
+import { financialInstitutionDetails } from '../config/financialInstitutions';
 
 
 
@@ -18,10 +20,11 @@ const DATA = [...Array(30).keys()].map((_, i) => {
     };
 });
 
+;
+
 //====================dev variables end===========================
 
-import logo from '../assets/loanbg.jpg'
-
+const data = financialInstitutionDetails;
 const SPACING = 20;
 const AVATAR_SIZE = 120;
 const BUTTON_CONTAINER_SIZE = 38
@@ -41,10 +44,10 @@ const FinancialInstitutions = () => {
     <View>
         <Image
         source={{
-            uri: 'https://images.pexels.com/photos/414144/pexels-photo-414144.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+            uri: 'https://images.pexels.com/photos/4386406/pexels-photo-4386406.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
         }}
         style={StyleSheet.absoluteFillObject}
-        blurRadius={5}
+        blurRadius={9}
         />
       <Animated.FlatList
         contentContainerStyle={styles.flatlist}
@@ -52,7 +55,7 @@ const FinancialInstitutions = () => {
             [{nativeEvent: {contentOffset: {y: scrollY}}}],
             { useNativeDriver: true}
         )}
-        data={DATA}
+        data={data}
         keyExtractor={item => item.key}
         renderItem={({item, index}) => {
             const inputRange = [
@@ -86,16 +89,16 @@ const FinancialInstitutions = () => {
                 <View style={styles.detailsContainer}>
                     <Image
                         source={{
-                            uri: 'https://i.redd.it/a938db5q72l61.jpg'
+                            uri: item.image
                         }}
                         style={styles.image}
                         />
                         <View style={styles.details}>
-                            <Text style={styles.title}>{item.name}</Text>
-                            <Text style={styles.description}>{item.purpose}</Text>
+                            <Text style={styles.title}>{item.Name}</Text>
+                            <Text style={styles.description}>{item.details}</Text>
                             <View style={styles.interestRates}>
-                                <Text style={styles.subtitle}>Loan Interest : {loanInterest}</Text>
-                                <Text style={styles.subtitle}>Lease Interest : {leaseInterest}</Text>
+                                <Text style={styles.subtitle}>Loan Interest : {item.loanInterestRate}</Text>
+                                <Text style={styles.subtitle}>Lease Interest : {item.leaseInterestRate}</Text>
                             </View>
                         </View>
                         
@@ -115,7 +118,7 @@ export default FinancialInstitutions
 const styles = StyleSheet.create({
     flatlist: {
         padding: SPACING,
-        paddingTop: StatusBar.currentHeight
+        paddingTop: StatusBar.currentHeight,
     },
     imageView: {
         padding: SPACING,

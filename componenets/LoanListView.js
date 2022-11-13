@@ -134,7 +134,8 @@ export default LoanListView
 const styles = StyleSheet.create({
     flatlist: {
         padding: SPACING,
-        paddingTop: StatusBar.currentHeight
+        paddingTop: StatusBar.currentHeight,
+
     },
     imageView: {
         padding: SPACING,

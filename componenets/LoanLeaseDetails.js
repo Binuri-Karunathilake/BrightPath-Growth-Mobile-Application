@@ -6,13 +6,12 @@ import { Entypo } from '@expo/vector-icons';
 import Constants from 'expo-constants';
 
 const articleParagraphs = [
-    {title: 'What is a loan?', description: 'One advanced diverted domestic sex repeated bringing you old. Possible procured her trifling laughter thoughts property she met way. Companions shy had solicitude favourable own. Which could saw guest man now heard but. Lasted my coming uneasy marked so should. Gravity letters it amongst herself dearest an windows by. Wooded ladies she basket season age her uneasy saw. Discourse unwilling am no described dejection incommode no listening of. Before nature his parish boy. '},
-    {title: 'What is a lease?', description: 'Folly words widow one downs few age every seven. If miss part by fact he park just shew. Discovered had get considered projection who favourable. Necessary up knowledge it tolerably. Unwilling departure education is be dashwoods or an. Use off agreeable law unwilling sir deficient curiosity instantly. Easy mind life fact with see has bore ten. Parish any chatty can elinor direct for former. Up as meant widow equal an share least. '},
-    {title: 'How do you obtain one?', description: 'Another journey chamber way yet females man. Way extensive and dejection get delivered deficient sincerity gentleman age. Too end instrument possession contrasted motionless. Calling offence six joy feeling. Coming merits and was talent enough far. Sir joy northward sportsmen education. Discovery incommode earnestly no he commanded if. Put still any about manor heard. '},
-    {title: 'How do pay one back?', description: 'Village did removed enjoyed explain nor ham saw calling talking. Securing as informed declared or margaret. Joy horrible moreover man feelings own shy. Request norland neither mistake for yet. Between the for morning assured country believe. On even feet time have an no at. Relation so in confined smallest children unpacked delicate. Why sir end believe uncivil respect. Always get adieus nature day course for common. My little garret repair to desire he esteem. '},
-    {title: 'What are some consideration you should make?', description: 'In it except to so temper mutual tastes mother. Interested cultivated its continuing now yet are. Out interested acceptance our partiality affronting unpleasant why add. Esteem garden men yet shy course. Consulted up my tolerably sometimes perpetual oh. Expression acceptance imprudence particular had eat unsatiable. '},
-    {title: 'Frequently asked questions', description: 'Had denoting properly jointure you occasion directly raillery. In said to of poor full be post face snug. Introduced imprudence see say unpleasing devonshire acceptance son. Exeter longer wisdom gay nor design age. Am weather to entered norland no in showing service. Nor repeated speaking shy appetite. Excited it hastily an pasture it observe. Snug hand how dare here too. '}
-];
+    {title: 'What is a loan?', image: 'https://images.pexels.com/photos/7620697/pexels-photo-7620697.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', description: 'In finance, a loan is the lending of money by one or more individuals, organizations, or other entities to other individuals, organizations, etc. The recipient incurs a debt and is usually liable to pay interest on that debt until it is repaid as well as to repay the principal amount borrowed.'},
+    {title: 'What is a lease?', image: 'https://thumbor.forbes.com/thumbor/fit-in/900x510/https://www.forbes.com/advisor/wp-content/uploads/2021/02/960x0_43.jpg', description: "You should be aged between 18 and 60 years./nYou need to be a confirmed employee of an organization acceptable to the Bank with a minimum of one year in confirmed employment./nMinimum salary or your regular monthly net income should be Rs 50,000/-, to apply for a Personal Loan./nThe loan should be fully repaid before the date of retirement./nYour regular income should be directed to an account at Commercial Bank (which could be opened for this purpose) from which the monthly payments could be deducted."},
+    {title: 'How do you obtain one?', image: 'https://thumbor.forbes.com/thumbor/fit-in/900x510/https://www.forbes.com/advisor/wp-content/uploads/2022/11/960x0.jpeg-2.jpg',  description: 'Another journey chamber way yet females man. Way extensive and dejection get delivered deficient sincerity gentleman age. Too end instrument possession contrasted motionless. Calling offence six joy feeling. Coming merits and was talent enough far. Sir joy northward sportsmen education. Discovery incommode earnestly no he commanded if. Put still any about manor heard. '},
+    {title: 'How do pay one back?', image: 'https://thumbor.forbes.com/thumbor/fit-in/900x510/https://www.forbes.com/advisor/wp-content/uploads/2020/12/roofline.jpg', description: 'You have the option of choosing between an equated or a reducing balance payment schemes. /nMaximum repayment period of Personal Loans is 5 years. The maximum repayment period will depend on your age and remaining years of service.'},
+    {title: 'What are some consideration you should make?', image: 'https://thumbor.forbes.com/thumbor/fit-in/900x510/https://www.forbes.com/advisor/wp-content/uploads/2020/07/gettyimages-1147981126-612x612-1-e1594758700905.jpg' , description: 'Increasingly, loan advertisements and telemarketers are telling you how easy it is to borrow money by flaunting low interest rates and simple application processes that tempt you into getting your hands on money for spending. In fact, borrowing money is never that simple. Before you borrow, be sure to carefully consider why you are borrowing and how you are going to repay the money back. Borrowing is not necessarily bad if it helps to make you better off, not worse off, in the long run. Such borrowing can be for your education, to buy a property, etc. Consider these five questions before taking out a loan.'},
+    ];
 
 const questions = {
 
@@ -28,7 +27,7 @@ const LoanLeaseDetails = () => {
             <Text style={styles.heading}>Loan and Lease Details</Text>
             {articleParagraphs.map((text, index) => {
                 return (<View key={index}>
-                            <Image style={styles.image} source={{uri: 'https://images.pexels.com/photos/7620697/pexels-photo-7620697.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'}} />
+                            <Image style={styles.image} source={{uri: text.image}} />
                             <Text style={styles.questions}>{text.title}</Text>
                             <Text style={styles.paragraph}>{text.description}</Text>
                         </View>)
@@ -101,6 +100,7 @@ const styles = StyleSheet.create({
     },
     ScrollView: {
         padding: 10,
+        marginTop: 40
     },
     icon: {
         height: 60,

@@ -53,20 +53,6 @@ const LeaseListView = ({navigation}) => {
 
   return (
     <View>
-        <View style={{ width: "80%", marginVertical:20 }}>
-            <Text
-                style={{
-                color: 'white',
-                fontSize: 24,
-                fontWeight: "600",
-                paddingLeft: 88,
-
-                }}
-            >
-                Lease Requests
-
-            </Text>
-        </View>
         <Image
         source={{
             uri: 'https://images.pexels.com/photos/4386406/pexels-photo-4386406.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
@@ -231,12 +217,12 @@ const styles = StyleSheet.create({
         maxWidth: '70%',
     },
     subtitle: {
-        fontSize: 14,
+        fontSize: 18,
         opacity: .7
     },
     description: {
         marginTop: 5,
-        fontSize: 12,
+        fontSize: 16,
         opacity: .8,
         color: '#0099cc'
     },
