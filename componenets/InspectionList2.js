@@ -105,10 +105,7 @@ const LoanListView = () => {
 export default LoanListView
 
 const styles = StyleSheet.create({
-    flatlist: {
-        padding: SPACING,
-        paddingTop: StatusBar.currentHeight
-    },
+  
     imageView: {
         padding: SPACING,
         backgroundColor: 'rgba(255, 255, 255, 0.8)',
@@ -129,7 +126,7 @@ const styles = StyleSheet.create({
         marginBottom: SPACING/2
     },
     buttonContainer: {
-        // height: BUTTON_CONTAINER_SIZE,
+        height: BUTTON_CONTAINER_SIZE,
         flexDirection: 'row',
         justifyContent: 'space-between',
         marginTop: SPACING
@@ -147,7 +144,7 @@ const styles = StyleSheet.create({
     title: {
         fontSize: 18,
         fontWeight: '700',
-        maxWidth: '90%',
+        maxWidth: '100%',
     },
     subtitle: {
         fontSize: 14,
@@ -158,7 +155,5 @@ const styles = StyleSheet.create({
         opacity: .8,
         color: '#0099cc'
     },
-    details: {
-        flexShrink: 1
-    }
+
 })
