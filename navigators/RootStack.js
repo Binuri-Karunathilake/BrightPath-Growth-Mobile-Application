@@ -20,10 +20,10 @@ import LoanLeaseInfo from '../componenets/LoanLeaseInfo';
 import FinancialInstitutions from '../componenets/FinancialInstitutions';
 import CofounderList from '../screens/Co-founder/Co-founderList';
 import CoFounderRegister from '../componenets/CoFounderRegister';
-import profile from '../componenets/profile'
-import LoanListView from '../componenets/LoanListView'
-import Request from '../componenets/Request'
-
+import profile from '../componenets/profile';
+import LoanListView from '../componenets/LoanListView';
+import Request from '../componenets/Request';
+import CoFounderProfile from '../componenets/Co-founderProfile';
 import Advisorprofile from '../componenets/Advisorprofile'
 import UserLoanLeaseRequests from '../componenets/UserLoanLeaseRequests';
 import Calculator from '../componenets/Calculator';
@@ -78,6 +78,7 @@ const RootStack = () =>{
                 <Stack.Screen name="Advisorprofile" component={Advisorprofile} />
                 <Stack.Screen name="UserLoanRequests" component={UserLoanLeaseRequests} />
                 <Stack.Screen name="Calculator" component={Calculator} />
+                <Stack.Screen name="CoFounderProfile" component={CoFounderProfile} />
 
                 
             </Stack.Navigator>

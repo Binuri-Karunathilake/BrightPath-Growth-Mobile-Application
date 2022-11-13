@@ -52,10 +52,14 @@ const user = {
   idea: "I have an idea for a startup and I'm looking for a co-founder",
   ideaIndustry: "Retail", 
   reason: "T shirt printing.Print t shirts with the skills of own designing skills.Need a co-founder who has experience and knowledge on retail industry and job market.",
-  hours: "0-10 hours per week"}
+  hours: "0-10 hours per week",
+  myskills: "Desinging, Developping",
+  wantkills: "marketting" 
+
+}
 
 
-const Profile = ({navigation}) => {
+const CoFounderProfile = ({navigation}) => {
   
   return (
     <View>
@@ -65,9 +69,8 @@ const Profile = ({navigation}) => {
           <View style={styles.imageView}>
               <View style={styles.detailsContainer}>
                   <Image
-                      source={{
-                          uri: 'https://images.pexels.com/photos/14208380/pexels-photo-14208380.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
-                      }}
+                      source={require('../assets/caards/6.jpg')}
+                      
                       style={styles.image}
                       />
                       <View style={styles.details}>
@@ -97,27 +100,27 @@ const Profile = ({navigation}) => {
                             <View style={styles.textcontainer}>
                             <Text style={styles.paragraph}>{user.ideaIndustry}</Text>
                             </View>
-                            <Text style={styles.questions}>Hours per week available to work : </Text>
+                            {/* <Text style={styles.questions}>Hours per week available to work : </Text>
                             <View style={styles.textcontainer}>
                             <Text style={styles.paragraph}>{user.hours}</Text>
                             </View>
                             <Text style={styles.questions}>My skills: </Text>
                             <View style={styles.textcontainer}>
-                            <Text style={styles.paragraph}>{user.hours}</Text>
+                            <Text style={styles.paragraph}>{user.myskills}</Text>
                             </View>
                             <Text style={styles.questions}>Has skills: </Text>
                             <View style={styles.textcontainer}>
-                            <Text style={styles.paragraph}>{user.hours}</Text>
-                            </View>
+                            <Text style={styles.paragraph}>{user.wantkills}</Text>
+                            </View> */}
               </View>
               
               <MsgBox>...</MsgBox>
                         
-              {/* <View style={{flexDirection: 'row', justifyContent: 'flex-end'}}>
+              <View style={{flexDirection: 'row', justifyContent: 'flex-end'}}>
                 <StyleButton1 onPress={() => navigation.navigate('CoFounderRegister')}>
-                    <ButtonText>Edit</ButtonText>
+                    <ButtonText>Contact</ButtonText>
                 </StyleButton1>
-                    </View> */}
+                    </View>
               </View>
 
           
@@ -160,7 +163,7 @@ const TextInput2 =({label, icon, ...props}) =>{
   )
 }
 
-export default Profile
+export default CoFounderProfile
 
 const styles = StyleSheet.create({
   detailsContainer: {
