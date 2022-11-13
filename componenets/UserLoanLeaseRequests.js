@@ -25,8 +25,14 @@ const BUTTON_CONTAINER_SIZE = 38
 const ITEM_SIZE = AVATAR_SIZE + BUTTON_CONTAINER_SIZE + SPACING * 6 + 5
 const stage = 'approved'
 
-const UserLoanLeaseRequests = () => {
+
+
+const UserLoanLeaseRequests = ({navigation}) => {
     const scrollY = React.useRef(new Animated.Value(0)).current;
+
+    const handleViewMore = (item) => {
+        navigation.navigate('LoanLeaseInfo', item);
+    }
 
     const [loans, setLoans] = useState([]);
     
@@ -111,7 +117,7 @@ const UserLoanLeaseRequests = () => {
                 </View>
                 <View style={styles.buttonContainer}>
                     <Text style={styles.title1}>Rs.{item.amount}</Text>
-                    <TouchableOpacity style={styles.button}><Text>More info+</Text></TouchableOpacity>
+                    <TouchableOpacity style={styles.button} onPress={handleViewMore} ><Text>More info+</Text></TouchableOpacity>
                 </View>
             </Animated.View>
         }}

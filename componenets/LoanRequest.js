@@ -36,6 +36,8 @@ import {
   StyledTextInput3
 }from './styles';
 import COLORS from './Colors';
+import axios from 'axios';
+import { API_URL } from '../assets/constant/commonConstants';
 
 //====================dev Data ignore
 const SPACING = 20
@@ -46,9 +48,9 @@ const stage = 'approved'
 
 const item = {
   name: 'Author Morgan',
-  email: 'authorm@gmail.com',
+  email: 'boi@gmail.com',
   jobTitle: 'Operations Specialist',
-  purpose: 'for fun'
+  purpose: 'Business Improvements'
 }
 //===============================
 
@@ -71,6 +73,7 @@ const LoanRequest = ({navigation}) => {
   const institutes = [
     { label: 'BOC', value: 'BOC' },
     { label: "Peoples' bank", value: "Peoples' bank" },
+    { label: "Reaching", value: "Reaching" }
   ];
 
     const [value, setValue] = useState(null);
@@ -114,7 +117,7 @@ const LoanRequest = ({navigation}) => {
                 
                   <Image
                       source={{
-                          uri: 'https://loremflickr.com/cache/resized/65535_52440891686_c2b21da412_c_640_480_nofilter.jpg'
+                          uri: 'https://images.pexels.com/photos/6206971/pexels-photo-6206971.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
                       }}
                       style={styles.image}
                       />
@@ -142,9 +145,14 @@ const LoanRequest = ({navigation}) => {
 
               <Formik
                     initialValues={{ amount: '', reason: '', history: ''}}
-                    onSubmit={(values) =>{
-                        console.log(values);
+                    onSubmit={ async (values) =>{
+                      try {
+                        const newRequest = await axios.post(API_URL + 'api/loan/loan', {values});
+                        console.log(newRequest);
                         navigation.navigate('UserLoanRequests');
+                      } catch (error) {
+                        console.log(error);
+                      }
                     }}>
                       
                       {({handleChange, handleBlur, handleSubmit, values}) => (
