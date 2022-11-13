@@ -29,8 +29,7 @@ import UserLoanLeaseRequests from '../componenets/UserLoanLeaseRequests';
 import Calculator from '../componenets/Calculator';
 import LeaseListView from '../componenets/LeaseListView';
 import LoanLeaseDetails from '../componenets/LoanLeaseDetails';
-
-
+import InquiresList from '../componenets/InquiresList';
 
 
 
@@ -79,6 +78,7 @@ const RootStack = () =>{
                 <Stack.Screen name="UserLoanRequests" component={UserLoanLeaseRequests} />
                 <Stack.Screen name="Calculator" component={Calculator} />
                 <Stack.Screen name="CoFounderProfile" component={CoFounderProfile} />
+                <Stack.Screen name="InquiresList" component={InquiresList} />
 
                 
             </Stack.Navigator>
