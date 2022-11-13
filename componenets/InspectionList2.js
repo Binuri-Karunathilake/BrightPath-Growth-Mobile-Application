@@ -147,7 +147,7 @@ const styles = StyleSheet.create({
         maxWidth: '100%',
     },
     subtitle: {
-        fontSize: 14,
+        fontSize: 16,
         opacity: .7
     },
     description: {
