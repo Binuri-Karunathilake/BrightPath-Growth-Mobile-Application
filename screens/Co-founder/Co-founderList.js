@@ -187,7 +187,7 @@ return (
                     navigation.navigate('Admindashboard');
                     }} style={styles.IconeBehave}
                     android_ripple={{borderless:true, radius:50}}>
-        <Icon Icon name="home-button" group="material-design"  height={iconHight} width={iconWidth} color='#448aff'/>
+        <Icon Icon name="home-button" group="material-design"  height={iconHight} width={iconWidth} color='#5E5E5E'/>
     </Pressable>
    
 
@@ -195,13 +195,13 @@ return (
                         navigation.navigate('profile');
                     }} style={styles.IconeBehave}
     android_ripple={{borderless:true, radius:50}}>
-        <Icon name="user-shape" group="material-design" height={iconHight} width={iconWidth} color='#448aff'/>
+        <Icon name="user-shape" group="material-design" height={iconHight} width={iconWidth} color='#5E5E5E'/>
     </Pressable>
     <Pressable onPress={() => {
                         navigation.navigate('Login');
                     }} style={styles.IconeBehave}
     android_ripple={{borderless:true, radius:50}}>
-        <Icon name="forward-arrow" group="material-design" height={iconHight} width={iconWidth} color='#448aff'/>
+        <Icon name="forward-arrow" group="material-design" height={iconHight} width={iconWidth} color='#5E5E5E'/>
     </Pressable>
     
 </View>
@@ -216,5 +216,29 @@ return (
   
   export default CofounderList;
   
-  const styles = StyleSheet.create({});
+  const styles = StyleSheet.create({container: {
+    flex: 1,
+    backgroundColor: '#',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  
+  NavContainer: {
+    position: 'absolute',
+    alignItems: 'center',
+    bottom:0,
+  },
+  
+  NavBar: {
+    flexDirection:'row',
+    backgroundColor:'#eee',
+    width: '100%',
+    justifyContent: 'space-evenly',
+    borderRadius: 10
+  },
+  IconeBehave: {
+    padding: 14
+  }
+  
+  });
   
