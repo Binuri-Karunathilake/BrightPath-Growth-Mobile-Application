@@ -30,8 +30,8 @@ import Calculator from '../componenets/Calculator';
 import LeaseListView from '../componenets/LeaseListView';
 import LoanLeaseDetails from '../componenets/LoanLeaseDetails';
 import InquiresList from '../componenets/InquiresList';
-
-
+import Inspectionform from '../componenets/InspectionForm';
+import Inseptionlist from '../componenets/InspectionList2'
 
 const Stack = createNativeStackNavigator();
 
@@ -79,6 +79,8 @@ const RootStack = () =>{
                 <Stack.Screen name="Calculator" component={Calculator} />
                 <Stack.Screen name="CoFounderProfile" component={CoFounderProfile} />
                 <Stack.Screen name="InquiresList" component={InquiresList} />
+                <Stack.Screen name="Inspectionform" component={Inspectionform} />
+                <Stack.Screen name="Inseptionlist" component={Inseptionlist} />
 
                 
             </Stack.Navigator>
