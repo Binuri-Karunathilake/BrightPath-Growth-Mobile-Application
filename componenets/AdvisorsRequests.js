@@ -45,11 +45,12 @@ const AdvisorsRequests = () => {
     <View>
         <Image
         source={{
-            uri: 'https://wallpapercave.com/wp/UWnMCrJ.jpg'
+            uri: 'https://images.pexels.com/photos/276092/pexels-photo-276092.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
         }}
         style={StyleSheet.absoluteFillObject}
         blurRadius={10}
         />
+        <Text> {"\n"} </Text><Text> {"\n"} </Text><Text> {"\n"} </Text>
       <Animated.FlatList
         contentContainerStyle={styles.flatlist}
         onScroll={Animated.event(
@@ -91,23 +92,18 @@ const AdvisorsRequests = () => {
                         <View style={styles.details}>
                             <View style={styles.detailsContainer}>
                                 <Text style={styles.title}>Advisor Name                                   </Text>
-                                <Text style={styles.status_approved}>Approved</Text>
+                                {/* <Text style={styles.status_approved}>Approved</Text> */}
                             </View>
-                            <Text style={styles.subtitle}>{item.advisorName} </Text>
+                            <Text style={styles.subtitle}>       {item.advisorName} </Text>
                             <Text style={styles.subtitle}>{"\n"}</Text>
 
                             <View style={styles.detailsContainer}>
                             <Text style={styles.title}>Category</Text>
                             </View>
-                            <Text style={styles.description}>{item.category}</Text>
+                            <Text style={styles.subtitle}>       {item.category}</Text>
                         </View>
                 </View>
-                <View style={styles.buttonContainer}>
-                    <Text style={styles.title}>{"\n"}</Text>
-                    <Button 
-                        title='View More Details'
-                        color='#0BCE83' />
-                </View>
+                
             </Animated.View>
         }}
     />
@@ -124,8 +120,8 @@ const styles = StyleSheet.create({
     },
     imageView: {
         padding: SPACING,
-        backgroundColor: 'rgba(255, 255, 255, 0.8)',
-        borderRadius: 12,
+        backgroundColor: 'rgb(55,111,118)',
+        borderRadius: 10,
         marginBottom: SPACING,
         shadowColor: 'black',
         shadowOffset: {
@@ -168,7 +164,7 @@ const styles = StyleSheet.create({
         paddingStart: 5,
         paddingEnd: 5,
         borderWidth: 1,
-        borderColor: '#ACADBC',
+        borderColor: '#0000',
         borderRadius: 6,
         maxWidth: 80,
         maxHeight: 25,
@@ -189,13 +185,13 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff'
     },
     title: {
-        fontSize: 18,
+        fontSize: 15,
         fontWeight: '700',
-        maxWidth: '70%',
+        maxWidth: '80%',
     },
     subtitle: {
-        fontSize: 14,
-        opacity: .7
+        fontSize: 13,
+        opacity: .9
     },
     description: {
         fontSize: 12,

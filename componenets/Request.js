@@ -156,7 +156,7 @@ const [cat, setCat] = useState('');
                               <Octicons name='multi-select' size={20} color={COLORS.brand} style={{ marginHorizontal: 10 }} />
                             )}
                           />
-<Text> {"\n"} </Text>
+                          <Text> {"\n"} </Text>
                             <StyledInputLabel>Available Day</StyledInputLabel>
                       <Dropdown
                         style={[styles.dropdown, isFocus1 && { borderColor:{darkLight} }]}
