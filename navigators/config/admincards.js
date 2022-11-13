@@ -25,7 +25,7 @@ export default [
       id: 4,  
       name: "View              Inquiries",
       image: require("../../assets/caards/1668026046945.jpg"),
-      url: 'LoanListView'
+      url: 'InquiresList'
       
     },
     {
@@ -39,14 +39,14 @@ export default [
       id: 6,
       name: "Inspection Form",
       image: require("../../assets/caards/er3.jpg"),
-      url: 'Welcome'
+      url: 'Inspectionform'
 
     },
     {
       id: 7,
       name: "Inspection List",
       image: require("../../assets/caards/1668026411513.jpg"),
-      url: 'Welcome'
+      url: 'Inseptionlist'
 
     },
     
