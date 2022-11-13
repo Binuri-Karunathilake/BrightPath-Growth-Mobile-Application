@@ -262,6 +262,15 @@ export const ButtonText = styled.Text`
 export const MsgBox = styled.Text`
     text-align: center;
     font-size: 13px;
+
+`;
+
+export const MsgBox1 = styled.Text`
+    text-align: center;
+    font-size: 16px;
+    font-weight: 500;
+    color: #FF0000;
+    
 `;
 
 export const Line = styled.View`

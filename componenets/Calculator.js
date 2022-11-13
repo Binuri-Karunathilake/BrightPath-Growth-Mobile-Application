@@ -33,7 +33,8 @@ import {
   StyledTextInput1,
   StyleButton1,
   StyledTextInput2,
-  StyledTextInput3
+  StyledTextInput3,
+  MsgBox1
 }from './styles';
 import COLORS from './Colors';
 
@@ -68,13 +69,15 @@ const Calculator = () => {
     { label: 'Used', value: 'Used' },
   ];
 
+  const [error1, setError1] = useState('');
+
   const periods = [
-    { label: '6 months', value: '6' },
-    { label: '1 year', value: '12' },
-    { label: '2 year', value: '24' },
-    { label: '3 year', value: '36' },
-    { label: '4 year', value: '48' },
-    { label: '5 year', value: '60' },
+    { label: '6 months', value: 6 },
+    { label: '1 year', value: 12 },
+    { label: '2 year', value: 24 },
+    { label: '3 year', value: 36 },
+    { label: '4 year', value: 48 },
+    { label: '5 year', value: 60 },
   ];
 
   const institutes = [
@@ -130,9 +133,14 @@ const Calculator = () => {
                     onSubmit={(values) =>{
                         console.log(values);
                         setInterestRate1(values.interestRate)
-                        if(requestType === "Loan"){
-                          const ref = values.amount/(((1 + values.interestRate)))
-                        }
+                        setError1('')
+                          // const ref = values.amount/(((1 + values.interestRate)^period) -1 )/((values.interestRate)*(1 + values.interestRate)^period);
+                          if(values.interestRate >= 100 || values.amount > 10000000) {
+                            setError1("Please recheck the values entered")
+                          } else {
+                            const ref2 = ((values.amount * (1 + values.interestRate/100))/period)
+                            setRental(ref2)
+                          }
                     }}>
                       
                       {({handleChange, handleBlur, handleSubmit, values}) => (
@@ -238,7 +246,7 @@ const Calculator = () => {
                         />
 
 
-                        <MsgBox>...</MsgBox>
+                        <MsgBox1>{error1}</MsgBox1>
                         
                         <View style={{flexDirection: 'row', justifyContent: 'center'}}>
                         <StyleButton1 onPress={handleSubmit}>
