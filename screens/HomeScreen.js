@@ -32,14 +32,6 @@ const HomeScreen = ({navigation}) => {
 
   return (
 
-
-
-
-
-
-
-
-
     <SafeAreaView>
       
       <ScrollView
@@ -218,7 +210,7 @@ const HomeScreen = ({navigation}) => {
 <View style={styles.NavBar}>
 
     <Pressable onPress={() => {
-                    navigation.navigate('Admindashboard');
+                    navigation.navigate('HomeScreen');
                     }} style={styles.IconeBehave}
                     android_ripple={{borderless:true, radius:50}}>
         <Icon Icon name="home-button" group="material-design"  height={iconHight} width={iconWidth} color='#5E5E5E'/>

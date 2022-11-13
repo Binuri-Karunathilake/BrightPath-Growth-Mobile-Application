@@ -218,14 +218,7 @@ var iconWidth = 26;
                     android_ripple={{borderless:true, radius:50}}>
         <Icon Icon name="home-button" group="material-design"  height={iconHight} width={iconWidth} color='#40B3A2'/>
     </Pressable>
-   
 
-    <Pressable onPress={() => {
-                        navigation.navigate('profile');
-                    }} style={styles.IconeBehave}
-    android_ripple={{borderless:true, radius:50}}>
-        <Icon name="user-shape" group="material-design" height={iconHight} width={iconWidth} color='#40B3A2'/>
-    </Pressable>
     <Pressable onPress={() => {
                         navigation.navigate('Login');
                     }} style={styles.IconeBehave}

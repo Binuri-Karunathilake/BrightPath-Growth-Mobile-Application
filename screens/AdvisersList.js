@@ -246,10 +246,10 @@ const AdvisersList = ({navigation}) => {
 <View style={styles.NavBar}>
 
     <Pressable onPress={() => {
-                    navigation.navigate('Admindashboard');
+                    navigation.navigate('HomeScreen');
                     }} style={styles.IconeBehave}
                     android_ripple={{borderless:true, radius:50}}>
-        <Icon Icon name="home-button" group="material-design"  height={iconHight} width={iconWidth} color='#448aff'/>
+        <Icon Icon name="home-button" group="material-design"  height={iconHight} width={iconWidth} color='#5E5E5E'/>
     </Pressable>
    
 
@@ -257,13 +257,13 @@ const AdvisersList = ({navigation}) => {
                         navigation.navigate('profile');
                     }} style={styles.IconeBehave}
     android_ripple={{borderless:true, radius:50}}>
-        <Icon name="user-shape" group="material-design" height={iconHight} width={iconWidth} color='#448aff'/>
+        <Icon name="user-shape" group="material-design" height={iconHight} width={iconWidth} color='#5E5E5E'/>
     </Pressable>
     <Pressable onPress={() => {
                         navigation.navigate('Login');
                     }} style={styles.IconeBehave}
     android_ripple={{borderless:true, radius:50}}>
-        <Icon name="forward-arrow" group="material-design" height={iconHight} width={iconWidth} color='#448aff'/>
+        <Icon name="forward-arrow" group="material-design" height={iconHight} width={iconWidth} color='#5E5E5E'/>
     </Pressable>
     
 </View>
