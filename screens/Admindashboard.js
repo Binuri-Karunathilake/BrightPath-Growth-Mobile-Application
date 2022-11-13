@@ -8,6 +8,7 @@ import {
     Image,
     Dimensions,
     TextLink,
+    Pressable
   } from "react-native";
   import React, { useState } from "react";
   import SPACING from "../navigators/config/SPACING";
@@ -20,7 +21,12 @@ import {
   //import { createStackNavigator, createAppContainer } from 'react-navigation';  
   import Login from"../screens/Login";
   
-  
+  import Icon from 'react-native-ico-material-design';
+import { StatusBar } from 'expo-status-bar';
+
+
+var iconHight = 26;
+var iconWidth = 26;
   const { width } = Dimensions.get("window");
   
   
@@ -32,6 +38,7 @@ import {
         <ScrollView
           style={{
             padding: SPACING,
+            marginBottom: 80
           }}
         >
           <View
@@ -195,11 +202,64 @@ import {
               ))}
           </View>
         </ScrollView>
+
+
+        <View style={StyleSheet.container}>
+
+<StatusBar style="auto"/>
+
+
+<View style={styles.NavContainer}>
+<View style={styles.NavBar}>
+
+    <Pressable onPress={() => {
+                    navigation.navigate('Admindashboard');
+                    }} style={styles.IconeBehave}
+                    android_ripple={{borderless:true, radius:50}}>
+        <Icon Icon name="home-button" group="material-design"  height={iconHight} width={iconWidth} color='#40B3A2'/>
+    </Pressable>
+
+    <Pressable onPress={() => {
+                        navigation.navigate('Login');
+                    }} style={styles.IconeBehave}
+    android_ripple={{borderless:true, radius:50}}>
+        <Icon name="forward-arrow" group="material-design" height={iconHight} width={iconWidth} color='#40B3A2'/>
+    </Pressable>
+    
+</View>
+
+</View>
+</View>
       </SafeAreaView>
     );
   };
   
   export default Admindashboard;
   
-  const styles = StyleSheet.create({});
+  const styles = StyleSheet.create({container: {
+    flex: 1,
+    backgroundColor: '#',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  
+  NavContainer: {
+    position: 'absolute',
+    alignItems: 'center',
+    bottom: 0,
+  },
+  
+  NavBar: {
+    flexDirection:'row',
+    backgroundColor:'#eee',
+    width: '100%',
+    justifyContent: 'space-evenly',
+    borderRadius: 20
+  },
+  IconeBehave: {
+    padding: 14
+  }
+  
+  });
+  
   

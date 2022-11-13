@@ -32,9 +32,9 @@ export default [
   },
   {
     id: 6,
-    name: "Join Community",
+    name: "Edit details",
     image: require("../../assets/caards/man-inviting-people-join-social-260nw-1459737335.jpg"),
-    url: 'Welcome'
+    url: 'CoFounderRegister'
 
   },
   {
